@@ -1,6 +1,6 @@
 import React from 'react';
-import {listaProyectoOperativo} from '../Components/listaProyectoOperativo/listaProyectoOperativo.js';
-import {proyectoOperativo} from '../Components/proyectoOperativo/proyectoOperativo.js';
+import {ListaProyectoOperativo} from '../Components/listaProyectoOperativo/listaProyectoOperativo.js';
+import {ProyectoOperativo} from '../Components/proyectoOperativo/proyectoOperativo.js';
 
 
 function AppUI({
@@ -10,9 +10,9 @@ function AppUI({
     return (
       <React.Fragment>
          
-        <listaProyectoOperativo>
+        <ListaProyectoOperativo>
           {proyectosTotal.map(proyecto => (
-            <proyectoOperativo
+            <ProyectoOperativo
               key={proyecto.nombre}
               nombre={proyecto.nombre}
               fechaInicio={proyecto.fechaInicio}
@@ -22,7 +22,7 @@ function AppUI({
               descripción= {proyecto.descripción}
               />
           ))}
-        </listaProyectoOperativo>  
+        </ListaProyectoOperativo>  
       </React.Fragment>
     );
   }

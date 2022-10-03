@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function proyectoOperativo(props) {
+function ProyectoOperativo(props) {
 
 
   const onDelete =() =>{
@@ -16,4 +16,4 @@ function proyectoOperativo(props) {
     </li>
   );
 }
-export { proyectoOperativo };
+export { ProyectoOperativo };

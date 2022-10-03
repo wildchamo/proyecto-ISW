@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function listaProyectoOperativo(props){
+function ListaProyectoOperativo(props){
     return(
         <section>
             <ul>
@@ -12,4 +12,4 @@ function listaProyectoOperativo(props){
 }
 
 
-export { listaProyectoOperativo };
+export { ListaProyectoOperativo };
