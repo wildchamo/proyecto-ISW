@@ -1,4 +1,5 @@
 import React from "react";
+import './listaProyectoOperativo.css'
 
 
 function ListaProyectoOperativo(props){

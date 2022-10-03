@@ -1,5 +1,5 @@
 import React from "react";
-
+import './proyectoOperativo.css'
 
 function ProyectoOperativo(props) {
 
@@ -11,8 +11,12 @@ function ProyectoOperativo(props) {
   return (
     <li className="proyectoOperativo">
 
-      <p>{props.nombre}, {props.fechaInicio},{props.fechaFin},{props.estado}</p>
+      <p>{props.nombre}</p>
+      <p>{props.fechaInicio}</p>
+      <p>{props.fechaFin}</p>
+      <p>● {props.estado}</p>
 
+    
     </li>
   );
 }

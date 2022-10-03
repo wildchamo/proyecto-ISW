@@ -1,0 +1,8 @@
+.proyectoOperativo {
+  border: 1px solid #e9eff4;
+  width: 1041px;
+  height: 55px;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+}
