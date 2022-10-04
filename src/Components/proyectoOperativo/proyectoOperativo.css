@@ -6,3 +6,6 @@
   flex-direction:row;
   justify-content: space-around;
 }
+.proyectoOperativo p:first-child{
+    text-align: center;
+}   

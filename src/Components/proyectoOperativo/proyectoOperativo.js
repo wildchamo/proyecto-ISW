@@ -10,7 +10,6 @@ function ProyectoOperativo(props) {
 
   return (
     <li className="proyectoOperativo">
-
       <p>{props.nombre}</p>
       <p>{props.fechaInicio}</p>
       <p>{props.fechaFin}</p>

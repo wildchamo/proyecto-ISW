@@ -3,8 +3,8 @@ import { AppUI } from './AppUI.js';
 
 const defaultProyectos = [
   { nombre: 'ChatBot Sinapsis (Diseño de flujo)', fechaInicio:'2021-11-03' , fechaFin:'2022-10-02',fechaCreacion:'2021-11-03',estado:'Activo', descripcion:'Soy una descripción' },
-  { nombre: 'Investigación arquitectura PWA', fechaInicio:'' , fechaFin:'',fechaCreacion:'',estado:'Cerrado', descripcion:'Soy una descripción' },
-  { nombre: 'Software de encuestas Limesurvey', fechaInicio:'' , fechaFin:'',fechaCreacion:'',estado:'Cancelado', descripcion:'Soy una descripción' }
+  { nombre: 'Investigación arquitectura PWA', fechaInicio:'2021-11-03' , fechaFin:'2022-10-02',fechaCreacion:'',estado:'Cerrado', descripcion:'Soy una descripción' },
+  { nombre: 'Software de encuestas Limesurvey', fechaInicio:'2021-11-03' , fechaFin:'2022-10-02',fechaCreacion:'',estado:'Cancelado', descripcion:'Soy una descripción' }
 ];
 
 function App() {
