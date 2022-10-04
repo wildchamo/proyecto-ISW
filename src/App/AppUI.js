@@ -1,6 +1,7 @@
 import React from 'react';
 import {ListaProyectoOperativo} from '../Components/listaProyectoOperativo/listaProyectoOperativo.js';
 import {ProyectoOperativo} from '../Components/proyectoOperativo/proyectoOperativo.js';
+import {BusquedaProyecto} from '../Components/BusquedaProyecto/BusquedaProyecto.js';
 
 
 function AppUI({
@@ -9,7 +10,8 @@ function AppUI({
   {
     return (
       <React.Fragment>
-         
+         <BusquedaProyecto/>
+
         <ListaProyectoOperativo>
           {proyectosTotal.map(proyecto => (
             <ProyectoOperativo
