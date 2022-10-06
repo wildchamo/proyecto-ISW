@@ -1,7 +1,7 @@
 import React from "react";
-import { ListaProyectoOperativo } from "../Components/listaProyectoOperativo/listaProyectoOperativo.js";
-import { ProyectoOperativo } from "../Components/proyectoOperativo/proyectoOperativo.js";
-import { BusquedaProyecto } from "../Components/BusquedaProyecto/BusquedaProyecto.js";
+import { ListaProyectoOperativo } from "./Components/listaProyectoOperativo/listaProyectoOperativo.js";
+import { ProyectoOperativo } from "./Components/proyectoOperativo/proyectoOperativo.js";
+import { BusquedaProyecto } from "./Components/BusquedaProyecto/BusquedaProyecto.js";
 
 function AppUI({ proyectosTotal, searchValue, setSearchValue,proyectosBuscados }) {
   return (

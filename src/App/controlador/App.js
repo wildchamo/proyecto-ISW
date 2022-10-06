@@ -1,5 +1,5 @@
 import React from "react";
-import { AppUI } from "./AppUI.js";
+import { AppUI } from "../vista/AppUI.js";
 
 const defaultProyectos = [
   {
