@@ -3,6 +3,7 @@ import { ListaProyectoOperativo } from "./Components/listaProyectoOperativo/list
 import { Header } from "./Components/Header/header";
 import { ProyectoOperativo } from "./Components/proyectoOperativo/proyectoOperativo.js";
 import { POContext } from "../controlador/controlador";
+import {BotonCrearProyecto} from "./Components/BotonCrearProyecto/BotonCrearProyecto"
 function AppUI() {
   const { proyectosBuscados } = React.useContext(POContext);
   return (
@@ -20,9 +21,11 @@ function AppUI() {
             descripción={proyecto.descripción}
           />
         ))}
-      </ListaProyectoOperativo>
-
       
+      </ListaProyectoOperativo>
+   
+
+
     </React.Fragment>
   );
 }
