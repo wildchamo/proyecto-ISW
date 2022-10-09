@@ -9,7 +9,7 @@ function AppUI() {
       <BusquedaProyecto />
 
       <POContext.Consumer>
-        {({proyectosBuscados}) => (
+        {({ proyectosBuscados }) => (
           <ListaProyectoOperativo>
             {proyectosBuscados.map((proyecto) => (
               <ProyectoOperativo
