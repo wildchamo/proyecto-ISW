@@ -3,7 +3,7 @@
   width: 1041px;
   height: 55px;
   display: grid;
-  grid-template-columns: 300px auto auto auto 80px 80px 80px;
+  grid-template-columns: 300px 180px 180px 180px 80px 80px 80px;
   align-items: center;
 }
 .tituloListas p {

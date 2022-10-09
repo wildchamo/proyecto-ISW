@@ -39,7 +39,10 @@ function Filtros() {
     <div>
       <p>Editar</p>
     </div>
+    <div>
       <p>Ver más</p>
+
+    </div>
       <p>Anular</p>
     </div>
   );

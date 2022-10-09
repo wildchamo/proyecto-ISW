@@ -7,7 +7,7 @@ function AppUI() {
   const { proyectosBuscados } = React.useContext(POContext);
   return (
     <React.Fragment>
-      <Header/>
+      <Header />
       <ListaProyectoOperativo>
         {proyectosBuscados.map((proyecto) => (
           <ProyectoOperativo

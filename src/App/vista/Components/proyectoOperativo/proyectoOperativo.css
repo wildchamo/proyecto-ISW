@@ -2,22 +2,20 @@
   border: 1px solid #e9eff4;
   width: 1041px;
   height: 55px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+
+  display: grid;
+  grid-template-columns: 300px 180px 180px 180px 80px 80px 80px;
+  align-items: center;
+  
   font-family: "Work Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
   line-height: 15px;
-  display: flex;
   align-items: center;
   letter-spacing: -0.02em;
-
-  /* Gray */
-
   color: #666666;
 }
-.proyectoOperativo p:first-child {
+.proyectoOperativo{
   text-align: center;
 }
