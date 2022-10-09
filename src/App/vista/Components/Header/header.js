@@ -4,7 +4,11 @@ import "./header.css";
 
 function Header(){
     return(
-        <header>
+        <header class="box">
+            <img></img>
+            <h1>
+                ¡Bienvenido!
+            </h1>
             <BusquedaProyecto/>
         </header>
     
