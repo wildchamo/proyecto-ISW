@@ -5,8 +5,12 @@ ul {
 }
 .listaProyectoOperativo {
   width: 1100px;
+  padding-top: 10px;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 1px 2px 3px rgba(70, 118, 251, 0.41);
+  border-radius: 22px;
 }
 .listaProyectoOperativo h1 {
   text-align: center;
 }
-

@@ -21,6 +21,8 @@ function AppUI() {
           />
         ))}
       </ListaProyectoOperativo>
+
+      
     </React.Fragment>
   );
 }
