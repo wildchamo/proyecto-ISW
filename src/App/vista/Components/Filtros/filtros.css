@@ -1,0 +1,19 @@
+.tituloListas {
+    border: 1px solid #e9eff4;
+    width: 1041px;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .tituloListas p {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: -0.02em;
+    color: #666666;
+    opacity: 0.7;
+    text-align: center;
+  }

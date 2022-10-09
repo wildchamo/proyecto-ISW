@@ -3,9 +3,21 @@
   width: 1041px;
   height: 55px;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: space-around;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+
+  /* Gray */
+
+  color: #666666;
 }
-.proyectoOperativo p:first-child{
-    text-align: center;
-}   
+.proyectoOperativo p:first-child {
+  text-align: center;
+}
