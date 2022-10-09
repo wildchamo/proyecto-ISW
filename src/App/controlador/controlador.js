@@ -27,12 +27,15 @@ const defaultProyectos = [
   },
 ];
 
+
+
 const POContext = React.createContext();
 
 function POProvider(props) {
   const [proyectos, setProyectos] = React.useState(defaultProyectos);
   const [searchValue, setSearchValue] = React.useState("");
-
+  let unidad= "Unidad de servicio al usuario";
+  let jefeUnidad= "Jose Luis Bedoya";
   let proyectosBuscados = [];
   let proyectosTotal = defaultProyectos.length;
 
@@ -48,6 +51,8 @@ function POProvider(props) {
   return (
     <POContext.Provider
       value={{
+        unidad,
+        jefeUnidad,
         proyectosTotal,
         proyectosBuscados,
         searchValue,
