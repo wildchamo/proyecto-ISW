@@ -4,7 +4,12 @@ import './listaProyectoOperativo.css'
 
 function ListaProyectoOperativo(props){
     return(
-        <section>
+        <section className="listaProyectoOperativo">
+            <h1>
+            Proyectos operativos de la unidad
+            </h1>
+
+
             <ul>
                 {props.children}
             </ul>

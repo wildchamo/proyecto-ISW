@@ -3,3 +3,9 @@ ul {
     padding: 0 0 56px 0;
     list-style: none;
   }
+  .listaProyectoOperativo{
+    width: 1100px;
+  }
+.listaProyectoOperativo h1{
+  text-align: center;
+}
