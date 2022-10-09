@@ -2,9 +2,8 @@
   border: 1px solid #e9eff4;
   width: 1041px;
   height: 55px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 300px auto auto auto 80px 80px 80px;
   align-items: center;
 }
 .tituloListas p {
@@ -21,18 +20,18 @@
 
 .tituloListas div {
   display: flex;
+  justify-content: center;
   align-items: center;
-  
 }
 .filtro {
   width: 8px;
   height: 8px;
   cursor: pointer;
 }
-.flechas{
-    flex-direction: column;
+.flechas {
+  flex-direction: column;
 }
-.flecha{
-    padding-bottom: 2px;
-    cursor: pointer;
+.flecha {
+  padding-bottom: 2px;
+  cursor: pointer;
 }

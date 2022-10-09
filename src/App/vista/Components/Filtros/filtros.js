@@ -36,8 +36,9 @@ function Filtros() {
       <div>
         <p>Estado</p> <img className="filtro" src={filtro} alt="Logo" />
       </div>
-      
+    <div>
       <p>Editar</p>
+    </div>
       <p>Ver más</p>
       <p>Anular</p>
     </div>
