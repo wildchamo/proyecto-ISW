@@ -29,20 +29,7 @@ const defaultProyectos = [
 ];
 
 function App() {
-  const [proyectos, setProyectos] = React.useState(defaultProyectos);
-  const [searchValue, setSearchValue] = React.useState("");
 
-  let proyectosBuscados = [];
-
-  if (!searchValue.length >= 1) {
-    proyectosBuscados = proyectos;
-  } else {
-    proyectosBuscados = proyectos.filter(proyecto => {
-      const proyectoNombre = proyecto.nombre.toLowerCase();
-      const searchText = searchValue.toLowerCase();
-      return proyectoNombre.includes(searchText);
-    });
-  }
 
   return (
     <AppUI
