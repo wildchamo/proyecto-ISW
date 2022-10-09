@@ -1,6 +1,6 @@
 import React from "react";
-import { AppUI } from "./App/vista/vista.js";
-import { POProvider } from "./App/controlador/controlador";
+import { AppUI } from "./vista/vista.js";
+import { POProvider } from "./controlador/controlador";
 
 function App() {
   return (
