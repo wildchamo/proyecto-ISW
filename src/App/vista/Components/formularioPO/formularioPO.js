@@ -1,22 +1,26 @@
 import React from "react";
 import { POContext } from "../../../controlador/controlador";
+import "./formularioPO.css";
 
 function FormularioPO() {
   const [valorNuevoProyecto, setValorNuevoProyecto] = React.useState("");
-  const { agregarProyecto } = React.useContext(POContext);
+  const { agregarProyecto, setOpenModal } = React.useContext(POContext);
 
   const onChange = (event) => {
     setValorNuevoProyecto(event.target.value);
   };
-  const onCancel = () => {};
+  const onCancel = () => {
+    setOpenModal(false);
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
     agregarProyecto(valorNuevoProyecto);
+    setOpenModal(false);
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className="formularioPO" onSubmit={onSubmit}>
       <h2>Creando proyecto nuevo...</h2>
       <label>Nombre del proyecto *</label>
       <textarea

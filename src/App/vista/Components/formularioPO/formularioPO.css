@@ -1,0 +1,14 @@
+.formularioPO {
+  position: absolute;
+  width: 1297px;
+  height: 502px;
+  left: 71px;
+  top: 92px;
+
+  background: #ffffff;
+  /* Shadow */
+
+  box-shadow: 1px 2px 3px rgba(70, 118, 251, 0.41);
+  border-radius: 22px;
+  color: #666666;
+}
