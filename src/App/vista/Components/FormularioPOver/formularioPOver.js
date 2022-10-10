@@ -1,6 +1,6 @@
 import React from "react";
 import { POContext } from "../../../controlador/controlador";
-import "./formularioPO.css";
+import "./formularioPOver.css";
 
 function FormularioPOver(props) {
   const { setOpenModalVerMas } = React.useContext(POContext);

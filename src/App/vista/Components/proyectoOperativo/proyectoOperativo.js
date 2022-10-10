@@ -2,6 +2,7 @@ import React from "react";
 import "./proyectoOperativo.css";
 import { Modal } from "../modal/modal";
 import { FormularioPOver } from "../FormularioPOver/formularioPOver";
+import { FormularioPOedit } from "../formularioPOedit/formularioPOedit";
 
 import { POContext } from "../../../controlador/controlador";
 
@@ -45,7 +46,7 @@ function ProyectoOperativo(props) {
           <img src={anular} alt="botón anular" />
         </p>
       </li>
-      {openModalEditar && <Modal>holaaa</Modal>}
+      {openModalEditar && <Modal><FormularioPOedit/></Modal>}
       {openModalVerMas && (
         <Modal>
           <FormularioPOver
