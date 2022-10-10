@@ -1,0 +1,15 @@
+.FormularioPOver {
+  position: absolute;
+  width: 1100px;
+  height: 400px;
+  left: 71px;
+  top: 92px;
+  padding: 40px;
+
+  background: #ffffff;
+  /* Shadow */
+
+  box-shadow: 1px 2px 3px rgba(70, 118, 251, 0.41);
+  border-radius: 22px;
+  color: #666666;
+}
