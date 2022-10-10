@@ -38,7 +38,7 @@ function POProvider(props) {
   let unidad = "Unidad de servicio al usuario";
   let jefeUnidad = "Jose Luis Bedoya";
   let proyectosBuscados = [];
-  let proyectosTotal = defaultProyectos.length;
+  let proyectosTotal = proyectos.length;
 
   const [openModal, setOpenModal] = React.useState(false);
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
