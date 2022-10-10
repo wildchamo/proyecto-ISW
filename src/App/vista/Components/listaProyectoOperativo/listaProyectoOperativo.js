@@ -13,6 +13,8 @@ function ListaProyectoOperativo(props) {
       <Filtros />
       <ul>{props.children}</ul>
       <BotonCrearProyecto setOpenModal={setOpenModal} />
+
+      
     </section>
   );
 }

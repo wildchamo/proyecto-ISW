@@ -6,9 +6,8 @@ import { POContext } from "../controlador/controlador";
 import { Modal } from "./Components/modal/modal";
 import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
 
-
 function AppUI() {
-  const { proyectosBuscados, openModal, setOpenModal } =
+  const { proyectosBuscados, openModal, openModalEditar, openModalVerMas } =
     React.useContext(POContext);
   return (
     <React.Fragment>
@@ -26,7 +25,13 @@ function AppUI() {
           />
         ))}
       </ListaProyectoOperativo>
-      {openModal && (<Modal><FormularioPO/></Modal>)}
+      {openModal && (
+        <Modal>
+          <FormularioPO />
+        </Modal>
+      )}
+      {openModalEditar && <Modal>holaaa</Modal>}
+      {openModalVerMas && <Modal>holaotravez</Modal>}
     </React.Fragment>
   );
 }

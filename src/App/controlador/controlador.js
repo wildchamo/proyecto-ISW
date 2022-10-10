@@ -38,9 +38,11 @@ function POProvider(props) {
   let proyectosTotal = defaultProyectos.length;
 
   const [openModal, setOpenModal] = React.useState(false);
+  const [openModalEditar, setOpenModalEditar] = React.useState(false);
+  const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
 
   const agregarProyecto = (
-    nombre,
+    nombre
     // fechaInicio,
     // fechaFin,
     // fechaCreacion,
@@ -80,6 +82,10 @@ function POProvider(props) {
         openModal,
         setOpenModal,
         agregarProyecto,
+        openModalEditar,
+        setOpenModalEditar,
+        openModalVerMas,
+        setOpenModalVerMas
       }}
     >
       {props.children}
