@@ -34,6 +34,7 @@ function POProvider(props) {
   const [searchValue, setSearchValue] = React.useState("");
 
   const [ordenarArregloDes, setOrdenarArregloDes] = React.useState(false);
+  const [ordenarArregloAsc, setOrdenarArregloAsc] = React.useState(false);
   let unidad = "Unidad de servicio al usuario";
   let jefeUnidad = "Jose Luis Bedoya";
   let proyectosBuscados = [];
@@ -69,6 +70,15 @@ function POProvider(props) {
       if (a.nombre > b.nombre) return 1;
       return 0;
     });
+    
+  }
+
+  if (ordenarArregloAsc) {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.nombre < b.nombre) return 1;
+      if (a.nombre > b.nombre) return -1;
+      return 0;
+    });
   }
 
   if (!searchValue.length >= 1) {
@@ -96,8 +106,10 @@ function POProvider(props) {
         setOpenModalEditar,
         openModalVerMas,
         setOpenModalVerMas,
-         ordenarArregloDes,
-         setOrdenarArregloDes,
+        ordenarArregloDes,
+        setOrdenarArregloDes,
+        ordenarArregloAsc,
+        setOrdenarArregloAsc,
       }}
     >
       {props.children}
