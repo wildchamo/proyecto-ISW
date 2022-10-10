@@ -85,7 +85,8 @@ function POProvider(props) {
         openModalEditar,
         setOpenModalEditar,
         openModalVerMas,
-        setOpenModalVerMas
+        setOpenModalVerMas,
+
       }}
     >
       {props.children}

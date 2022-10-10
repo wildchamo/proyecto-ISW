@@ -9,23 +9,19 @@ import editar from "./editar.png";
 import ver from "./ver.png";
 
 function ProyectoOperativo(props) {
-  const {
-    openModalEditar,
-    setOpenModalEditar,
-    openModalVerMas,
-    setOpenModalVerMas,
-  } = React.useContext(POContext);
+  const { setOpenModalEditar, setOpenModalVerMas } =
+    React.useContext(POContext);
 
   const editarPO = () => {
-    alert("Borraste el todo " + props.text);
     setOpenModalEditar(true);
   };
   const verMasPO = () => {
-    alert("Borraste el todo " + props.text);
     setOpenModalVerMas(true);
+    console.log(props);
+
   };
   const anularPO = () => {
-    alert("Borraste el todo " + props.text);
+    //falta
   };
 
   return (

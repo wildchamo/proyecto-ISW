@@ -5,6 +5,7 @@ import { ProyectoOperativo } from "./Components/proyectoOperativo/proyectoOperat
 import { POContext } from "../controlador/controlador";
 import { Modal } from "./Components/modal/modal";
 import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
+import { FormularioPOver } from "./Components/FormularioPOver/formularioPOver.js";
 
 function AppUI() {
   const { proyectosBuscados, openModal, openModalEditar, openModalVerMas } =
@@ -19,9 +20,9 @@ function AppUI() {
             nombre={proyecto.nombre}
             fechaInicio={proyecto.fechaInicio}
             fechaFin={proyecto.fechaFin}
-            fechaCreación={proyecto.fechaCreacion}
+            fechaCreacion={proyecto.fechaCreacion}
             estado={proyecto.estado}
-            descripción={proyecto.descripción}
+            descripcion={proyecto.descripcion}
           />
         ))}
       </ListaProyectoOperativo>
@@ -31,7 +32,7 @@ function AppUI() {
         </Modal>
       )}
       {openModalEditar && <Modal>holaaa</Modal>}
-      {openModalVerMas && <Modal>holaotravez</Modal>}
+      {openModalVerMas && <Modal><FormularioPOver/></Modal>}
     </React.Fragment>
   );
 }
