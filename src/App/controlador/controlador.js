@@ -27,17 +27,36 @@ const defaultProyectos = [
   },
 ];
 
-
-
 const POContext = React.createContext();
 
 function POProvider(props) {
   const [proyectos, setProyectos] = React.useState(defaultProyectos);
   const [searchValue, setSearchValue] = React.useState("");
-  let unidad= "Unidad de servicio al usuario";
-  let jefeUnidad= "Jose Luis Bedoya";
+  let unidad = "Unidad de servicio al usuario";
+  let jefeUnidad = "Jose Luis Bedoya";
   let proyectosBuscados = [];
   let proyectosTotal = defaultProyectos.length;
+
+  const [openModal, setOpenModal] = React.useState(false);
+
+  const agregarProyecto = (
+    nombre,
+    fechaInicio,
+    fechaFin,
+    fechaCreacion,
+    estado,
+    descripcion
+  ) => {
+    const newProyectos = [...proyectos];
+    newProyectos.push({
+      nombre,
+      fechaInicio,
+      fechaFin,
+      fechaCreacion,
+      estado,
+      descripcion,
+    });
+  };
 
   if (!searchValue.length >= 1) {
     proyectosBuscados = proyectos;
@@ -57,6 +76,9 @@ function POProvider(props) {
         proyectosBuscados,
         searchValue,
         setSearchValue,
+        openModal,
+        setOpenModal,
+        agregarProyecto
       }}
     >
       {props.children}

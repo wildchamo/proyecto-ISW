@@ -2,10 +2,13 @@ import React from "react";
 import "./BotonCrearProyecto.css"
 
 
-function BotonCrearProyecto(){
-
+function BotonCrearProyecto(props){
+const onClickButton =  ()=>{
+props.setOpenModal(true);
+}
  return(
-    <button>
+    <button
+    onClick={onClickButton}>
         + Crear nuevo proyecto
     </button>
 )
