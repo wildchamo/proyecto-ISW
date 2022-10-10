@@ -8,7 +8,7 @@ import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
 import { FormularioPOver } from "./Components/FormularioPOver/formularioPOver.js";
 
 function AppUI() {
-  const { proyectosBuscados, openModal, openModalEditar, openModalVerMas } =
+  const { proyectosBuscados, openModal, } =
     React.useContext(POContext);
   return (
     <React.Fragment>
@@ -31,8 +31,6 @@ function AppUI() {
           <FormularioPO />
         </Modal>
       )}
-      {openModalEditar && <Modal>holaaa</Modal>}
-      {openModalVerMas && <Modal><FormularioPOver/></Modal>}
     </React.Fragment>
   );
 }
