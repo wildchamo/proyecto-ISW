@@ -41,21 +41,22 @@ function POProvider(props) {
 
   const agregarProyecto = (
     nombre,
-    fechaInicio,
-    fechaFin,
-    fechaCreacion,
-    estado,
-    descripcion
+    // fechaInicio,
+    // fechaFin,
+    // fechaCreacion,
+    // estado,
+    // descripcion
   ) => {
     const newProyectos = [...proyectos];
     newProyectos.push({
       nombre,
-      fechaInicio,
-      fechaFin,
-      fechaCreacion,
-      estado,
-      descripcion,
+      // fechaInicio,
+      // fechaFin,
+      // fechaCreacion,
+      // estado,
+      // descripcion,
     });
+    setProyectos(newProyectos);
   };
 
   if (!searchValue.length >= 1) {
@@ -78,7 +79,7 @@ function POProvider(props) {
         setSearchValue,
         openModal,
         setOpenModal,
-        agregarProyecto
+        agregarProyecto,
       }}
     >
       {props.children}
