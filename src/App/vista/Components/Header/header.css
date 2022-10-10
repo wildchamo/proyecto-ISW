@@ -1,18 +1,12 @@
 .box{
-    display:flex;
+    margin: 3%;
+    display: grid;
+    grid-area: auto;
+    align-items: center;
+    grid-template-columns: 3% 30% 50% 3% 5% 3%;
 }
- 
-img {
-    background-image: url(https://pattern.uao.edu.co/?p=atoms-favicon);
-    
-}
-  h1{ /* ¡Bienvenido, xxxxx! */
-  position: flexbox;
-  width: 371px;
-  height: 19px;
-  left: 164px;
-  top: 21px;
-  
+  .box h1{ /* ¡Bienvenido, xxxxx! */
+
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 700;
