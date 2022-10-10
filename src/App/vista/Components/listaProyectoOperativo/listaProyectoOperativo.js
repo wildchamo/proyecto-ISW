@@ -5,12 +5,12 @@ import { Filtros } from "../Filtros/filtros.js";
 import { BotonCrearProyecto } from "../BotonCrearProyecto/BotonCrearProyecto";
 
 function ListaProyectoOperativo(props) {
-  const { unidad, setOpenModal } = React.useContext(POContext);
+  const { unidad, setOpenModal,ordenarArregloDes,setOrdenarArregloDes } = React.useContext(POContext);
 
   return (
     <section className="listaProyectoOperativo">
       <h1>Proyectos operativos de la {unidad}</h1>
-      <Filtros />
+      <Filtros ordenarArregloDes={setOrdenarArregloDes}/>
       <ul>{props.children}</ul>
       <BotonCrearProyecto setOpenModal={setOpenModal} />
 

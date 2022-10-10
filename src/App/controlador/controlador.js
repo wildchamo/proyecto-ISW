@@ -2,14 +2,6 @@ import React from "react";
 
 const defaultProyectos = [
   {
-    nombre: "ChatBot Sinapsis (Diseño de flujo)",
-    fechaInicio: "2021-11-03",
-    fechaFin: "2022-10-02",
-    fechaCreacion: "2021-11-03",
-    estado: "Activo",
-    descripcion: "Soy una descripción",
-  },
-  {
     nombre: "Investigación arquitectura PWA",
     fechaInicio: "2021-11-03",
     fechaFin: "2022-10-02",
@@ -25,6 +17,14 @@ const defaultProyectos = [
     estado: "Cancelado",
     descripcion: "Soy una descripción",
   },
+  {
+    nombre: "ChatBot Sinapsis (Diseño de flujo)",
+    fechaInicio: "2021-11-03",
+    fechaFin: "2022-10-02",
+    fechaCreacion: "2021-11-03",
+    estado: "Activo",
+    descripcion: "Soy una descripción",
+  },
 ];
 
 const POContext = React.createContext();
@@ -32,6 +32,8 @@ const POContext = React.createContext();
 function POProvider(props) {
   const [proyectos, setProyectos] = React.useState(defaultProyectos);
   const [searchValue, setSearchValue] = React.useState("");
+
+  const [ordenarArregloDes, setOrdenarArregloDes] = React.useState(false);
   let unidad = "Unidad de servicio al usuario";
   let jefeUnidad = "Jose Luis Bedoya";
   let proyectosBuscados = [];
@@ -61,6 +63,14 @@ function POProvider(props) {
     setProyectos(newProyectos);
   };
 
+  if (ordenarArregloDes) {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.nombre < b.nombre) return -1;
+      if (a.nombre > b.nombre) return 1;
+      return 0;
+    });
+  }
+
   if (!searchValue.length >= 1) {
     proyectosBuscados = proyectos;
   } else {
@@ -86,7 +96,8 @@ function POProvider(props) {
         setOpenModalEditar,
         openModalVerMas,
         setOpenModalVerMas,
-
+         ordenarArregloDes,
+         setOrdenarArregloDes,
       }}
     >
       {props.children}

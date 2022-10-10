@@ -5,15 +5,24 @@ import filtro from "./filtro.png";
 import arriba from "./vectorArriba.png";
 import abajo from "./vectorAbajo.png";
 
-function Filtros() {
-  const {} = React.useContext(POContext);
+function Filtros(props) {
+  // const { ordenarArreglo } = React.useContext(POContext);
+  const onClickButton = () => {
+    props.ordenarArregloDes(true);
+  };
   return (
     <div className="tituloListas">
       <div>
         <p>Nombre</p>
         <div className="flechas">
           <img className="flecha" src={arriba} alt="Logo" />
-          <img className="flecha" src={abajo} alt="Logo" />
+          <img
+            onChange={onClickButton}
+            onClick={onClickButton}
+            className="flecha"
+            src={abajo}
+            alt="Logo"
+          />
         </div>
       </div>
 
@@ -36,13 +45,12 @@ function Filtros() {
       <div>
         <p>Estado</p> <img className="filtro" src={filtro} alt="Logo" />
       </div>
-    <div>
-      <p>Editar</p>
-    </div>
-    <div>
-      <p>Ver más</p>
-
-    </div>
+      <div>
+        <p>Editar</p>
+      </div>
+      <div>
+        <p>Ver más</p>
+      </div>
       <p>Anular</p>
     </div>
   );
