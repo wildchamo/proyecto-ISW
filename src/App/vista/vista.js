@@ -8,7 +8,7 @@ import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
 import { FormularioPOver } from "./Components/FormularioPOver/formularioPOver.js";
 
 function AppUI() {
-  const { proyectosBuscados, openModal, } =
+  const { proyectosBuscados, openModal,proyectosTotal } =
     React.useContext(POContext);
   return (
     <React.Fragment>
@@ -26,6 +26,8 @@ function AppUI() {
           />
         ))}
       </ListaProyectoOperativo>
+      <p>total proyecto: {proyectosTotal}</p>
+          
       {openModal && (
         <Modal>
           <FormularioPO />
