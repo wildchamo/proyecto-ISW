@@ -49,7 +49,7 @@ function ProyectoOperativo(props) {
       {openModalVerMas && (
         <Modal>
           <FormularioPOver
-            key={props.nombre}
+            key={props.key}
             nombre={props.nombre}
             fechaInicio={props.fechaInicio}
             fechaFin={props.fechaFin}

@@ -21,7 +21,7 @@ const defaultProyectos = [
     nombre: "Software de encuestas Limesurvey",
     fechaInicio: "2021-11-03",
     fechaFin: "2022-10-02",
-    fechaCreacion: "",
+    fechaCreacion: "2022-10-02",
     estado: "Cancelado",
     descripcion: "Soy una descripción",
   },
