@@ -3,25 +3,37 @@ import { POContext } from "../../../controlador/controlador";
 import "./formularioPO.css";
 
 function FormularioPO() {
-  const [valorNuevoProyecto, setValorNuevoProyecto] = React.useState("");
-  const [nombre, setNombre] = useState("");
-  const [fechaCreacion, setFechaCreacion] = useState("");
+  const [nombre, setNombre] = React.useState("");
+  const [fechaCreacion, setFechaCreacion] = React.useState("");
   const [fechaInicio, setFechaInicio] = useState("");
   const [fechaFin, setFechaFin] = useState("");
   const [descripcion, setDescripcion] = useState("");
 
   const { agregarProyecto, setOpenModal } = React.useContext(POContext);
 
-  const onChange = (event) => {
-    setValorNuevoProyecto(event.target.value);
+  const onChangeNombre = (event) => {
+    setNombre(event.target.value);
   };
+  const onChangeFechaCre = (event) => {
+    setFechaCreacion(event.target.value);
+  };
+  const onChangeFechaIni = (event) => {
+    setFechaInicio(event.target.value);
+  };
+  const onChangeFechaFin = (event) => {
+    setFechaFin(event.target.value);
+  };
+  const onChangeDes = (event) => {
+    setDescripcion(event.target.value);
+  };
+
   const onCancel = () => {
     setOpenModal(false);
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    agregarProyecto(valorNuevoProyecto);
+    agregarProyecto(nombre, fechaCreacion);
     setOpenModal(false);
   };
 
@@ -30,8 +42,8 @@ function FormularioPO() {
       <h2>Creando proyecto nuevo...</h2>
       <label>Nombre del proyecto *</label>
       <textarea
-        value={valorNuevoProyecto}
-        onChange={onChange}
+        value={nombre}
+        onChange={onChangeNombre}
         placeholder="Nombre del proyecto"
       ></textarea>
       <div className="divisor">
@@ -40,7 +52,11 @@ function FormularioPO() {
         <label>Fecha de finalización</label>
         <textarea placeholder="fecha de finalización"></textarea>
         <label>Fecha de creación</label>
-        <textarea placeholder="fecha de creación" readOnly>
+        <textarea
+          value={fechaCreacion}
+          onChange={onChangeFechaCre}
+          placeholder="fecha de creación"
+        >
           11-10-2022
         </textarea>
         <label>Estado proyecto</label>

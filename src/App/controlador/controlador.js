@@ -45,10 +45,10 @@ function POProvider(props) {
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
 
   const agregarProyecto = (
-    nombre
+    nombre,
     // fechaInicio,
     // fechaFin,
-    // fechaCreacion,
+     fechaCreacion,
     // estado,
     // descripcion
   ) => {
@@ -57,7 +57,7 @@ function POProvider(props) {
       nombre,
       // fechaInicio,
       // fechaFin,
-      // fechaCreacion,
+       fechaCreacion,
       // estado,
       // descripcion,
     });
