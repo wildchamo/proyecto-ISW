@@ -89,6 +89,15 @@ function POProvider(props) {
       return proyectoNombre.includes(searchText);
     });
   }
+
+
+  const anularProyecto = (text) => {
+    const proyectoIndex = proyectosBuscados.findIndex((proyecto) => proyecto.nombre === text);
+    const newProyectos = [...proyectos];
+    console.log(newProyectos)
+    newProyectos[proyectoIndex].estado = "Anulado";
+    setProyectos(newProyectos);
+  };
   return (
     <POContext.Provider
       value={{
@@ -109,6 +118,7 @@ function POProvider(props) {
         setOrdenarArregloDes,
         ordenarArregloAsc,
         setOrdenarArregloAsc,
+        anularProyecto
       }}
     >
       {props.children}

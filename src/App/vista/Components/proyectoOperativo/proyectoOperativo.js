@@ -25,9 +25,8 @@ function ProyectoOperativo(props) {
     setOpenModalVerMas(true);
     console.log(props);
   };
-  const anularPO = () => {
-    //falta
-  };
+
+  console.log(props.prueba);
 
   return (
     <React.Fragment>
@@ -42,11 +41,15 @@ function ProyectoOperativo(props) {
         <p onClick={verMasPO}>
           <img src={ver} alt="botón ver más" />
         </p>
-        <p onClick={anularPO}>
+        <p onClick={props.onAnular}>
           <img src={anular} alt="botón anular" />
         </p>
       </li>
-      {openModalEditar && <Modal><FormularioPOedit/></Modal>}
+      {openModalEditar && (
+        <Modal>
+          <FormularioPOedit />
+        </Modal>
+      )}
       {openModalVerMas && (
         <Modal>
           <FormularioPOver

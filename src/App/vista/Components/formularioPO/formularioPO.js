@@ -95,7 +95,7 @@ function FormularioPO() {
       </div>
 
       <label>descripcion del proyecto</label>
-      <textarea onChange={onChangeDes} placeholder="" maxLength={1000}></textarea>
+      <textarea onChange={onChangeDes} placeholder="Descripción proyecto" maxLength={1000}></textarea>
       <div>
         <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
         <button type="button" onClick={onCancel}>
