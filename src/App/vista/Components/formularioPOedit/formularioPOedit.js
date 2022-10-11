@@ -11,7 +11,7 @@ function FormularioPOedit(props) {
     <form className="FormularioPOedit">
       <h2>Editando proyecto</h2>
       <label>Nombre del proyecto</label>
-      <textarea value={props.nombre}></textarea>
+      <textarea maxLength={50} value={props.nombre}></textarea>
       <div className="divisor">
         <label>Fecha de inicio</label>
         <textarea value={props.fechaInicio}></textarea>
@@ -24,7 +24,7 @@ function FormularioPOedit(props) {
       </div>
 
       <label>descripcion del proyecto</label>
-      <textarea value={props.descripcion}></textarea>
+      <textarea  maxLength={1000} value={props.descripcion}></textarea>
       <button onClick={onCancel}>Volver</button>
     </form>
   );

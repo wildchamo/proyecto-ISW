@@ -57,6 +57,7 @@ function FormularioPO() {
         value={nombre}
         onChange={onChangeNombre}
         placeholder="Nombre del proyecto"
+        maxLength={50}
       ></textarea>
       <div className="divisor">
         <label>Fecha de inicio *</label>
@@ -94,7 +95,7 @@ function FormularioPO() {
       </div>
 
       <label>descripcion del proyecto</label>
-      <textarea onChange={onChangeDes} placeholder=""></textarea>
+      <textarea onChange={onChangeDes} placeholder="" maxLength={1000}></textarea>
       <div>
         <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
         <button type="button" onClick={onCancel}>
