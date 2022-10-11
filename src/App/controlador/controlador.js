@@ -65,12 +65,27 @@ function POProvider(props) {
     setProyectos(newProyectos);
   };
 
+  const editarProyecto = (
+    nombre,
+    fechaInicio,
+    fechaFin,
+    fechaCreacion,
+    estado,
+    descripcion
+  ) => {
+    proyectoSelec.nombre=nombre;
+    proyectoSelec.fechaInicio=fechaInicio;
+    proyectoSelec.fechaFin=fechaFin;
+    proyectoSelec.fechaCreacion=fechaCreacion;
+    proyectoSelec.estado=estado;
+    proyectoSelec.descripcion=descripcion;
+  };
+
   if (ordenarArregloDes) {
     proyectosBuscados = proyectos.sort(function (a, b) {
       if (a.nombre < b.nombre) return -1;
       if (a.nombre > b.nombre) return 1;
       return 0;
-      
     });
   }
 
@@ -78,7 +93,7 @@ function POProvider(props) {
     proyectosBuscados = proyectos.sort(function (a, b) {
       if (a.nombre < b.nombre) return 1;
       if (a.nombre > b.nombre) return -1;
-      return 0;       
+      return 0;
     });
   }
 
@@ -121,6 +136,7 @@ function POProvider(props) {
         openModal,
         setOpenModal,
         agregarProyecto,
+        editarProyecto,
         openModalEditar,
         setOpenModalEditar,
         openModalVerMas,
@@ -131,7 +147,7 @@ function POProvider(props) {
         setOrdenarArregloAsc,
         anularProyecto,
         mostrarProyecto,
-        proyectoSelec
+        proyectoSelec,
       }}
     >
       {props.children}

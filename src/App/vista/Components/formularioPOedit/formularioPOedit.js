@@ -3,14 +3,21 @@ import { POContext } from "../../../controlador/controlador";
 import "./formularioPOEdit.css";
 
 function FormularioPOedit() {
-  const { setOpenModalEditar, proyectoSelec } = React.useContext(POContext);
+  const { setOpenModalEditar, proyectoSelec, editarProyecto } =
+    React.useContext(POContext);
 
-  const [nombre, setNombre] = React.useState("");
-  const [fechaCreacion, setFechaCreacion] = React.useState("");
-  const [fechaInicio, setFechaInicio] = React.useState("");
-  const [fechaFin, setFechaFin] = React.useState("");
-  const [estado, setEstado] = React.useState("");
-  const [descripcion, setDescripcion] = React.useState("");
+  const [nombre, setNombre] = React.useState(proyectoSelec.nombre);
+  const [fechaCreacion, setFechaCreacion] = React.useState(
+    proyectoSelec.fechaCreacion
+  );
+  const [fechaInicio, setFechaInicio] = React.useState(
+    proyectoSelec.fechaInicio
+  );
+  const [fechaFin, setFechaFin] = React.useState(proyectoSelec.fechaFin);
+  const [estado, setEstado] = React.useState(proyectoSelec.estado);
+  const [descripcion, setDescripcion] = React.useState(
+    proyectoSelec.descripcion
+  );
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -22,10 +29,8 @@ function FormularioPOedit() {
       estado,
       descripcion
     );
-    setOpenModal(false);
+    setOpenModalEditar(false);
   };
-
-  const { agregarProyecto, setOpenModal } = React.useContext(POContext);
 
   const onChangeNombre = (event) => {
     setNombre(event.target.value);
@@ -50,51 +55,50 @@ function FormularioPOedit() {
     setOpenModalEditar(false);
   };
   return (
-    <form className="FormularioPOedit" onSubmit={onSubmit}  >
+    <form className="FormularioPOedit" onSubmit={onSubmit}>
       <h2>Editando proyecto</h2>
       <label>Nombre del proyecto</label>
-      <textarea
-        maxLength={50}
-        value={proyectoSelec.nombre}
-        onChange={onChangeNombre}
-      ></textarea>
+      <textarea maxLength={50} onChange={onChangeNombre}>
+        {proyectoSelec.nombre}
+      </textarea>
       <div className="divisor">
         <label>Fecha de inicio</label>
-        <textarea
-          value={proyectoSelec.fechaInicio}
+        <input
+          type="date"
           onChange={onChangeFechaIni}
-        ></textarea>
+          value={proyectoSelec.fechaInicio}
+        />
         <label>Fecha de finalización</label>
-        <textarea
+        <input
+          type="date"
           onChange={onChangeFechaFin}
           value={proyectoSelec.fechaFin}
-        ></textarea>
+        />
         <label>Fecha de creación</label>
-        <textarea
+        <input
+          type="date"
           onChange={onChangeFechaCre}
           value={proyectoSelec.fechaCreacion}
-        ></textarea>
+        />
         <label>Estado proyecto</label>
-        <textarea
-          onChange={onChangeEstado}
-          value={proyectoSelec.estado}
-        ></textarea>
-      </div>
 
+        <select
+          value={proyectoSelec.estado}
+          onChange={onChangeEstado}
+          required
+        >
+          <option value="Activo">Activo</option>
+          <option value="Cerrado">Cerrado</option>
+          <option value="Anulado">Anulado</option>
+          <option value="Suspendido">Suspendido</option>
+          <option value="Cancelado">Cancelado</option>
+        </select>
+      </div>
       <label>descripcion del proyecto</label>
-      <select
-        value={proyectoSelec.estado}
-        onChange={onChangeEstado}
-        placeholder="estado"
-        required
-      >
-        <option value="">Seleccione</option>
-        <option value="Activo">Activo</option>
-        <option value="Cerrado">Cerrado</option>
-        <option value="Anulado">Anulado</option>
-        <option value="Suspendido">Suspendido</option>
-        <option value="Cancelado">Cancelado</option>
-      </select>
+      <textarea
+        onChange={onChangeDes}
+        value={proyectoSelec.descripcion}
+      ></textarea>
       <div>
         <button onClick={onCancel}>Volver</button>
         <button type="submit">Aceptar</button>

@@ -86,7 +86,6 @@ function FormularioPO() {
         <select
           value={estado}
           onChange={onChangeEstado}
-          
           placeholder="estado"
           required
         >
