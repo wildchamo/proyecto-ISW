@@ -61,24 +61,27 @@ function FormularioPO() {
       ></textarea>
       <div className="divisor">
         <label>Fecha de inicio *</label>
-        <textarea
+        <input
+          type="date"
           required
           onChange={onChangeFechaIni}
           placeholder="fecha de inicio"
-        ></textarea>
+        />
         <label>Fecha de finalización *</label>
-        <textarea
+        <input
+          type="date"
           required
           onChange={onChangeFechaFin}
           placeholder="fecha de finalización"
-        ></textarea>
+        />
         <label>Fecha de creación *</label>
-        <textarea
-          required
-          value={fechaCreacion}
+        <input
+          type="date"
+          disabled
+          value={"2022-10-11"}
           onChange={onChangeFechaCre}
           placeholder="fecha de creación"
-        ></textarea>
+        />
         <label>Estado *</label>
         <select
           value={estado}
@@ -95,7 +98,11 @@ function FormularioPO() {
       </div>
 
       <label>descripcion del proyecto</label>
-      <textarea onChange={onChangeDes} placeholder="Descripción proyecto" maxLength={1000}></textarea>
+      <textarea
+        onChange={onChangeDes}
+        placeholder="Descripción proyecto"
+        maxLength={1000}
+      ></textarea>
       <div>
         <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
         <button type="button" onClick={onCancel}>

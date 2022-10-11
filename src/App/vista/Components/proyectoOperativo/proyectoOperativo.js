@@ -21,6 +21,7 @@ function ProyectoOperativo(props) {
 
   const editarPO = () => {
     setOpenModalEditar(true);
+    mostrarProyecto(props.nombre);
   };
   const verMasPO = () => {
     setOpenModalVerMas(true);
