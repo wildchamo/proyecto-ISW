@@ -86,9 +86,11 @@ function FormularioPO() {
         <select
           value={estado}
           onChange={onChangeEstado}
+          
           placeholder="estado"
           required
         >
+          <option value="">Seleccione</option>
           <option value="Activo">Activo</option>
           <option value="Cerrado">Cerrado</option>
           <option value="Anulado">Anulado</option>
