@@ -3,8 +3,13 @@ import { ListaProyectoOperativo } from "./Components/listaProyectoOperativo/list
 import { Header } from "./Components/Header/header";
 import { ProyectoOperativo } from "./Components/proyectoOperativo/proyectoOperativo.js";
 import { POContext } from "../controlador/controlador";
+import { Modal } from "./Components/modal/modal";
+import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
+import { FormularioPOver } from "./Components/FormularioPOver/formularioPOver.js";
+
 function AppUI() {
-  const { proyectosBuscados } = React.useContext(POContext);
+  const { proyectosBuscados, openModal,proyectosTotal } =
+    React.useContext(POContext);
   return (
     <React.Fragment>
       <Header />
@@ -15,12 +20,19 @@ function AppUI() {
             nombre={proyecto.nombre}
             fechaInicio={proyecto.fechaInicio}
             fechaFin={proyecto.fechaFin}
-            fechaCreación={proyecto.fechaCreacion}
+            fechaCreacion={proyecto.fechaCreacion}
             estado={proyecto.estado}
-            descripción={proyecto.descripción}
+            descripcion={proyecto.descripcion}
           />
         ))}
       </ListaProyectoOperativo>
+      <p>total proyecto: {proyectosTotal}</p>
+          
+      {openModal && (
+        <Modal>
+          <FormularioPO />
+        </Modal>
+      )}
     </React.Fragment>
   );
 }

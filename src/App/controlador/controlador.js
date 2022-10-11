@@ -2,14 +2,6 @@ import React from "react";
 
 const defaultProyectos = [
   {
-    nombre: "ChatBot Sinapsis (Diseño de flujo)",
-    fechaInicio: "2021-11-03",
-    fechaFin: "2022-10-02",
-    fechaCreacion: "2021-11-03",
-    estado: "Activo",
-    descripcion: "Soy una descripción",
-  },
-  {
     nombre: "Investigación arquitectura PWA",
     fechaInicio: "2021-11-03",
     fechaFin: "2022-10-02",
@@ -21,23 +13,73 @@ const defaultProyectos = [
     nombre: "Software de encuestas Limesurvey",
     fechaInicio: "2021-11-03",
     fechaFin: "2022-10-02",
-    fechaCreacion: "",
+    fechaCreacion: "2022-10-02",
     estado: "Cancelado",
     descripcion: "Soy una descripción",
   },
+  {
+    nombre: "ChatBot Sinapsis (Diseño de flujo)",
+    fechaInicio: "2021-11-03",
+    fechaFin: "2022-10-02",
+    fechaCreacion: "2021-11-03",
+    estado: "Activo",
+    descripcion: "Soy una descripción",
+  },
 ];
-
-
 
 const POContext = React.createContext();
 
 function POProvider(props) {
   const [proyectos, setProyectos] = React.useState(defaultProyectos);
   const [searchValue, setSearchValue] = React.useState("");
-  let unidad= "Unidad de servicio al usuario";
-  let jefeUnidad= "Jose Luis Bedoya";
+
+  const [ordenarArregloDes, setOrdenarArregloDes] = React.useState(false);
+  const [ordenarArregloAsc, setOrdenarArregloAsc] = React.useState(false);
+  let unidad = "Unidad de servicio al usuario";
+  let jefeUnidad = "Jose Luis Bedoya";
   let proyectosBuscados = [];
-  let proyectosTotal = defaultProyectos.length;
+  let proyectosTotal = proyectos.length;
+
+  const [openModal, setOpenModal] = React.useState(false);
+  const [openModalEditar, setOpenModalEditar] = React.useState(false);
+  const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
+
+  const agregarProyecto = (
+    nombre
+    // fechaInicio,
+    // fechaFin,
+    // fechaCreacion,
+    // estado,
+    // descripcion
+  ) => {
+    const newProyectos = [...proyectos];
+    newProyectos.push({
+      nombre,
+      // fechaInicio,
+      // fechaFin,
+      // fechaCreacion,
+      // estado,
+      // descripcion,
+    });
+    setProyectos(newProyectos);
+  };
+
+  if (ordenarArregloDes) {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.nombre < b.nombre) return -1;
+      if (a.nombre > b.nombre) return 1;
+      return 0;
+    });
+    
+  }
+
+  if (ordenarArregloAsc) {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.nombre < b.nombre) return 1;
+      if (a.nombre > b.nombre) return -1;
+      return 0;
+    });
+  }
 
   if (!searchValue.length >= 1) {
     proyectosBuscados = proyectos;
@@ -57,6 +99,17 @@ function POProvider(props) {
         proyectosBuscados,
         searchValue,
         setSearchValue,
+        openModal,
+        setOpenModal,
+        agregarProyecto,
+        openModalEditar,
+        setOpenModalEditar,
+        openModalVerMas,
+        setOpenModalVerMas,
+        ordenarArregloDes,
+        setOrdenarArregloDes,
+        ordenarArregloAsc,
+        setOrdenarArregloAsc,
       }}
     >
       {props.children}

@@ -1,0 +1,20 @@
+button {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  width: 182px;
+  height: 31px;
+  background: #9e0b0f;
+  box-shadow: 1px 2px 3px rgba(70, 118, 251, 0.41);
+  border-radius: 7px;
+  border: none;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #fafafb;
+}
+button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
