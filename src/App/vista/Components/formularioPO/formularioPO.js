@@ -7,12 +7,16 @@ function FormularioPO() {
   const [fechaCreacion, setFechaCreacion] = React.useState("");
   const [fechaInicio, setFechaInicio] = useState("");
   const [fechaFin, setFechaFin] = useState("");
+  const [estado, setEstado] = useState("");
   const [descripcion, setDescripcion] = useState("");
 
   const { agregarProyecto, setOpenModal } = React.useContext(POContext);
 
   const onChangeNombre = (event) => {
     setNombre(event.target.value);
+  };
+  const onChangeEstado = (event) => {
+    setEstado(event.target.value);
   };
   const onChangeFechaCre = (event) => {
     setFechaCreacion(event.target.value);
@@ -48,19 +52,23 @@ function FormularioPO() {
       ></textarea>
       <div className="divisor">
         <label>Fecha de inicio</label>
-        <textarea placeholder="fecha de inicio"></textarea>
+        <textarea
+          onChange={onChangeFechaIni}
+          placeholder="fecha de inicio"
+        ></textarea>
         <label>Fecha de finalización</label>
-        <textarea placeholder="fecha de finalización"></textarea>
+        <textarea
+          onChange={onChangeFechaFin}
+          placeholder="fecha de finalización"
+        ></textarea>
         <label>Fecha de creación</label>
         <textarea
           value={fechaCreacion}
           onChange={onChangeFechaCre}
           placeholder="fecha de creación"
-        >
-          11-10-2022
-        </textarea>
+        ></textarea>
         <label>Estado proyecto</label>
-        <select placeholder="estado">
+        <select value={estado} onChange={onChangeEstado} placeholder="estado">
           <option value="r">Rojo</option>
           <option value="a">Azul</option>
           <option value="v">Verde</option>
@@ -68,7 +76,7 @@ function FormularioPO() {
       </div>
 
       <label>descripcion del proyecto</label>
-      <textarea placeholder=""></textarea>
+      <textarea onChange={onChangeDes} placeholder=""></textarea>
       <div>
         <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
         <button type="button" onClick={onCancel}>
