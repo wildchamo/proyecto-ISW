@@ -9,9 +9,10 @@ function FormularioPOedit(props) {
   };
   return (
     <form className="FormularioPOedit">
+      <h2>Editando proyecto</h2>
       <label>Nombre del proyecto</label>
       <textarea value={props.nombre}></textarea>
-      <div>
+      <div className="divisor">
         <label>Fecha de inicio</label>
         <textarea value={props.fechaInicio}></textarea>
         <label>Fecha de finalización</label>

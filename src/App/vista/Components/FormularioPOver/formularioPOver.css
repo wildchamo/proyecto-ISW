@@ -25,6 +25,6 @@
   color: #1e1e1f;
   width: calc(100% - 25px); 
 }
-.FormularioPOver .divisor{
+.divisor{
 display: flex;
 }
