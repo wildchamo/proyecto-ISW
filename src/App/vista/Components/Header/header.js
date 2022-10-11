@@ -5,16 +5,20 @@ import logoSencillo from "./logosencillo.png";
 import campana from "./campana.png";
 import foto from "./foto.png";
 import salir from "./salir.png";
+import { POContext } from "../../../controlador/controlador";
 
 
 function Header(){
+    const { jefeUnidad } =
+    React.useContext(POContext);
+
     return(
         <header class="box">
             <div className="logoSencillo">
              <img className="logoSencillo" src={logoSencillo} alt="Logo" />
             </div>
             <h1>
-                ¡Bienvenido!
+                ¡Bienvenido, {jefeUnidad} !
             </h1>
             <BusquedaProyecto/>
             <div className="campana">
