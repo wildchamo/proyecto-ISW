@@ -5,7 +5,6 @@ import { ProyectoOperativo } from "./Components/proyectoOperativo/proyectoOperat
 import { POContext } from "../controlador/controlador";
 import { Modal } from "./Components/modal/modal";
 import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
-import { FormularioPOver } from "./Components/FormularioPOver/formularioPOver.js";
 
 function AppUI() {
   const { proyectosBuscados, openModal, proyectosTotal, anularProyecto, mostrarProyecto } =

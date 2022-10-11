@@ -70,6 +70,7 @@ function POProvider(props) {
       if (a.nombre < b.nombre) return -1;
       if (a.nombre > b.nombre) return 1;
       return 0;
+      
     });
   }
 
@@ -77,7 +78,7 @@ function POProvider(props) {
     proyectosBuscados = proyectos.sort(function (a, b) {
       if (a.nombre < b.nombre) return 1;
       if (a.nombre > b.nombre) return -1;
-      return 0;
+      return 0;       
     });
   }
 
