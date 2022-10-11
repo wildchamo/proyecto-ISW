@@ -4,6 +4,12 @@ import "./formularioPO.css";
 
 function FormularioPO() {
   const [valorNuevoProyecto, setValorNuevoProyecto] = React.useState("");
+  const [nombre, setNombre] = useState("");
+  const [fechaCreacion, setFechaCreacion] = useState("");
+  const [fechaInicio, setFechaInicio] = useState("");
+  const [fechaFin, setFechaFin] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+
   const { agregarProyecto, setOpenModal } = React.useContext(POContext);
 
   const onChange = (event) => {
