@@ -31,6 +31,7 @@ const POContext = React.createContext();
 
 function POProvider(props) {
   const [proyectos, setProyectos] = React.useState(defaultProyectos);
+  const [proyectoSelec, setProyectoSelec] = React.useState();
   const [searchValue, setSearchValue] = React.useState("");
 
   const [ordenarArregloDes, setOrdenarArregloDes] = React.useState(false);
@@ -104,7 +105,7 @@ function POProvider(props) {
     const proyectoIndex = proyectosBuscados.findIndex(
       (proyecto) => proyecto.nombre === text
     );
-    console.log(proyectos[proyectoIndex]);
+    setProyectoSelec(proyectos[proyectoIndex]);
   };
 
   return (
@@ -129,6 +130,7 @@ function POProvider(props) {
         setOrdenarArregloAsc,
         anularProyecto,
         mostrarProyecto,
+        proyectoSelec
       }}
     >
       {props.children}
