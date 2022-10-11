@@ -28,7 +28,7 @@ function FormularioPO() {
         onChange={onChange}
         placeholder="Nombre del proyecto"
       ></textarea>
-      <div>
+      <div className="divisor">
         <label>Fecha de inicio</label>
         <textarea placeholder="fecha de inicio"></textarea>
         <label>Fecha de finalización</label>

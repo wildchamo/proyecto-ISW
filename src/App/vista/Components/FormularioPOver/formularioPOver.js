@@ -10,9 +10,11 @@ function FormularioPOver(props) {
   console.log(props);
   return (
     <form className="FormularioPOver">
+      <h2>Detalles del proyecto</h2>
+
       <label>Nombre del proyecto</label>
       <textarea readOnly value={props.nombre}></textarea>
-      <div>
+      <div className="divisor">
         <label>Fecha de inicio</label>
         <textarea readOnly value={props.fechaInicio}></textarea>
         <label>Fecha de finalización</label>
