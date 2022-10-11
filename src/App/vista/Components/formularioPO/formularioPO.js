@@ -5,10 +5,10 @@ import "./formularioPO.css";
 function FormularioPO() {
   const [nombre, setNombre] = React.useState("");
   const [fechaCreacion, setFechaCreacion] = React.useState("");
-  const [fechaInicio, setFechaInicio] = useState("");
-  const [fechaFin, setFechaFin] = useState("");
-  const [estado, setEstado] = useState("");
-  const [descripcion, setDescripcion] = useState("");
+  const [fechaInicio, setFechaInicio] = React.useState("");
+  const [fechaFin, setFechaFin] = React.useState("");
+  const [estado, setEstado] = React.useState("");
+  const [descripcion, setDescripcion] = React.useState("");
 
   const { agregarProyecto, setOpenModal } = React.useContext(POContext);
 
@@ -37,7 +37,14 @@ function FormularioPO() {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    agregarProyecto(nombre, fechaCreacion);
+    agregarProyecto(
+      nombre,
+      fechaInicio,
+      fechaFin,
+      fechaCreacion,
+      estado,
+      descripcion
+    );
     setOpenModal(false);
   };
 
@@ -46,32 +53,43 @@ function FormularioPO() {
       <h2>Creando proyecto nuevo...</h2>
       <label>Nombre del proyecto *</label>
       <textarea
+        required
         value={nombre}
         onChange={onChangeNombre}
         placeholder="Nombre del proyecto"
       ></textarea>
       <div className="divisor">
-        <label>Fecha de inicio</label>
+        <label>Fecha de inicio *</label>
         <textarea
+          required
           onChange={onChangeFechaIni}
           placeholder="fecha de inicio"
         ></textarea>
-        <label>Fecha de finalización</label>
+        <label>Fecha de finalización *</label>
         <textarea
+          required
           onChange={onChangeFechaFin}
           placeholder="fecha de finalización"
         ></textarea>
-        <label>Fecha de creación</label>
+        <label>Fecha de creación *</label>
         <textarea
+          required
           value={fechaCreacion}
           onChange={onChangeFechaCre}
           placeholder="fecha de creación"
         ></textarea>
-        <label>Estado proyecto</label>
-        <select value={estado} onChange={onChangeEstado} placeholder="estado">
-          <option value="r">Rojo</option>
-          <option value="a">Azul</option>
-          <option value="v">Verde</option>
+        <label>Estado *</label>
+        <select
+          value={estado}
+          onChange={onChangeEstado}
+          placeholder="estado"
+          required
+        >
+          <option value="Activo">Activo</option>
+          <option value="Cerrado">Cerrado</option>
+          <option value="Anulado">Anulado</option>
+          <option value="Suspendido">Suspendido</option>
+          <option value="Cancelado">Cancelado</option>
         </select>
       </div>
 

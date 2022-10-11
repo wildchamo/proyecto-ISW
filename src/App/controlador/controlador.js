@@ -46,20 +46,20 @@ function POProvider(props) {
 
   const agregarProyecto = (
     nombre,
-    // fechaInicio,
-    // fechaFin,
-     fechaCreacion,
-    // estado,
-    // descripcion
+    fechaInicio,
+    fechaFin,
+    fechaCreacion,
+    estado,
+    descripcion
   ) => {
     const newProyectos = [...proyectos];
     newProyectos.push({
       nombre,
-      // fechaInicio,
-      // fechaFin,
-       fechaCreacion,
-      // estado,
-      // descripcion,
+      fechaInicio,
+      fechaFin,
+      fechaCreacion,
+      estado,
+      descripcion,
     });
     setProyectos(newProyectos);
   };
@@ -70,7 +70,6 @@ function POProvider(props) {
       if (a.nombre > b.nombre) return 1;
       return 0;
     });
-    
   }
 
   if (ordenarArregloAsc) {
