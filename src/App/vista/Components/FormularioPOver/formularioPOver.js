@@ -7,7 +7,7 @@ function FormularioPOver(props) {
   const onCancel = () => {
     setOpenModalVerMas(false);
   };
-  console.log(props);
+  
   return (
     <form className="FormularioPOver">
       <h2>Detalles del proyecto</h2>

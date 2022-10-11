@@ -16,6 +16,7 @@ function ProyectoOperativo(props) {
     setOpenModalVerMas,
     openModalVerMas,
     openModalEditar,
+    mostrarProyecto
   } = React.useContext(POContext);
 
   const editarPO = () => {
@@ -23,10 +24,8 @@ function ProyectoOperativo(props) {
   };
   const verMasPO = () => {
     setOpenModalVerMas(true);
-    console.log(props);
+    mostrarProyecto(props.nombre)
   };
-
-  console.log(props.prueba);
 
   return (
     <React.Fragment>

@@ -90,14 +90,23 @@ function POProvider(props) {
     });
   }
 
-
   const anularProyecto = (text) => {
-    const proyectoIndex = proyectosBuscados.findIndex((proyecto) => proyecto.nombre === text);
+    const proyectoIndex = proyectosBuscados.findIndex(
+      (proyecto) => proyecto.nombre === text
+    );
     const newProyectos = [...proyectos];
-    console.log(newProyectos)
+    console.log(newProyectos);
     newProyectos[proyectoIndex].estado = "Anulado";
     setProyectos(newProyectos);
   };
+
+  const mostrarProyecto = (text) => {
+    const proyectoIndex = proyectosBuscados.findIndex(
+      (proyecto) => proyecto.nombre === text
+    );
+    console.log(proyectos[proyectoIndex]);
+  };
+
   return (
     <POContext.Provider
       value={{
@@ -118,7 +127,8 @@ function POProvider(props) {
         setOrdenarArregloDes,
         ordenarArregloAsc,
         setOrdenarArregloAsc,
-        anularProyecto
+        anularProyecto,
+        mostrarProyecto,
       }}
     >
       {props.children}
