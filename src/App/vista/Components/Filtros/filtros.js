@@ -10,22 +10,25 @@ function Filtros(props) {
   };
   const onClickButtonAsc = () => {
     props.ordenarArregloAsc(true);
-
   };
+  const onClickButtonAscFI = () => {
+    props.ordenarArregloAscFI(true);
+  };
+
+
+
   return (
     <div className="tituloListas">
       <div>
         <p>Nombre</p>
         <div className="flechas">
           <img
-            onChange={onClickButtonAsc}
             onClick={onClickButtonAsc}
             className="flecha"
             src={arriba}
             alt="Logo"
           />
           <img
-            onChange={onClickButtonDes}
             onClick={onClickButtonDes}
             className="flecha"
             src={abajo}
@@ -37,7 +40,7 @@ function Filtros(props) {
       <div>
         <p>Fecha de inicio</p>
         <div className="flechas">
-          <img className="flecha" src={arriba} alt="Logo" />
+          <img className="flecha" onClick={onClickButtonAscFI} src={arriba} alt="Logo" />
           <img className="flecha" src={abajo} alt="Logo" />
         </div>
       </div>

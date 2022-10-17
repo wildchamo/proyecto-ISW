@@ -33,9 +33,14 @@ function POProvider(props) {
   const [proyectos, setProyectos] = React.useState(defaultProyectos);
   const [proyectoSelec, setProyectoSelec] = React.useState();
   const [searchValue, setSearchValue] = React.useState("");
-
   const [ordenarArregloDes, setOrdenarArregloDes] = React.useState(false);
   const [ordenarArregloAsc, setOrdenarArregloAsc] = React.useState(false);
+  //Gabriela
+  const [ordenarArregloAscFI, setOrdenarArregloAscFI] = React.useState(false);
+  const [ordenarArregloDesFI, setOrdenarArregloDesFI] = React.useState(false);
+  const [ordenarArregloAscFF, setOrdenarArregloAscFF] = React.useState(false);
+  const [ordenarArregloDesFF, setOrdenarArregloDesFF] = React.useState(false);
+
   let unidad = "Unidad de servicio al usuario";
   let jefeUnidad = "Carolina Parra";
   let proyectosBuscados = [];
@@ -104,6 +109,19 @@ function POProvider(props) {
     });
   }
 
+  if (ordenarArregloAscFI) {
+    alert("Arreglar arreglo1");
+  }
+  if (ordenarArregloDesFI) {
+    alert("Arreglar arreglo1");
+  }
+  if (ordenarArregloAscFF) {
+    alert("Arreglar arreglo1");
+  }
+  if (ordenarArregloDesFF) {
+    alert("Arreglar arreglo1");
+  }
+
   if (!searchValue.length >= 1) {
     proyectosBuscados = proyectos;
   } else {
@@ -152,10 +170,19 @@ function POProvider(props) {
         setOrdenarArregloDes,
         ordenarArregloAsc,
         setOrdenarArregloAsc,
+
+        ordenarArregloAscFI,
+        setOrdenarArregloAscFI,
+        ordenarArregloDesFI,
+        setOrdenarArregloDesFI,
+        ordenarArregloAscFF,
+        setOrdenarArregloAscFF,
+        ordenarArregloDesFF,
+        setOrdenarArregloDesFF,
         anularProyecto,
         mostrarProyecto,
         proyectoSelec,
-        fechaHoy
+        fechaHoy,
       }}
     >
       {props.children}
