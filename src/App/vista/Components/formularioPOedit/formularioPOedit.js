@@ -59,34 +59,28 @@ function FormularioPOedit() {
       <h2>Editando proyecto</h2>
       <label>Nombre del proyecto</label>
       <textarea maxLength={50} onChange={onChangeNombre}>
-        {proyectoSelec.nombre}
+        {nombre}
       </textarea>
       <div className="divisor">
         <label>Fecha de inicio</label>
         <input
           type="date"
           onChange={onChangeFechaIni}
-          value={proyectoSelec.fechaInicio}
+          value={fechaInicio}
+          min={fechaCreacion}
         />
         <label>Fecha de finalización</label>
         <input
           type="date"
           onChange={onChangeFechaFin}
-          value={proyectoSelec.fechaFin}
+          value={fechaFin}
+          min={fechaInicio}
         />
         <label>Fecha de creación</label>
-        <input
-          type="date"
-          onChange={onChangeFechaCre}
-          value={proyectoSelec.fechaCreacion}
-        />
+        <input type="date" onChange={onChangeFechaCre} value={fechaCreacion} />
         <label>Estado proyecto</label>
 
-        <select
-          value={proyectoSelec.estado}
-          onChange={onChangeEstado}
-          required
-        >
+        <select value={proyectoSelec.estado} onChange={onChangeEstado} required>
           <option value="Activo">Activo</option>
           <option value="Cerrado">Cerrado</option>
           <option value="Anulado">Anulado</option>
