@@ -3,10 +3,11 @@ import { POContext } from "../../../controlador/controlador";
 import "./formularioPO.css";
 
 function FormularioPO() {
-  const { agregarProyecto, setOpenModal,fechaHoy } = React.useContext(POContext);
+  const { agregarProyecto, setOpenModal, fechaHoy } =
+    React.useContext(POContext);
 
   const [nombre, setNombre] = React.useState("");
-  const [fechaCreacion, setFechaCreacion] = React.useState(fechaHoy);
+  const [fechaCreacion] = React.useState(fechaHoy);
   const [fechaInicio, setFechaInicio] = React.useState("");
   const [fechaFin, setFechaFin] = React.useState("");
   const [estado, setEstado] = React.useState("");
@@ -17,9 +18,6 @@ function FormularioPO() {
   };
   const onChangeEstado = (event) => {
     setEstado(event.target.value);
-  };
-  const onChangeFechaCre = (event) => {
-    setFechaCreacion(event.target.value);
   };
   const onChangeFechaIni = (event) => {
     setFechaInicio(event.target.value);
@@ -60,21 +58,21 @@ function FormularioPO() {
         maxLength={50}
       ></textarea>
       <div className="divisor">
-        <label>Fecha de inicio *</label>
+        <label>Fecha de inicio </label>
         <input
           type="date"
-          required
           onChange={onChangeFechaIni}
           placeholder="fecha de inicio"
+          min={fechaCreacion}
         />
-        <label>Fecha de finalización *</label>
+        <label>Fecha de finalización </label>
         <input
           type="date"
-          required
           onChange={onChangeFechaFin}
           placeholder="fecha de finalización"
+          min={fechaInicio}
         />
-        <label>Fecha de creación *</label>
+        <label>Fecha de creación </label>
         <input
           type="date"
           disabled
@@ -97,7 +95,7 @@ function FormularioPO() {
         </select>
       </div>
 
-      <label>descripcion del proyecto</label>
+      <label>Descripcion del proyecto</label>
       <textarea
         onChange={onChangeDes}
         placeholder="Descripción proyecto"
