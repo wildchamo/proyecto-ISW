@@ -27,6 +27,7 @@ function FormularioPO() {
         value={valorNuevoProyecto}
         onChange={onChange}
         placeholder="Nombre del proyecto"
+        required
       ></textarea>
       <div>
         <label>Fecha de inicio</label>
