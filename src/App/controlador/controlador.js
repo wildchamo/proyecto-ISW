@@ -113,13 +113,13 @@ function POProvider(props) {
     alert("Arreglar arreglo1");
   }
   if (ordenarArregloDesFI) {
-    alert("Arreglar arreglo1");
+    alert("Arreglar arreglo2");
   }
   if (ordenarArregloAscFF) {
-    alert("Arreglar arreglo1");
+    alert("Arreglar arreglo3");
   }
   if (ordenarArregloDesFF) {
-    alert("Arreglar arreglo1");
+    alert("Arreglar arreglo4");
   }
 
   if (!searchValue.length >= 1) {
