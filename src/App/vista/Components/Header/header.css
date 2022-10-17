@@ -5,9 +5,10 @@
     align-items: center;
     grid-template-columns: 3% 45% 40% 3% 5% 3%;
 }
-  .box h1{ /* ¡Bienvenido, xxxxx! */
+.box h1 {
+  /* ¡Bienvenido, xxxxx! */
 
-  font-family: 'Work Sans';
+  font-family: "Work Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -15,5 +16,5 @@
   display: flex;
   align-items: center;
   letter-spacing: -0.02em;
-  color: #C4161C;
-  }
+  color: #c4161c;
+}

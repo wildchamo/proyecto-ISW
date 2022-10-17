@@ -13,7 +13,7 @@ function Header(){
     React.useContext(POContext);
 
     return(
-        <header class="box">
+        <header className="box">
             <div className="logoSencillo">
              <img className="logoSencillo" src={logoSencillo} alt="Logo" />
             </div>

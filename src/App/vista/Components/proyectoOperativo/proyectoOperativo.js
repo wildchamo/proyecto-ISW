@@ -16,17 +16,16 @@ function ProyectoOperativo(props) {
     setOpenModalVerMas,
     openModalVerMas,
     openModalEditar,
+    mostrarProyecto,
   } = React.useContext(POContext);
 
   const editarPO = () => {
     setOpenModalEditar(true);
+    mostrarProyecto(props.nombre);
   };
   const verMasPO = () => {
     setOpenModalVerMas(true);
-    console.log(props);
-  };
-  const anularPO = () => {
-    //falta
+    mostrarProyecto(props.nombre);
   };
 
   return (
@@ -42,22 +41,18 @@ function ProyectoOperativo(props) {
         <p onClick={verMasPO}>
           <img src={ver} alt="botón ver más" />
         </p>
-        <p onClick={anularPO}>
+        <p onClick={props.onAnular}>
           <img src={anular} alt="botón anular" />
         </p>
       </li>
-      {openModalEditar && <Modal><FormularioPOedit/></Modal>}
+      {openModalEditar && (
+        <Modal>
+          <FormularioPOedit />
+        </Modal>
+      )}
       {openModalVerMas && (
         <Modal>
-          <FormularioPOver
-            key={props.key}
-            nombre={props.nombre}
-            fechaInicio={props.fechaInicio}
-            fechaFin={props.fechaFin}
-            fechaCreacion={props.fechaCreacion}
-            estado={props.estado}
-            descripcion={props.descripcion}
-          />
+          <FormularioPOver />
         </Modal>
       )}
     </React.Fragment>
