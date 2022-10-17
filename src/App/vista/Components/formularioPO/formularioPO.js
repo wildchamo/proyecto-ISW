@@ -3,14 +3,14 @@ import { POContext } from "../../../controlador/controlador";
 import "./formularioPO.css";
 
 function FormularioPO() {
+  const { agregarProyecto, setOpenModal,fechaHoy } = React.useContext(POContext);
+
   const [nombre, setNombre] = React.useState("");
-  const [fechaCreacion, setFechaCreacion] = React.useState("");
+  const [fechaCreacion, setFechaCreacion] = React.useState(fechaHoy);
   const [fechaInicio, setFechaInicio] = React.useState("");
   const [fechaFin, setFechaFin] = React.useState("");
   const [estado, setEstado] = React.useState("");
   const [descripcion, setDescripcion] = React.useState("");
-
-  const { agregarProyecto, setOpenModal } = React.useContext(POContext);
 
   const onChangeNombre = (event) => {
     setNombre(event.target.value);
@@ -78,8 +78,7 @@ function FormularioPO() {
         <input
           type="date"
           disabled
-          value={"2022-10-11"}
-          onChange={onChangeFechaCre}
+          value={fechaCreacion}
           placeholder="fecha de creación"
         />
         <label>Estado *</label>

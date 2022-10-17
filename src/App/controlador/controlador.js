@@ -37,13 +37,20 @@ function POProvider(props) {
   const [ordenarArregloDes, setOrdenarArregloDes] = React.useState(false);
   const [ordenarArregloAsc, setOrdenarArregloAsc] = React.useState(false);
   let unidad = "Unidad de servicio al usuario";
-  let jefeUnidad = "Jose Luis Bedoya";
+  let jefeUnidad = "Carolina Parra";
   let proyectosBuscados = [];
   let proyectosTotal = proyectos.length;
 
   const [openModal, setOpenModal] = React.useState(false);
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
+
+  var fechaHoy = new Date();
+  var dd = String(fechaHoy.getDate()).padStart(2, "0");
+  var mm = String(fechaHoy.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = fechaHoy.getFullYear();
+
+  fechaHoy = yyyy + "-" + mm + "-" + dd;
 
   const agregarProyecto = (
     nombre,
@@ -73,12 +80,12 @@ function POProvider(props) {
     estado,
     descripcion
   ) => {
-    proyectoSelec.nombre=nombre;
-    proyectoSelec.fechaInicio=fechaInicio;
-    proyectoSelec.fechaFin=fechaFin;
-    proyectoSelec.fechaCreacion=fechaCreacion;
-    proyectoSelec.estado=estado;
-    proyectoSelec.descripcion=descripcion;
+    proyectoSelec.nombre = nombre;
+    proyectoSelec.fechaInicio = fechaInicio;
+    proyectoSelec.fechaFin = fechaFin;
+    proyectoSelec.fechaCreacion = fechaCreacion;
+    proyectoSelec.estado = estado;
+    proyectoSelec.descripcion = descripcion;
   };
 
   if (ordenarArregloDes) {
@@ -148,6 +155,7 @@ function POProvider(props) {
         anularProyecto,
         mostrarProyecto,
         proyectoSelec,
+        fechaHoy
       }}
     >
       {props.children}

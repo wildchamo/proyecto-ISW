@@ -52,7 +52,7 @@ function ProyectoOperativo(props) {
       )}
       {openModalVerMas && (
         <Modal>
-          <FormularioPOver/>
+          <FormularioPOver />
         </Modal>
       )}
     </React.Fragment>
