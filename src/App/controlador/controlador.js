@@ -11,7 +11,7 @@ const defaultProyectos = [
   },
   {
     nombre: "Software de encuestas Limesurvey",
-    fechaInicio: "2021-11-03",
+    fechaInicio: "2021-11-05",
     fechaFin: "2022-10-02",
     fechaCreacion: "2022-10-02",
     estado: "Cancelado",
@@ -19,7 +19,7 @@ const defaultProyectos = [
   },
   {
     nombre: "ChatBot Sinapsis (Diseño de flujo)",
-    fechaInicio: "2021-11-03",
+    fechaInicio: "2021-11-07",
     fechaFin: "2022-10-02",
     fechaCreacion: "2021-11-03",
     estado: "Activo",
@@ -110,16 +110,33 @@ function POProvider(props) {
   }
 
   if (ordenarArregloAscFI) {
-    alert("Arreglar arreglo1");
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.fechaInicio < b.fechaInicio) return 1;
+      if (a.fechaInicio > b.fechaInicio) return -1;
+      return 0;
+    });
   }
+
   if (ordenarArregloDesFI) {
-    alert("Arreglar arreglo2");
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.fechaInicio < b.fechaInicio) return -1;
+      if (a.fechaInicio > b.fechaInicio) return 1;
+      return 0;
+    });
   }
   if (ordenarArregloAscFF) {
-    alert("Arreglar arreglo3");
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.fechaFin < b.fechaFin) return 1;
+      if (a.fechaFin > b.fechaFin) return -1;
+      return 0;
+    });
   }
   if (ordenarArregloDesFF) {
-    alert("Arreglar arreglo4");
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.fechaFin < b.fechaFin) return -1;
+      if (a.fechaFin > b.fechaFin) return 1;
+      return 0;
+    });
   }
 
   if (!searchValue.length >= 1) {
