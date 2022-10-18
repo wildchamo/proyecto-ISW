@@ -3,7 +3,7 @@ import { POContext } from "../../../controlador/controlador";
 import "./formularioPO.css";
 
 function FormularioPO() {
-  const { agregarProyecto, setOpenModal, fechaHoy } =
+  const { agregarProyecto, setOpenModal, fechaHoy, estados } =
     React.useContext(POContext);
 
   const [nombre, setNombre] = React.useState("");
@@ -86,12 +86,17 @@ function FormularioPO() {
           placeholder="estado"
           required
         >
-          <option value="">Seleccione</option>
+          {estados.map((estado) => (
+            <option value={estado} key={estado}>
+              {estado}
+            </option>
+          ))}
+          {/* <option value="">Seleccione</option>
           <option value="Activo">Activo</option>
           <option value="Cerrado">Cerrado</option>
           <option value="Anulado">Anulado</option>
           <option value="Suspendido">Suspendido</option>
-          <option value="Cancelado">Cancelado</option>
+          <option value="Cancelado">Cancelado</option> */}
         </select>
       </div>
 

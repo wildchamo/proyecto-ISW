@@ -27,6 +27,14 @@ const defaultProyectos = [
   },
 ];
 
+const estados=[
+  "Activo",
+  "Cerrado",
+  "Anulado",
+  "Suspendido",
+  "Cancelado",
+]
+
 const POContext = React.createContext();
 
 function POProvider(props) {
@@ -41,12 +49,17 @@ function POProvider(props) {
   const [ordenarArregloAscFF, setOrdenarArregloAscFF] = React.useState(false);
   const [ordenarArregloDesFF, setOrdenarArregloDesFF] = React.useState(false);
 
+  //
+
+  const [estadoSelec]= React.useState("");
+
   let unidad = "Unidad de servicio al usuario";
   let jefeUnidad = "Carolina Parra";
   let proyectosBuscados = [];
   let proyectosTotal = proyectos.length;
 
   const [openModal, setOpenModal] = React.useState(false);
+  const [openModalEstado, setOpenModalEstado] = React.useState(false);
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
 
@@ -169,25 +182,37 @@ function POProvider(props) {
   return (
     <POContext.Provider
       value={{
+        //valores
         unidad,
         jefeUnidad,
+        fechaHoy,
         proyectosTotal,
         proyectosBuscados,
+        estados,
+
+        //busqueda
         searchValue,
         setSearchValue,
+
+        //seleccionados
+        proyectoSelec,
+        estadoSelec,
+
+        //modales
         openModal,
         setOpenModal,
-        agregarProyecto,
-        editarProyecto,
         openModalEditar,
         setOpenModalEditar,
         openModalVerMas,
         setOpenModalVerMas,
+        openModalEstado,
+        setOpenModalEstado,
+
+        //filtros
         ordenarArregloDes,
         setOrdenarArregloDes,
         ordenarArregloAsc,
         setOrdenarArregloAsc,
-
         ordenarArregloAscFI,
         setOrdenarArregloAscFI,
         ordenarArregloDesFI,
@@ -196,10 +221,12 @@ function POProvider(props) {
         setOrdenarArregloAscFF,
         ordenarArregloDesFF,
         setOrdenarArregloDesFF,
+
+        //metodos
+        agregarProyecto,
+        editarProyecto,
         anularProyecto,
         mostrarProyecto,
-        proyectoSelec,
-        fechaHoy,
       }}
     >
       {props.children}
