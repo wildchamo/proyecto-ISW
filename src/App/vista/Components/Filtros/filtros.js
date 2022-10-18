@@ -4,6 +4,7 @@ import filtro from "./filtro.png";
 import arriba from "./vectorArriba.png";
 import abajo from "./vectorAbajo.png";
 import { Modal } from "../modal/modal";
+import { FormularioSelecEstado } from "../FormularioSelecEstado/FormularioSelecEstado";
 import { POContext } from "../../../controlador/controlador";
 
 function Filtros(props) {
@@ -25,10 +26,7 @@ function Filtros(props) {
 
   return (
     <div className="tituloListas">
-      {openModalEstado && (
-        <Modal>
-        </Modal>
-      )}
+      {openModalEstado && <Modal><FormularioSelecEstado/></Modal>}
       <div>
         <p>Nombre</p>
         <div className="flechas">
@@ -69,7 +67,13 @@ function Filtros(props) {
       </div>
 
       <div>
-        <p>Estado</p> <img className="filtro" onClick={onClickModalEstado} src={filtro} alt="Logo" />
+        <p>Estado</p>{" "}
+        <img
+          className="filtro"
+          onClick={onClickModalEstado}
+          src={filtro}
+          alt="Logo"
+        />
       </div>
       <div>
         <p>Editar</p>
