@@ -3,6 +3,7 @@ import "./proyectoOperativo.css";
 import { Modal } from "../modal/modal";
 import { FormularioPOver } from "../FormularioPOver/formularioPOver";
 import { FormularioPOedit } from "../formularioPOedit/formularioPOedit";
+import { FormularioPOanular } from "../formularioPOanular/formularioPOanular";
 
 import { POContext } from "../../../controlador/controlador";
 
@@ -12,6 +13,7 @@ import ver from "./ver.png";
 
 function ProyectoOperativo(props) {
   const {
+    openModalAnular, setOpenModalAnular,
     setOpenModalEditar,
     setOpenModalVerMas,
     openModalVerMas,
@@ -28,6 +30,11 @@ function ProyectoOperativo(props) {
     mostrarProyecto(props.nombre);
   };
 
+  const anularPO = () => {
+    setOpenModalAnular(true);
+    mostrarProyecto(props.nombre);
+  };
+
   return (
     <React.Fragment>
       <li className="proyectoOperativo">
@@ -41,7 +48,8 @@ function ProyectoOperativo(props) {
         <p onClick={verMasPO}>
           <img src={ver} alt="botón ver más" />
         </p>
-        <p onClick={props.onAnular}>
+        {/* <p onClick={props.onAnular}> */}
+        <p onClick={anularPO}>
           <img src={anular} alt="botón anular" />
         </p>
       </li>
@@ -53,6 +61,12 @@ function ProyectoOperativo(props) {
       {openModalVerMas && (
         <Modal>
           <FormularioPOver />
+        </Modal>
+      )}
+
+{openModalAnular && (
+        <Modal>
+          <FormularioPOanular />
         </Modal>
       )}
     </React.Fragment>
