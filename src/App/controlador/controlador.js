@@ -56,6 +56,8 @@ function POProvider(props) {
   const [openModalEstado, setOpenModalEstado] = React.useState(false);
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
+  const [openModalAnular, setOpenModalAnular] = React.useState(false);
+
 
   var fechaHoy = new Date();
   var dd = String(fechaHoy.getDate()).padStart(2, "0");
@@ -212,7 +214,7 @@ function POProvider(props) {
         setOpenModalVerMas,
         openModalEstado,
         setOpenModalEstado,
-
+        openModalAnular, setOpenModalAnular,
         //filtros
         ordenarArregloDes,
         setOrdenarArregloDes,
