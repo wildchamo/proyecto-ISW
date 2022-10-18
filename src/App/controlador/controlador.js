@@ -27,13 +27,7 @@ const defaultProyectos = [
   },
 ];
 
-const estados=[
-  "Activo",
-  "Cerrado",
-  "Anulado",
-  "Suspendido",
-  "Cancelado",
-]
+const estados = ["Activo", "Cerrado", "Anulado", "Suspendido", "Cancelado"];
 
 const POContext = React.createContext();
 
@@ -51,7 +45,7 @@ function POProvider(props) {
 
   //
 
-  const [estadoSelec,setEstadoSelec]= React.useState("");
+  const [estadoSelec, setEstadoSelec] = React.useState("");
 
   let unidad = "Unidad de servicio al usuario";
   let jefeUnidad = "Carolina Parra";
@@ -162,11 +156,10 @@ function POProvider(props) {
     });
   }
 
-
   if (!estadoSelec.length > 0) {
-    proyectosBuscados = proyectos;
+    proyectosBuscados = proyectosBuscados;
   } else {
-    console.log(estadoSelec)
+    console.log(estadoSelec);
     proyectosBuscados = proyectos.filter((proyecto) => {
       const proyectoEstado = proyecto.estado;
       return proyectoEstado.includes(estadoSelec);
