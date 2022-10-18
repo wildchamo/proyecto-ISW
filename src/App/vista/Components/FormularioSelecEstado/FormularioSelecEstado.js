@@ -13,7 +13,10 @@ function FormularioSelecEstado() {
   return (
     <div className="FormularioSelecEstado">
       <h2>Filtrar por estado:</h2>
-
+      <div className="radio">
+        <input type="radio" value="" />
+        <label>Sin filtro</label>
+      </div>
       <div className="radio">
         <input type="radio" value="Activo" />
         <label for="Activo">Activo</label>
