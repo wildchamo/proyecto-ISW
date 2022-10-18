@@ -1,9 +1,9 @@
-.box {
-  margin: 3%;
-  display: grid;
-  grid-area: auto;
-  align-items: center;
-  grid-template-columns: 3% 45% 40% 3% 5% 3%;
+.box{
+    margin: 3%;
+    display: grid;
+    grid-area: auto;
+    align-items: center;
+    grid-template-columns: 3% 45% 40% 3% 5% 3%;
 }
 .box h1 {
   /* ¡Bienvenido, xxxxx! */
