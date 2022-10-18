@@ -91,12 +91,6 @@ function FormularioPO() {
               {estado}
             </option>
           ))}
-          {/* <option value="">Seleccione</option>
-          <option value="Activo">Activo</option>
-          <option value="Cerrado">Cerrado</option>
-          <option value="Anulado">Anulado</option>
-          <option value="Suspendido">Suspendido</option>
-          <option value="Cancelado">Cancelado</option> */}
         </select>
       </div>
 
