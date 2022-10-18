@@ -19,7 +19,7 @@ function FormularioSelecEstado() {
     <div className="FormularioSelecEstado">
       <h2>Filtrar por estado:</h2>
       <div className="radio">
-        <input type="radio" value="" />
+        <input type="radio" value="" onClick={onClickR} />
         <label>Sin filtro</label>
       </div>
       <div className="radio">
@@ -27,19 +27,19 @@ function FormularioSelecEstado() {
         <label>Activo</label>
       </div>
       <div className="radio">
-        <input type="radio" value="Cerrado" />
+        <input type="radio" value="Cerrado" onClick={onClickR}/>
         <label>Cerrado</label>
       </div>
       <div className="radio">
-        <input type="radio" value="Anulado" />
+        <input type="radio" value="Anulado" onClick={onClickR}/>
         <label>Anulado</label>
       </div>
       <div className="radio">
-        <input type="radio" value="Cancelado" />
+        <input type="radio" value="Cancelado" onClick={onClickR}/>
         <label>Cancelado</label>
       </div>
       <div className="radio">
-        <input type="radio" value="Suspendido" />
+        <input type="radio" value="Suspendido" onClick={onClickR}/>
         <label>Suspendido</label>
       </div>
 
