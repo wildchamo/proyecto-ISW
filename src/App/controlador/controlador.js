@@ -51,7 +51,7 @@ function POProvider(props) {
 
   //
 
-  const [estadoSelec]= React.useState("");
+  const [estadoSelec,setEstadoSelec]= React.useState("");
 
   let unidad = "Unidad de servicio al usuario";
   let jefeUnidad = "Carolina Parra";
@@ -162,6 +162,17 @@ function POProvider(props) {
     });
   }
 
+
+  if (!estadoSelec.length > 0) {
+    proyectosBuscados = proyectos;
+  } else {
+    console.log(estadoSelec)
+    proyectosBuscados = proyectos.filter((proyecto) => {
+      const proyectoEstado = proyecto.estado;
+      return proyectoEstado.includes(estadoSelec);
+    });
+  }
+
   const anularProyecto = (text) => {
     const proyectoIndex = proyectosBuscados.findIndex(
       (proyecto) => proyecto.nombre === text
@@ -197,6 +208,7 @@ function POProvider(props) {
         //seleccionados
         proyectoSelec,
         estadoSelec,
+        setEstadoSelec,
 
         //modales
         openModal,

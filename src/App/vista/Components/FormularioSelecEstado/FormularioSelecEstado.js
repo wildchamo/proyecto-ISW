@@ -3,10 +3,15 @@ import { POContext } from "../../../controlador/controlador";
 import "./FormularioSelecEstado.css";
 
 function FormularioSelecEstado() {
-  const { setOpenModalEstado, estadoSelec, estados } =
+  const { setOpenModalEstado, estadoSelec, setEstadoSelec } =
     React.useContext(POContext);
 
   const onCancel = () => {
+    setOpenModalEstado(false);
+  };
+
+  const onClickR = (event) => {
+    setEstadoSelec(event.target.value);
     setOpenModalEstado(false);
   };
 
@@ -18,24 +23,24 @@ function FormularioSelecEstado() {
         <label>Sin filtro</label>
       </div>
       <div className="radio">
-        <input type="radio" value="Activo" />
-        <label for="Activo">Activo</label>
+        <input type="radio" value="Activo" onClick={onClickR} />
+        <label>Activo</label>
       </div>
       <div className="radio">
         <input type="radio" value="Cerrado" />
-        <label for="Cerrado">Cerrado</label>
+        <label>Cerrado</label>
       </div>
       <div className="radio">
         <input type="radio" value="Anulado" />
-        <label for="Anulado">Anulado</label>
+        <label>Anulado</label>
       </div>
       <div className="radio">
         <input type="radio" value="Cancelado" />
-        <label for="Cancelado">Cancelado</label>
+        <label>Cancelado</label>
       </div>
       <div className="radio">
         <input type="radio" value="Suspendido" />
-        <label for="Suspendido">Suspendido</label>
+        <label>Suspendido</label>
       </div>
 
       <button type="button" onClick={onCancel}>
