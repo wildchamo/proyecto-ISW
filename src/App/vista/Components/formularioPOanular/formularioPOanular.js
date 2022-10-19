@@ -27,9 +27,11 @@ function FormularioPOanular() {
       <label>Por qué quieres cancelar el proyecto?</label>
       <input type="text" onChange={onChangeMotivo} required></input>
 
-      <button onClick={onCancel}>Volver</button>
+      <div>
+        <button onClick={onCancel}>Volver</button>
 
-      <button type="submit">Aceptar</button>
+        <button type="submit">Aceptar</button>
+      </div>
     </form>
   );
 }
