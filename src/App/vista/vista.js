@@ -7,8 +7,13 @@ import { Modal } from "./Components/modal/modal";
 import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
 
 function AppUI() {
-  const { proyectosBuscados, openModal, proyectosTotal, anularProyecto, mostrarProyecto } =
-    React.useContext(POContext);
+  const {
+    proyectosBuscados,
+    openModal,
+    proyectosTotal,
+    anularProyecto,
+    mostrarProyecto,
+  } = React.useContext(POContext);
   return (
     <React.Fragment>
       <Header />
@@ -23,6 +28,7 @@ function AppUI() {
             estado={proyecto.estado}
             descripcion={proyecto.descripcion}
             prueba={index}
+            motivoCancelacion={proyecto.motivoCancelacion}
             onAnular={() => anularProyecto(proyecto.nombre)}
             onMostrar={() => mostrarProyecto(proyecto.nombre)}
           />

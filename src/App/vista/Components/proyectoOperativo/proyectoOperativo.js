@@ -13,7 +13,8 @@ import ver from "./ver.png";
 
 function ProyectoOperativo(props) {
   const {
-    openModalAnular, setOpenModalAnular,
+    openModalAnular,
+    setOpenModalAnular,
     setOpenModalEditar,
     setOpenModalVerMas,
     openModalVerMas,
@@ -52,6 +53,7 @@ function ProyectoOperativo(props) {
         <p onClick={anularPO}>
           <img src={anular} alt="botón anular" />
         </p>
+        <p></p>
       </li>
       {openModalEditar && (
         <Modal>
@@ -64,7 +66,7 @@ function ProyectoOperativo(props) {
         </Modal>
       )}
 
-{openModalAnular && (
+      {openModalAnular && (
         <Modal>
           <FormularioPOanular />
         </Modal>

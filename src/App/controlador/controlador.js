@@ -8,6 +8,7 @@ const defaultProyectos = [
     fechaCreacion: "",
     estado: "Cerrado",
     descripcion: "Soy una descripción",
+    motivoCancelacion: "",
   },
   {
     nombre: "Software de encuestas Limesurvey",
@@ -16,6 +17,7 @@ const defaultProyectos = [
     fechaCreacion: "2022-10-02",
     estado: "Cancelado",
     descripcion: "Soy una descripción",
+    motivoCancelacion: "",
   },
   {
     nombre: "ChatBot Sinapsis (Diseño de flujo)",
@@ -24,6 +26,7 @@ const defaultProyectos = [
     fechaCreacion: "2021-11-03",
     estado: "Activo",
     descripcion: "Soy una descripción",
+    motivoCancelacion: "",
   },
 ];
 
@@ -57,7 +60,6 @@ function POProvider(props) {
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
-
 
   var fechaHoy = new Date();
   var dd = String(fechaHoy.getDate()).padStart(2, "0");
@@ -168,13 +170,14 @@ function POProvider(props) {
     });
   }
 
-  const anularProyecto = (text) => {
+  const anularProyecto = (text, razon) => {
     const proyectoIndex = proyectosBuscados.findIndex(
       (proyecto) => proyecto.nombre === text
     );
     const newProyectos = [...proyectos];
     console.log(newProyectos);
     newProyectos[proyectoIndex].estado = "Anulado";
+    newProyectos[proyectoIndex].motivoCancelacion = razon;
     setProyectos(newProyectos);
   };
 
@@ -214,7 +217,8 @@ function POProvider(props) {
         setOpenModalVerMas,
         openModalEstado,
         setOpenModalEstado,
-        openModalAnular, setOpenModalAnular,
+        openModalAnular,
+        setOpenModalAnular,
         //filtros
         ordenarArregloDes,
         setOrdenarArregloDes,

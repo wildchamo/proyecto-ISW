@@ -3,11 +3,11 @@ import { POContext } from "../../../controlador/controlador";
 import "./formularioPOver.css";
 
 function FormularioPOver() {
-  const { setOpenModalVerMas,proyectoSelec } = React.useContext(POContext);
+  const { setOpenModalVerMas, proyectoSelec } = React.useContext(POContext);
   const onCancel = () => {
     setOpenModalVerMas(false);
   };
-  
+
   return (
     <form className="FormularioPOver">
       <h2>Detalles del proyecto</h2>
@@ -27,6 +27,9 @@ function FormularioPOver() {
 
       <label>descripcion del proyecto</label>
       <textarea readOnly value={proyectoSelec.descripcion}></textarea>
+      <label>Motivo cancelación proyecto</label>
+      <textarea readOnly value={proyectoSelec.motivoCancelación}></textarea>
+
       <button onClick={onCancel}>Volver</button>
     </form>
   );
