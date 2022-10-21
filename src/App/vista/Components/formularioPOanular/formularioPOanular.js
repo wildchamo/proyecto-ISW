@@ -23,14 +23,18 @@ function FormularioPOanular() {
 
   return (
     <form className="FormularioPOAnular" onSubmit={onSubmit}>
-      <p>Cancelando el proyecto {nombre}</p>
-      <label>Por qué quieres cancelar el proyecto?</label>
-      <input type="text" onChange={onChangeMotivo} required></input>
+      <p>¿Por qué deseas anular el proyecto {nombre}? *</p>
+      <textarea placeholder="Justificación" type="text" onChange={onChangeMotivo}  required></textarea>
 
       <div>
+        <div className="campos">
+
+        <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
         <button onClick={onCancel}>Volver</button>
 
-        <button type="submit">Aceptar</button>
+        <button type="submit">Anular proyecto</button>
+        </div>
+
       </div>
     </form>
   );
