@@ -28,7 +28,7 @@ function FormularioPOver() {
       <label>descripcion del proyecto</label>
       <textarea readOnly value={proyectoSelec.descripcion}></textarea>
       <label>Motivo cancelación proyecto</label>
-      <textarea readOnly value={proyectoSelec.motivoCancelación}></textarea>
+      <textarea readOnly value={proyectoSelec.motivoCancelacion}></textarea>
 
       <button onClick={onCancel}>Volver</button>
     </form>
