@@ -19,14 +19,26 @@ function Filtros(props) {
   const onClickButtonAscFI = () => {
     props.ordenarArregloAscFI(true);
   };
-
+  const onClickButtonDesFI = () => {
+    props.ordenarArregloDesFI(true);
+  };
+  const onClickButtonAscFF = () => {
+    props.ordenarArregloAscFF(true);
+  };
+  const onClickButtonDesFF = () => {
+    props.ordenarArregloDesFF(true);
+  };
   const onClickModalEstado = () => {
     setOpenModalEstado(true);
   };
 
   return (
     <div className="tituloListas">
-      {openModalEstado && <Modal><FormularioSelecEstado/></Modal>}
+      {openModalEstado && (
+        <Modal>
+          <FormularioSelecEstado />
+        </Modal>
+      )}
       <div>
         <p>Nombre</p>
         <div className="flechas">
@@ -54,15 +66,30 @@ function Filtros(props) {
             src={arriba}
             alt="Logo"
           />
-          <img className="flecha" src={abajo} alt="Logo" />
+          <img
+            className="flecha"
+            onClick={onClickButtonDesFI}
+            src={abajo}
+            alt="Logo"
+          />
         </div>
       </div>
 
       <div>
         <p>fecha de finalización</p>
         <div className="flechas">
-          <img className="flecha" src={arriba} alt="Logo" />
-          <img className="flecha" src={abajo} alt="Logo" />
+          <img
+            className="flecha"
+            onClick={onClickButtonAscFF}
+            src={arriba}
+            alt="Logo"
+          />
+          <img
+            className="flecha"
+            onClick={onClickButtonDesFF}
+            src={abajo}
+            alt="Logo"
+          />
         </div>
       </div>
 

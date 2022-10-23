@@ -13,8 +13,8 @@ const defaultProyectos = [
   {
     nombre: "Software de encuestas Limesurvey",
     fechaInicio: "2021-11-05",
-    fechaFin: "2022-10-02",
-    fechaCreacion: "2022-10-02",
+    fechaFin: "2022-10-05",
+    fechaCreacion: "2022-10-04",
     estado: "Cancelado",
     descripcion: "Soy una descripción",
     motivoCancelacion: "",
@@ -22,7 +22,7 @@ const defaultProyectos = [
   {
     nombre: "ChatBot Sinapsis (Diseño de flujo)",
     fechaInicio: "2021-11-07",
-    fechaFin: "2022-10-02",
+    fechaFin: "2022-10-03",
     fechaCreacion: "2021-11-03",
     estado: "Activo",
     descripcion: "Soy una descripción",
