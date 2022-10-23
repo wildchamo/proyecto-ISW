@@ -8,7 +8,7 @@ const defaultProyectos = [
     fechaCreacion: "",
     estado: "Cerrado",
     descripcion: "Soy una descripción",
-    motivoCancelacion: "",
+    motivoCancelacion: "jose",
   },
   {
     nombre: "Software de encuestas Limesurvey",

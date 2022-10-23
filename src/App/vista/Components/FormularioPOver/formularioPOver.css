@@ -16,6 +16,7 @@
   justify-content: space-around;
 }
 
+
 .divisor textarea {
   background-color: #f9fbfc;
   border: none;
@@ -27,4 +28,8 @@
 }
 .divisor{
 display: flex;
+}
+.motivo{
+  display: flex;
+  flex-direction: column;
 }
