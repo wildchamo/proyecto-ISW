@@ -1,0 +1,19 @@
+.proyectos {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 16.8301px;
+  line-height: 23px;
+  font-style: normal;
+
+  color: #3a3a49;
+}
+.grafica {
+  text-align: center;
+  width: 100%;
+  font-size: 16.8301px;
+  line-height: 23px;
+  font-style: normal;
+
+  color: #3a3a49;
+}

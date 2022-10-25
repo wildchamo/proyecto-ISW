@@ -55,6 +55,31 @@ function POProvider(props) {
   let proyectosBuscados = [];
   let proyectosTotal = proyectos.length;
 
+  let proyectosActivos = proyectos.filter(
+    (proyecto) => proyecto.estado === "Activo"
+  );
+  let proyectosActivosValue = proyectosActivos.length;
+
+  let proyectosCerrados = proyectos.filter(
+    (proyecto) => proyecto.estado === "Cerrado"
+  );
+  let proyectosCerradosValue = proyectosCerrados.length;
+
+  let proyectosAnulados = proyectos.filter(
+    (proyecto) => proyecto.estado === "Anulado"
+  );
+  let proyectosAnuladosValue = proyectosAnulados.length;
+
+  let proyectosCancelados = proyectos.filter(
+    (proyecto) => proyecto.estado === "Cancelado"
+  );
+  let proyectosCanceladosValue = proyectosCancelados.length;
+
+  let proyectosSuspendidos = proyectos.filter(
+    (proyecto) => proyecto.estado === "Suspendido"
+  );
+  let proyectosSuspendidosValue = proyectosSuspendidos.length;
+
   const [openModal, setOpenModal] = React.useState(false);
   const [openModalEstado, setOpenModalEstado] = React.useState(false);
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
@@ -238,6 +263,13 @@ function POProvider(props) {
         editarProyecto,
         anularProyecto,
         mostrarProyecto,
+
+        //Grafica
+        proyectosActivosValue,
+        proyectosCerradosValue,
+        proyectosAnuladosValue,
+        proyectosCanceladosValue,
+        proyectosSuspendidosValue,
       }}
     >
       {props.children}

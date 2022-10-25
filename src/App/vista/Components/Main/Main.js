@@ -3,6 +3,7 @@ import { ListaProyectoOperativo } from "../listaProyectoOperativo/listaProyectoO
 import { ProyectoOperativo } from "../proyectoOperativo/proyectoOperativo.js";
 import { Grafica } from "../Grafica/Grafica.js";
 import { POContext } from "../../../controlador/controlador";
+import "./main.css";
 function Main() {
   const {
     proyectosBuscados,
