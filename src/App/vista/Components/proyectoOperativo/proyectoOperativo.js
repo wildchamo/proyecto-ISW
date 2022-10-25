@@ -38,7 +38,7 @@ function ProyectoOperativo(props) {
 
   return (
     <React.Fragment>
-      <li className="proyectoOperativo">
+       <li className="proyectoOperativo">
         <p>{props.nombre}</p>
         <p>{props.fechaInicio}</p>
         <p>{props.fechaFin}</p>

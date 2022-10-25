@@ -186,9 +186,8 @@ function POProvider(props) {
   }
 
   if (!estadoSelec.length > 0) {
-    proyectosBuscados = proyectosBuscados;
+    proyectosBuscados = proyectos;
   } else {
-    console.log(estadoSelec);
     proyectosBuscados = proyectos.filter((proyecto) => {
       const proyectoEstado = proyecto.estado;
       return proyectoEstado.includes(estadoSelec);
