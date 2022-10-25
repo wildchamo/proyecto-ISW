@@ -112,7 +112,6 @@ function POProvider(props) {
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
-
   //función para agregar proyectos
   const agregarProyecto = (
     nombre,
@@ -133,7 +132,7 @@ function POProvider(props) {
     });
     setProyectos(newProyectos);
   };
-
+  //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
   const editarProyecto = (
     nombre,
     fechaInicio,
@@ -149,6 +148,8 @@ function POProvider(props) {
     proyectoSelec.estado = estado;
     proyectoSelec.descripcion = descripcion;
   };
+
+  //en el caso que se presionen las flechas para ordenar los proyectos, las siguientes funciones los ordenan
 
   if (ordenarArregloDes) {
     proyectosBuscados = proyectos.sort(function (a, b) {
@@ -196,6 +197,9 @@ function POProvider(props) {
     });
   }
 
+  //en el caso que el valor de busqueda cambie y sea mayor o igual a 1, se filtrará para que se impriman solo los proyectos
+  //que incluyen el valor buscado ensu nombre
+
   if (!searchValue.length >= 1) {
     proyectosBuscados = proyectos;
   } else {
@@ -205,7 +209,8 @@ function POProvider(props) {
       return proyectoNombre.includes(searchText);
     });
   }
-
+  //en el caso que el estado seleccinado cambie, se filtrará para que se impriman solo los proyectos
+  //que incluyen el valor del estado
   if (!estadoSelec.length > 0) {
     proyectosBuscados = proyectos;
   } else {
@@ -214,7 +219,7 @@ function POProvider(props) {
       return proyectoEstado.includes(estadoSelec);
     });
   }
-
+//función para anular proyecto
   const anularProyecto = (text, razon) => {
     const proyectoIndex = proyectosBuscados.findIndex(
       (proyecto) => proyecto.nombre === text
@@ -225,6 +230,7 @@ function POProvider(props) {
     newProyectos[proyectoIndex].motivoCancelacion = razon;
     setProyectos(newProyectos);
   };
+  //función que realiza una consulta utilizando el nombre del proyecto clickado para mostrarlo después en un interfaz
 
   const mostrarProyecto = (text) => {
     const proyectoIndex = proyectosBuscados.findIndex(
@@ -232,7 +238,7 @@ function POProvider(props) {
     );
     setProyectoSelec(proyectos[proyectoIndex]);
   };
-
+// todo lo que se exporta de la aplicación para que la vista y los componentes lo consuman y puedan cambiarlo
   return (
     <POContext.Provider
       value={{
