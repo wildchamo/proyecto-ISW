@@ -3,7 +3,7 @@ import { POContext } from "../../../controlador/controlador";
 import "./formularioPOEdit.css";
 
 function FormularioPOedit() {
-  const { setOpenModalEditar, proyectoSelec, editarProyecto } =
+  const { setOpenModalEditar, proyectoSelec, editarProyecto, estados } =
     React.useContext(POContext);
 
   const [nombre, setNombre] = React.useState(proyectoSelec.nombre);
@@ -78,14 +78,19 @@ function FormularioPOedit() {
         />
         <label>Fecha de creación</label>
         <input type="date" onChange={onChangeFechaCre} value={fechaCreacion} />
-        <label>Estado proyecto</label>
 
-        <select value={proyectoSelec.estado} onChange={onChangeEstado} required>
-          <option value="Activo">Activo</option>
-          <option value="Cerrado">Cerrado</option>
-          <option value="Anulado">Anulado</option>
-          <option value="Suspendido">Suspendido</option>
-          <option value="Cancelado">Cancelado</option>
+        <label>Estado del proyecto *</label>
+        <select
+          value={estado}
+          onChange={onChangeEstado}
+          placeholder="estado"
+          required
+        >
+          {estados.map((estado) => (
+            <option value={estado} key={estado}>
+              {estado}
+            </option>
+          ))}
         </select>
       </div>
       <label>descripcion del proyecto</label>

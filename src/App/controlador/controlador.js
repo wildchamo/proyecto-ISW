@@ -30,7 +30,7 @@ const defaultProyectos = [
   },
 ];
 
-const estados = ["Activo", "Cerrado", "Anulado", "Suspendido", "Cancelado"];
+const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
 
 const POContext = React.createContext();
 
