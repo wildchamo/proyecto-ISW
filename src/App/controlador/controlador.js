@@ -32,28 +32,52 @@ const defaultProyectos = [
 
 const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
 
+//creación del context
 const POContext = React.createContext();
 
 function POProvider(props) {
+  //seteamos los estados necesarios para la implementación del proyecto, los estados cambian según las
+  //interacciones que realice el usuario con el componente vista
+
+  //cargamos la lista de proyectos en un estado
   const [proyectos, setProyectos] = React.useState(defaultProyectos);
+
+  //para mostrar un proyecto en especifico es necesario extraer sus datos, por tanto se encapsula temporalmente en el estado
+  //proyectoSelect
   const [proyectoSelec, setProyectoSelec] = React.useState();
+
+  //se almacena el valor escrito por el usuario en el campo para buscar proyectos en un estado
   const [searchValue, setSearchValue] = React.useState("");
+  //estados que reciben el click del usuario en las flechas para organizar los proyectos de forma descendente o ascendente
   const [ordenarArregloDes, setOrdenarArregloDes] = React.useState(false);
   const [ordenarArregloAsc, setOrdenarArregloAsc] = React.useState(false);
-  //Gabriela
   const [ordenarArregloAscFI, setOrdenarArregloAscFI] = React.useState(false);
   const [ordenarArregloDesFI, setOrdenarArregloDesFI] = React.useState(false);
   const [ordenarArregloAscFF, setOrdenarArregloAscFF] = React.useState(false);
   const [ordenarArregloDesFF, setOrdenarArregloDesFF] = React.useState(false);
 
-  //
-
+  //se almacena el estado seleccionado por el usuario para filtrar los proyectos que incluyan ese estado
   const [estadoSelec, setEstadoSelec] = React.useState("");
 
+  //datos generales de la sesión
   let unidad = "Unidad de servicio al usuario";
   let jefeUnidad = "Carolina Parra";
+
+  var fechaHoy = new Date();
+  var dd = String(fechaHoy.getDate()).padStart(2, "0");
+  var mm = String(fechaHoy.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = fechaHoy.getFullYear();
+
+  fechaHoy = yyyy + "-" + mm + "-" + dd;
+
+  //se crea un arreglo llamado proyectos buscados para que guarde los proyectos que tengan coincidencia con la busqueda
+  //del proyecto realizado por el usuario, este arreglo será lo que se imprima
   let proyectosBuscados = [];
+  //se extrae el número de proyectos del arreglo para imprimirlo en pantalla
   let proyectosTotal = proyectos.length;
+
+  //filtros que almacenan los proyectos según su estado y creación de variables que almacena el número de proyectos
+  //con ese estado
 
   let proyectosActivos = proyectos.filter(
     (proyecto) => proyecto.estado === "Activo"
@@ -80,19 +104,16 @@ function POProvider(props) {
   );
   let proyectosSuspendidosValue = proyectosSuspendidos.length;
 
+  //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
+
   const [openModal, setOpenModal] = React.useState(false);
   const [openModalEstado, setOpenModalEstado] = React.useState(false);
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
-  var fechaHoy = new Date();
-  var dd = String(fechaHoy.getDate()).padStart(2, "0");
-  var mm = String(fechaHoy.getMonth() + 1).padStart(2, "0"); //January is 0!
-  var yyyy = fechaHoy.getFullYear();
 
-  fechaHoy = yyyy + "-" + mm + "-" + dd;
-
+  //función para agregar proyectos
   const agregarProyecto = (
     nombre,
     fechaInicio,
