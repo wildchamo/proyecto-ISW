@@ -1,40 +1,16 @@
 import React from "react";
-import { ListaProyectoOperativo } from "./Components/listaProyectoOperativo/listaProyectoOperativo.js";
 import { Header } from "./Components/Header/header";
-import { ProyectoOperativo } from "./Components/proyectoOperativo/proyectoOperativo.js";
+import { Main } from "./Components/Main/Main.js";
 import { POContext } from "../controlador/controlador";
 import { Modal } from "./Components/modal/modal";
 import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
 
 function AppUI() {
-  const {
-    proyectosBuscados,
-    openModal,
-    proyectosTotal,
-    anularProyecto,
-    mostrarProyecto,
-  } = React.useContext(POContext);
+  const { openModal } = React.useContext(POContext);
   return (
     <React.Fragment>
       <Header />
-      <ListaProyectoOperativo>
-        {proyectosBuscados.map((proyecto, index) => (
-          <ProyectoOperativo
-            key={proyecto.nombre}
-            nombre={proyecto.nombre}
-            fechaInicio={proyecto.fechaInicio}
-            fechaFin={proyecto.fechaFin}
-            fechaCreacion={proyecto.fechaCreacion}
-            estado={proyecto.estado}
-            descripcion={proyecto.descripcion}
-            prueba={index}
-            motivoCancelacion={proyecto.motivoCancelacion}
-            onAnular={() => anularProyecto(proyecto.nombre)}
-            onMostrar={() => mostrarProyecto(proyecto.nombre)}
-          />
-        ))}
-      </ListaProyectoOperativo>
-      <p>total proyecto: {proyectosTotal}</p>
+      <Main />
 
       {openModal && (
         <Modal>
