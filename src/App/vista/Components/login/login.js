@@ -20,7 +20,10 @@ const Login = () => {
     //         email: email,
     //         password: password,
     //       });
-    history("/dashboard");
+    if (user === "cparra" && password === "1234") {
+      history("/dashboard");
+    }
+
     //     } catch (error) {
     //       if (error.response) {
     //         setMsg(error.response.data.msg);
