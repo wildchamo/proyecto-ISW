@@ -32,39 +32,42 @@ const Login = () => {
 
   return (
     <React.Fragment>
-      <div className="contenedorLogin">
-        <div>
-          <img src={opmanager} alt="Logo" />
-        </div>
-
-        <form>
-          <label className="label">Nombre de usuario</label>
+      <div className="contenedorLogin1">
+        <div className="contenedorLogin">
           <div>
-            <input
-              type="text"
-              className="input"
-              placeholder="Nombre de usuario"
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
-            />
+            <img src={opmanager} alt="Logo" />
           </div>
 
-          <label className="label">Contraseña</label>
-          <div>
-            <input
-              type="password"
-              className="input"
-              placeholder="Contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+          <form>
+            <label className="label">Nombre de usuario</label>
+            <div>
+              <input
+                type="text"
+                className="input"
+                placeholder="Nombre de usuario"
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
+              />
+            </div>
 
-          <button>Iniciar sesión</button>
-        </form>
-        <div>
-          <img src={logouao} />
+            <label className="label">Contraseña</label>
+            <div>
+              <input
+                type="password"
+                className="input"
+                placeholder="Contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <button>Iniciar sesión</button>
+          </form>
+          <div>
+            <img src={logouao} />
+          </div>
         </div>
+        <img className="imgTrabajo" src={trabajo} />
       </div>
     </React.Fragment>
   );
