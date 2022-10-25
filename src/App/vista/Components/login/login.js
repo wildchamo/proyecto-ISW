@@ -54,7 +54,7 @@ const Login = () => {
             </div>
 
             <label className="label">Contraseña</label>
-            <div>
+            <div className="titulos">
               <input
                 type="password"
                 className="input"
@@ -63,8 +63,9 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-
+            <div className="btn">
             <button>Iniciar sesión</button>
+            </div>
           </form>
           <div>
             <img src={logouao} />
