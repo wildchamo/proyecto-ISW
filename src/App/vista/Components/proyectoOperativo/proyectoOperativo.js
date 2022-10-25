@@ -42,7 +42,7 @@ function ProyectoOperativo(props) {
         <p>{props.nombre}</p>
         <p>{props.fechaInicio}</p>
         <p>{props.fechaFin}</p>
-        <p>● {props.estado}</p>
+        <p className={`estado-p ${props.estado==="Activo"&& 'estado-p--activo'} `}>● {props.estado}</p>
         <p onClick={editarPO}>
           <img src={editar} alt="botón editar" />
         </p>

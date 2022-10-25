@@ -21,4 +21,6 @@
   cursor: pointer;
 }
 
-
+.estado-p--activo{
+  color: #31B465;
+}
