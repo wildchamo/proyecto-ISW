@@ -7,7 +7,6 @@ import "./main.css";
 function Main() {
   const {
     proyectosBuscados,
-    proyectosTotal,
     anularProyecto,
     mostrarProyecto,
   } = React.useContext(POContext);
@@ -31,7 +30,6 @@ function Main() {
               />
             ))}
           </ListaProyectoOperativo>
-          <p>total proyecto: {proyectosTotal}</p>
         </section>
         <Grafica />
     </main>

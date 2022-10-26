@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;   
+    color:black;
 }
 
 .input{
@@ -25,6 +26,7 @@
     font-family: "Work Sans";
     opacity: 40%;
     font-size: 100%;
+    
 }
 
 .btn{

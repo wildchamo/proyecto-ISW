@@ -49,11 +49,11 @@ function Grafica() {
         </div>
 
         <div className="proyectos">
-          <p>{proyectosActivosValue} proyectos Activos</p>
-          <p>{proyectosCerradosValue} proyectos Cerrados</p>
-          <p>{proyectosAnuladosValue} proyectos Anulados</p>
-          <p>{proyectosCanceladosValue} proyectos Cancelados</p>
-          <p>{proyectosSuspendidosValue} proyectos Suspendidos</p>
+          <p><div>●</div> {proyectosActivosValue} proyectos Activos</p>
+          <p><div>●</div>{proyectosCerradosValue} proyectos Cerrados</p>
+          <p><div>●</div>{proyectosAnuladosValue} proyectos Anulados</p>
+          <p><div>●</div>{proyectosCanceladosValue} proyectos Cancelados</p>
+          <p><div>●</div>{proyectosSuspendidosValue} proyectos Suspendidos</p>
         </div>
       </div>
     </React.Fragment>

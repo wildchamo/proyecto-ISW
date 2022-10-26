@@ -14,3 +14,8 @@ ul {
 .listaProyectoOperativo h1 {
   text-align: center;
 }
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

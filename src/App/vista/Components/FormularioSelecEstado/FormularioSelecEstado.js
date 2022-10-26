@@ -3,7 +3,7 @@ import { POContext } from "../../../controlador/controlador";
 import "./FormularioSelecEstado.css";
 
 function FormularioSelecEstado() {
-  const { setOpenModalEstado, estadoSelec, setEstadoSelec } =
+  const { setOpenModalEstado, setEstadoSelec } =
     React.useContext(POContext);
 
   const onCancel = () => {
