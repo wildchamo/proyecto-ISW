@@ -5,11 +5,11 @@ import "./busquedaProyecto.css";
 function BusquedaProyecto() {
   const { searchValue, setSearchValue } = React.useContext(POContext);
 
-    const onSearchValueChange = (event) => {
+  const onSearchValueChange = (event) => {
     setSearchValue(event.target.value);
   };
 
-  return(
+  return (
     <input
       onChange={onSearchValueChange}
       className="busquedaProyecto"
@@ -18,4 +18,4 @@ function BusquedaProyecto() {
     />
   );
 }
-export {BusquedaProyecto}
+export { BusquedaProyecto };

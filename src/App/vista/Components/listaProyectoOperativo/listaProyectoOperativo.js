@@ -14,6 +14,8 @@ function ListaProyectoOperativo(props) {
     setOrdenarArregloDesFI,
     setOrdenarArregloAscFF,
     setOrdenarArregloDesFF,
+    proyectosTotal,
+    proyectosBTotal
   } = React.useContext(POContext);
 
   return (
@@ -29,7 +31,12 @@ function ListaProyectoOperativo(props) {
 
       />
       <ul>{props.children}</ul>
+      <div className="footer">
+      <p>Mostrado {proyectosBTotal} de {proyectosTotal} proyectos</p>
+
       <BotonCrearProyecto setOpenModal={setOpenModal} />
+
+      </div>
     </section>
   );
 }
