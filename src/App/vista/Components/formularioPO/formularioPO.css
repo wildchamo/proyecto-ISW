@@ -1,13 +1,10 @@
 .formularioPO {
   position: absolute;
-  width: 1100px;
-  height: 400px;
-  left: 71px;
-  top: 92px;
-  padding: 40px;
-  background: #ffffff;
-  /* Shadow */
   display: flex;
+  width: 80%;
+  height: 50%;
+  padding: 5%;
+  background: #ffffff;
   flex-direction: column;
   justify-content: space-around;
   box-shadow: 1px 2px 3px rgba(70, 118, 251, 0.41);
@@ -16,16 +13,69 @@
 }
 
 .formularioPO textarea {
-  background-color: #f9fbfc;
+  background-color: transparent;
   border: none;
-  border-bottom: 1px solid #202329;
+  border-bottom: 2px solid lightgrey;
   border-radius: 2px;
-  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
   color: #1e1e1f;
   width: calc(100% - 25px); 
   resize: none;
 }
 
-.formularioPO .divisor{
-display: flex;
+.final{
+  margin: 2%;
+  display: grid;
+  grid-area: auto;
+  align-items: center;
+  grid-template-columns: 70% 20% 20%;
+  color: #c4161c;
+}
+
+.entradas{
+  display: flex;
+  justify-content: space-around;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  padding-top: 1%;
+  font-family: "Work Sans"; 
+}
+
+.estado{
+  border-bottom: 2px solid lightgrey;
+  border-radius: 0%;
+  background-color: transparent;
+  color: #1e1e1f;
+}
+
+.estado select{
+  display: none;
+}
+
+.fecha{
+  font-family: "Work Sans"; 
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 6% 5% 3% 3%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  padding-top: 1%;
+}
+
+.divisor{
+  display: flex;
+  justify-content: space-around;
+  font-family: "Work Sans"; 
+}
+
+.titulos{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  padding-top: 1%;
+}
+
+.h2{
+  margin-bottom: 4%;
 }

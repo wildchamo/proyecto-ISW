@@ -50,7 +50,7 @@ function FormularioPO() {
     <form className="formularioPO" onSubmit={onSubmit}>
       <h2>Creando proyecto nuevo...</h2>
       <label>Nombre del proyecto *</label>
-      <textarea
+      <textarea className="entradas"
         required
         value={nombre}
         onChange={onChangeNombre}
@@ -58,29 +58,36 @@ function FormularioPO() {
         maxLength={50}
       ></textarea>
       <div className="divisor">
-        <label>Fecha de inicio </label>
-        <input
+        <div className="titulos">
+          <label>Fecha de inicio *</label>
+        <input className="fecha"
           type="date"
           onChange={onChangeFechaIni}
           placeholder="fecha de inicio"
           min={fechaCreacion}
-        />
-        <label>Fecha de finalización </label>
-        <input
+        /> </div>
+        
+        <div className="titulos">         
+          <label>Fecha de finalización *</label>
+        <input className="fecha"
           type="date"
           onChange={onChangeFechaFin}
           placeholder="fecha de finalización"
           min={fechaInicio}
-        />
-        <label>Fecha de creación </label>
-        <input
+        /> </div>
+
+        <div className="titulos">
+         <label>Fecha de creación</label>
+        <input className="fecha"
           type="date"
           disabled
           value={fechaCreacion}
           placeholder="fecha de creación"
-        />
-        <label>Estado *</label>
-        <select
+        /> </div>
+
+        <div className="titulos">
+          <label>Estado *</label>
+        <select className="estado"
           value={estado}
           onChange={onChangeEstado}
           placeholder="estado"
@@ -92,15 +99,16 @@ function FormularioPO() {
             </option>
           ))}
         </select>
+        </div>
       </div>
 
       <label>Descripcion del proyecto</label>
-      <textarea
+      <textarea className="entradas"
         onChange={onChangeDes}
         placeholder="Descripción proyecto"
         maxLength={1000}
       ></textarea>
-      <div>
+      <div className="final">
         <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
         <button type="button" onClick={onCancel}>
           Cancelar
