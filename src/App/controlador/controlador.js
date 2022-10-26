@@ -176,6 +176,7 @@ function POProvider(props) {
   }
 
   if (!searchValue.length >= 1) {
+    console.log(searchValue)
     proyectosBuscados = proyectos;
   } else {
     proyectosBuscados = proyectos.filter((proyecto) => {

@@ -54,7 +54,7 @@ const Login = () => {
             </div>
 
             <label className="label">Contraseña</label>
-            <div className="titulos">
+            <div>
               <input
                 type="password"
                 className="input"

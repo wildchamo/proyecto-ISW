@@ -7,6 +7,7 @@ function BusquedaProyecto() {
 
     const onSearchValueChange = (event) => {
     setSearchValue(event.target.value);
+    console.log("Hola")
   };
 
   return(
