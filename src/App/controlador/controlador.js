@@ -51,7 +51,8 @@ function POProvider(props) {
   //llamamos a los proyectos de la BD utilizando el modelo
   useEffect(() => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
-      setProyectos(response.data[0]);
+    console.log(response)  
+    setProyectos(response.data[0]);
     });
   }, []);
 
