@@ -29,6 +29,7 @@
   align-items: center;
   grid-template-columns: 70% 20% 20%;
   color: #c4161c;
+  justify-self: space-around;
 }
 
 .entradas{
@@ -41,30 +42,37 @@
 }
 
 .estado{
+  position: relative;
+  font-family: "Work Sans"; 
+  border: none;
   border-bottom: 2px solid lightgrey;
   border-radius: 0%;
   background-color: transparent;
-  color: #1e1e1f;
+  margin: 1%;
 }
 
-.estado select{
-  display: none;
-}
-
-.fecha{
-  font-family: "Work Sans"; 
+.input.fecha{
   display: grid;
   justify-content: space-around;
-  grid-template-columns: 6% 5% 3% 3%;
+  grid-template-columns: 15% 6%;
   margin-left: 1%;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
   padding-top: 1%;
+  border: none;
+  border-bottom: 2px solid lightgrey;
+  border-radius: 2px;
+}
+
+.input{
+  font-family: 'Work Sans';
 }
 
 .divisor{
   display: flex;
-  justify-content: space-around;
-  font-family: "Work Sans"; 
+  font-family: "Work Sans";
+  justify-content: space-between;
+  margin-left: -1%;
+  margin-bottom: 2%; 
 }
 
 .titulos{
@@ -74,8 +82,12 @@
   margin-bottom: 1%;
   margin-top: 1%;
   padding-top: 1%;
+  align-items:flex-start
 }
 
-.h2{
-  margin-bottom: 4%;
+.atras{
+  position: initial;
+  align-items: start;
+  height: 38px;
 }
+

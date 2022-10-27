@@ -1,6 +1,7 @@
 import React from "react";
 import { POContext } from "../../../controlador/controlador";
 import "./formularioPO.css";
+import atras from "./atras.png";
 
 function FormularioPO() {
   const { agregarProyecto, setOpenModal, fechaHoy, estados } =
@@ -48,6 +49,10 @@ function FormularioPO() {
 
   return (
     <form className="formularioPO" onSubmit={onSubmit}>
+      <div  className="Atras">
+      <img src={atras} alt="atras" />
+      </div>
+
       <h2>Creando proyecto nuevo...</h2>
       <label>Nombre del proyecto *</label>
       <textarea className="entradas"
@@ -102,7 +107,7 @@ function FormularioPO() {
         </div>
       </div>
 
-      <label>Descripcion del proyecto</label>
+      <label>Descripción del proyecto</label>
       <textarea className="entradas"
         onChange={onChangeDes}
         placeholder="Descripción proyecto"
