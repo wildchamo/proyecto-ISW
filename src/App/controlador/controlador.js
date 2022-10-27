@@ -40,7 +40,7 @@ function POProvider(props) {
   //interacciones que realice el usuario con el componente vista
 
   //cargamos la lista de proyectos en un estado
-  const [proyectos, setProyectos] = React.useState(defaultProyectos);
+  const [proyectos, setProyectos] = React.useState([]);
 
   //para mostrar un proyecto en especifico es necesario extraer sus datos, por tanto se encapsula temporalmente en el estado
   //proyectoSelect
@@ -255,6 +255,7 @@ function POProvider(props) {
         proyectosBuscados,
         estados,
         proyectosBTotal,
+        setProyectos,
 
         //busqueda
         searchValue,
