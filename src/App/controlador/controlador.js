@@ -55,7 +55,7 @@ function POProvider(props) {
     });
   }, []);
 
-  if(openModal){
+  if(openModal || openModalEditar||openModalVerMas){
     Axios.get("http://localhost:3001/api/get/es").then((response) => {
       setEstados(response.data);
     });

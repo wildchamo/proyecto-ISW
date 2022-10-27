@@ -81,14 +81,13 @@ function FormularioPOedit() {
 
         <label>Estado del proyecto *</label>
         <select
-          value={estado}
-          onChange={onChangeEstado}
-          placeholder="estado"
+          value={estado.idestado}
+          onChange={onChangeEstado} 
           required
         >
           {estados.map((estado) => (
-            <option value={estado} key={estado}>
-              {estado}
+             <option key={estado.idestado} value={estado.idestado} >
+             {estado.nombre}
             </option>
           ))}
         </select>
