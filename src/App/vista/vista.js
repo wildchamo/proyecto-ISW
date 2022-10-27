@@ -10,7 +10,8 @@ import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
 function AppUI() {
   useEffect(() => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
-      console.log(response.data);
+      console.log(response.data[0]);
+      
     });
   }, []);
   const { openModal } = React.useContext(POContext);
