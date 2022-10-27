@@ -5,7 +5,6 @@
   font-size: 16.8301px;
   line-height: 23px;
   font-style: normal;
-
   color: #3a3a49;
 }
 .grafica {
@@ -13,7 +12,16 @@
   width: 100%;
   font-size: 16.8301px;
   line-height: 23px;
-  font-style: normal;
+  font-style: no rmal;
   color: #3a3a49;
 }
+.puntito{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1% 37%;
+  align-items: center;
+}
 
+#p-activo{
+  color: green;
+}
