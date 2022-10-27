@@ -1,4 +1,6 @@
 import React from "react";
+import Axios from "axios";
+import { useEffect } from "react";
 
 const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
 
@@ -31,9 +33,15 @@ function POProvider(props) {
 
   //datos generales de la sesión
   let unidad = "Unidad de servicio al usuario";
-  let jefeUnidad =  "Carolina Parra";
-  let usuarioJefe="jcortes";
+  let jefeUnidad = "Carolina Parra";
+  let usuarioJefe = "jcortes";
 
+  //llamamos a los proyectos de la BD utilizando el modelo
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      setProyectos(response.data[0]);
+    });
+  }, []);
 
   var fechaHoy = new Date();
   var dd = String(fechaHoy.getDate()).padStart(2, "0");
