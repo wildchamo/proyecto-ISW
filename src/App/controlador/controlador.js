@@ -2,7 +2,7 @@ import React from "react";
 import Axios from "axios";
 import { useEffect } from "react";
 
-const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
+//const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
 
 //creación del context
 const POContext = React.createContext();
@@ -13,6 +13,9 @@ function POProvider(props) {
 
   //cargamos la lista de proyectos en un estado
   const [proyectos, setProyectos] = React.useState([]);
+
+  //lista de estados
+  const [estados,setEstados]=React.useState([]);
 
   //para mostrar un proyecto en especifico es necesario extraer sus datos, por tanto se encapsula temporalmente en el estado
   //proyectoSelect
@@ -36,12 +39,28 @@ function POProvider(props) {
   let jefeUnidad = "Carolina Parra";
   let usuarioJefe = "jcortes";
 
+  //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
+
+  const [openModal, setOpenModal] = React.useState(false);
+  const [openModalEstado, setOpenModalEstado] = React.useState(false);
+  const [openModalEditar, setOpenModalEditar] = React.useState(false);
+  const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
+  const [openModalAnular, setOpenModalAnular] = React.useState(false);
+
+
   //llamamos a los proyectos de la BD utilizando el modelo
   useEffect(() => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
       setProyectos(response.data[0]);
     });
   }, []);
+
+  if(openModal){
+    Axios.get("http://localhost:3001/api/get/es").then((response) => {
+      setEstados(response.data);
+    });
+  }
+  
 
   var fechaHoy = new Date();
   var dd = String(fechaHoy.getDate()).padStart(2, "0");
@@ -84,13 +103,7 @@ function POProvider(props) {
   );
   let proyectosSuspendidosValue = proyectosSuspendidos.length;
 
-  //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
 
-  const [openModal, setOpenModal] = React.useState(false);
-  const [openModalEstado, setOpenModalEstado] = React.useState(false);
-  const [openModalEditar, setOpenModalEditar] = React.useState(false);
-  const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
-  const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
   //función para agregar proyectos
   const agregarProyecto = (
@@ -191,7 +204,6 @@ function POProvider(props) {
   //que incluyen el valor buscado ensu nombre
 
   if (!searchValue.length >= 1) {
-    console.log(searchValue);
     proyectosBuscados = proyectos;
   } else {
     proyectosBuscados = proyectos.filter((proyecto) => {
