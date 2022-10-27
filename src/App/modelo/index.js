@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
+var cors = require('cors')
+
+app.use(cors()) 
 
 const db = mysql.createPool({
   host: "localhost",
@@ -9,14 +12,21 @@ const db = mysql.createPool({
   database: "ISW",
 });
 
-app.get("/", (req, res) => {
-  const sqlInsert =
-    "INSERT INTO administrador (nombre,correo,contraseña) VALUES ('jose','jose@uao.co', '1234');";
+app.get("/api/get", (req, res) => {
+  const sqlSelect = "call ISW.Consultar_Proyectos()";
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+})  
 
-    db.query(sqlInsert, (req, result)=>{
-    res.send("se insertó");
-    })
-});
+// app.get("/", (req, res) => {
+//   const sqlInsert =
+//     "INSERT INTO administrador (nombre,correo,contraseña) VALUES ('jose','jose@uao.co', '1234');";
+
+//     db.query(sqlInsert, (req, result)=>{
+//     res.send("se insertó");
+//     })
+// });
 
 app.listen(3001, () => {
   console.log("holamihermano, puerto 3001");
