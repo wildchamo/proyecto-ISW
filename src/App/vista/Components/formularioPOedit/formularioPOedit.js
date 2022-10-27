@@ -20,6 +20,7 @@ function FormularioPOedit() {
   );
 
   const onSubmit = (event) => {
+    console.log(estado);
     event.preventDefault();
     editarProyecto(
       nombre,
@@ -81,11 +82,12 @@ function FormularioPOedit() {
 
         <label>Estado del proyecto *</label>
         <select
-          value={estado.idestado}
+          value ={estado.idestado}
           onChange={onChangeEstado} 
           required
+          
         >
-          <option value="Seleccione"></option>
+          <option></option>
           {estados.map((estado) => (
              <option key={estado.idestado} value={estado.nombre} >
              {estado.nombre}

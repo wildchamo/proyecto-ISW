@@ -86,8 +86,9 @@ function FormularioPO() {
           placeholder="estado"
           required
         >
+          <option></option>
           {estados.map((estado) => (
-            <option key={estado.idestado} value={estado.idestado} >
+            <option key={estado.idestado} value={estado.nombre}>
               {estado.nombre}
             </option>
           ))}
