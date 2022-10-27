@@ -13,19 +13,11 @@ const db = mysql.createPool({
 });
 
 app.get("/api/get", (req, res) => {
-  //const NombreUsuario = req.body.NombreUsuario;
-  const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad(jcortes)";
-  db.query(sqlSelect,  (err, result) => {
-    res.send(result);
-  });
-});
-
-app.get("/api/login", (req, res) => {
-  const sqlSelect = "call ISW.Consultar_Proyectos()";
+  const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad('jcortes');";
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
-});
+})  
 
 // app.get("/", (req, res) => {
 //   const sqlInsert =
