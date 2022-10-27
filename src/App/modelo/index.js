@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
-var cors = require('cors')
+var cors = require("cors");
 
-app.use(cors()) 
+app.use(cors());
 
 const db = mysql.createPool({
   host: "localhost",
@@ -13,11 +13,11 @@ const db = mysql.createPool({
 });
 
 app.get("/api/get", (req, res) => {
-  const sqlSelect = "call ISW.Consultar_Proyectos()";
+  const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad('jcortes');";
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
-})  
+});
 
 // app.get("/", (req, res) => {
 //   const sqlInsert =

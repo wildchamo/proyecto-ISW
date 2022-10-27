@@ -8,14 +8,14 @@ import Axios from "axios";
 import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
 
 function AppUI() {
-  const {setProyectos} = React.useContext(POContext);
+  const { setProyectos,openModal } = React.useContext(POContext);
 
   useEffect(() => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
       setProyectos(response.data[0]);
     });
   }, []);
-  const { openModal } = React.useContext(POContext);
+
   return (
     <React.Fragment>
       <Header />
