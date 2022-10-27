@@ -1,6 +1,7 @@
 import React from "react";
 import { POContext } from "../../../controlador/controlador";
 import "./formularioPO.css";
+import atras from "./atras.png";
 
 function FormularioPO() {
   const { agregarProyecto, setOpenModal, fechaHoy, estados } =
@@ -48,9 +49,13 @@ function FormularioPO() {
 
   return (
     <form className="formularioPO" onSubmit={onSubmit}>
+      <div  className="Atras">
+      <img src={atras} alt="atras" />
+      </div>
+
       <h2>Creando proyecto nuevo...</h2>
       <label>Nombre del proyecto *</label>
-      <textarea
+      <textarea className="entradas"
         required
         value={nombre}
         onChange={onChangeNombre}
@@ -58,29 +63,36 @@ function FormularioPO() {
         maxLength={50}
       ></textarea>
       <div className="divisor">
-        <label>Fecha de inicio </label>
-        <input
+        <div className="titulos">
+          <label>Fecha de inicio *</label>
+        <input className="fecha"
           type="date"
           onChange={onChangeFechaIni}
           placeholder="fecha de inicio"
           min={fechaCreacion}
-        />
-        <label>Fecha de finalización </label>
-        <input
+        /> </div>
+        
+        <div className="titulos">         
+          <label>Fecha de finalización *</label>
+        <input className="fecha"
           type="date"
           onChange={onChangeFechaFin}
           placeholder="fecha de finalización"
           min={fechaInicio}
-        />
-        <label>Fecha de creación </label>
-        <input
+        /> </div>
+
+        <div className="titulos">
+         <label>Fecha de creación</label>
+        <input className="fecha"
           type="date"
           disabled
           value={fechaCreacion}
           placeholder="fecha de creación"
-        />
-        <label>Estado *</label>
-        <select
+        /> </div>
+
+        <div className="titulos">
+          <label>Estado *</label>
+        <select className="estado"
           value={estado}
           onChange={onChangeEstado}
           placeholder="estado"
@@ -93,15 +105,16 @@ function FormularioPO() {
             </option>
           ))}
         </select>
+        </div>
       </div>
 
-      <label>Descripcion del proyecto</label>
-      <textarea
+      <label>Descripción del proyecto</label>
+      <textarea className="entradas"
         onChange={onChangeDes}
         placeholder="Descripción proyecto"
         maxLength={1000}
       ></textarea>
-      <div>
+      <div className="final">
         <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
         <button type="button" onClick={onCancel}>
           Cancelar

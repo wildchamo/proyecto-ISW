@@ -194,6 +194,7 @@ function POProvider(props) {
   //que incluyen el valor buscado ensu nombre
 
   if (!searchValue.length >= 1) {
+    console.log(searchValue)
     proyectosBuscados = proyectos;
   } else {
     proyectosBuscados = proyectos.filter((proyecto) => {
@@ -213,8 +214,6 @@ function POProvider(props) {
       return proyectoEstado.includes(estadoSelec);
     });
   }
-
-
   //función para anular proyecto
   const anularProyecto = (text, razon) => {
     const proyectoIndex = proyectosBuscados.findIndex(
