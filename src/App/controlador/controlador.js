@@ -189,16 +189,6 @@ function POProvider(props) {
       return 0;
     });
   }
-  //en el caso que el estado seleccinado cambie, se filtrará para que se impriman solo los proyectos
-  //que incluyen el valor del estado
-  if (!estadoSelec.length > 0) {
-    proyectosBuscados = proyectos;
-  } else {
-    proyectosBuscados = proyectos.filter((proyecto) => {
-      const proyectoEstado = proyecto.estado;
-      return proyectoEstado.includes(estadoSelec);
-    });
-  }
 
   //en el caso que el valor de busqueda cambie y sea mayor o igual a 1, se filtrará para que se impriman solo los proyectos
   //que incluyen el valor buscado ensu nombre
@@ -212,6 +202,18 @@ function POProvider(props) {
       return proyectoNombre.includes(searchText);
     });
   }
+  //en el caso que el estado seleccinado cambie, se filtrará para que se impriman solo los proyectos
+  //que incluyen el valor del estado
+  if (!estadoSelec.length > 0) {
+    proyectosBuscados = proyectosBuscados;
+  } else {
+    console.log(estadoSelec);
+    proyectosBuscados = proyectos.filter((proyecto) => {
+      const proyectoEstado = proyecto.estado;
+      return proyectoEstado.includes(estadoSelec);
+    });
+  }
+
 
   //función para anular proyecto
   const anularProyecto = (text, razon) => {
