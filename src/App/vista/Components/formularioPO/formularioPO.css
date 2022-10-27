@@ -42,16 +42,14 @@
 }
 
 .estado{
-  position: relative;
-  font-family: "Work Sans"; 
+  font-family: "Work Sans" ; 
   border: none;
-  border-bottom: 2px solid lightgrey;
-  border-radius: 0%;
   background-color: transparent;
   margin: 1%;
 }
 
 .input.fecha{
+  font-family: "Work Sans";
   display: grid;
   justify-content: space-around;
   grid-template-columns: 15% 6%;
