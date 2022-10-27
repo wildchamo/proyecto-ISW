@@ -20,7 +20,6 @@ function FormularioPOedit() {
   );
 
   const onSubmit = (event) => {
-    console.log(estado);
     event.preventDefault();
     editarProyecto(
       nombre,
@@ -81,16 +80,11 @@ function FormularioPOedit() {
         <input type="date" onChange={onChangeFechaCre} value={fechaCreacion} />
 
         <label>Estado del proyecto *</label>
-        <select
-          value ={estado.idestado}
-          onChange={onChangeEstado} 
-          required
-          
-        >
+        <select value={estado.idestado} onChange={onChangeEstado} required>
           <option></option>
           {estados.map((estado) => (
-             <option key={estado.idestado} value={estado.nombre} >
-             {estado.nombre}
+            <option key={estado.idestado} value={estado.nombre}>
+              {estado.nombre}
             </option>
           ))}
         </select>
