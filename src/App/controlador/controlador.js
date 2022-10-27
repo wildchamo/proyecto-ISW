@@ -228,7 +228,7 @@ function POProvider(props) {
 
   const mostrarProyecto = (text) => {
     const proyectoIndex = proyectosBuscados.findIndex(
-      (proyecto) => proyecto.nombre === text
+      (proyecto) => proyecto.ID === text
     );
     setProyectoSelec(proyectos[proyectoIndex]);
   };

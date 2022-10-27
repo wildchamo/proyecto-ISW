@@ -88,7 +88,7 @@ function FormularioPO() {
         >
           <option></option>
           {estados.map((estado) => (
-            <option key={estado.idestado} value={estado.nombre}>
+            <option key={estado.idestado} value={estado.idestado}>
               {estado.nombre}
             </option>
           ))}
