@@ -16,6 +16,7 @@ function Header() {
     history("/");
   };
 
+
   return (
     <header className="box">
       <div className="logoSencillo">

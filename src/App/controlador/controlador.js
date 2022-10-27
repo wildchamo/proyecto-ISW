@@ -1,35 +1,5 @@
 import React from "react";
 
-const defaultProyectos = [
-  {
-    nombre: "Investigación arquitectura PWA",
-    fechaInicio: "2021-11-03",
-    fechaFin: "2022-10-02",
-    fechaCreacion: "",
-    estado: "Cerrado",
-    descripcion: "Soy una descripción",
-    motivoCancelacion: "jose",
-  },
-  {
-    nombre: "Software de encuestas Limesurvey",
-    fechaInicio: "2021-11-05",
-    fechaFin: "2022-10-05",
-    fechaCreacion: "2022-10-04",
-    estado: "Cancelado",
-    descripcion: "Soy una descripción",
-    motivoCancelacion: "",
-  },
-  {
-    nombre: "ChatBot Sinapsis (Diseño de flujo)",
-    fechaInicio: "2021-11-07",
-    fechaFin: "2022-10-03",
-    fechaCreacion: "2021-11-03",
-    estado: "Activo",
-    descripcion: "Soy una descripción",
-    motivoCancelacion: "",
-  },
-];
-
 const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
 
 //creación del context
@@ -40,7 +10,7 @@ function POProvider(props) {
   //interacciones que realice el usuario con el componente vista
 
   //cargamos la lista de proyectos en un estado
-  const [proyectos, setProyectos] = React.useState(defaultProyectos);
+  const [proyectos, setProyectos] = React.useState([]);
 
   //para mostrar un proyecto en especifico es necesario extraer sus datos, por tanto se encapsula temporalmente en el estado
   //proyectoSelect
@@ -61,7 +31,9 @@ function POProvider(props) {
 
   //datos generales de la sesión
   let unidad = "Unidad de servicio al usuario";
-  let jefeUnidad = "Carolina Parra";
+  let jefeUnidad =  "Carolina Parra";
+  let usuarioJefe="jcortes";
+
 
   var fechaHoy = new Date();
   var dd = String(fechaHoy.getDate()).padStart(2, "0");
@@ -196,7 +168,7 @@ function POProvider(props) {
       return 0;
     });
   }
-    //en el caso que el estado seleccinado cambie, se filtrará para que se impriman solo los proyectos
+  //en el caso que el estado seleccinado cambie, se filtrará para que se impriman solo los proyectos
   //que incluyen el valor del estado
   if (!estadoSelec.length > 0) {
     proyectosBuscados = proyectos;
@@ -211,7 +183,7 @@ function POProvider(props) {
   //que incluyen el valor buscado ensu nombre
 
   if (!searchValue.length >= 1) {
-    console.log(searchValue)
+    console.log(searchValue);
     proyectosBuscados = proyectos;
   } else {
     proyectosBuscados = proyectos.filter((proyecto) => {
@@ -242,7 +214,6 @@ function POProvider(props) {
   };
   let proyectosBTotal = proyectosBuscados.length;
 
-
   // todo lo que se exporta de la aplicación para que la vista y los componentes lo consuman y puedan cambiarlo
   return (
     <POContext.Provider
@@ -255,6 +226,8 @@ function POProvider(props) {
         proyectosBuscados,
         estados,
         proyectosBTotal,
+        setProyectos,
+        usuarioJefe,
 
         //busqueda
         searchValue,
