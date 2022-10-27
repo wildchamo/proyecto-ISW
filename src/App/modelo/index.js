@@ -11,13 +11,19 @@ const db = mysql.createPool({
   password: "password",
   database: "ISW",
 });
+app.get("/api/get/es", (req, res) => {
+  const sqlSelect = "SELECT * FROM ISW.estado where not nombre='Anulado';"
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
 
 app.get("/api/get", (req, res) => {
   const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad(?);";
-  db.query(sqlSelect,['amunoz'], (err, result) => {
+  db.query(sqlSelect, ["amunoz"], (err, result) => {
     res.send(result);
   });
-})  
+});
 
 // app.get("/", (req, res) => {
 //   const sqlInsert =
