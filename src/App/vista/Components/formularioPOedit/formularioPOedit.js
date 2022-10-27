@@ -80,15 +80,11 @@ function FormularioPOedit() {
         <input type="date" onChange={onChangeFechaCre} value={fechaCreacion} />
 
         <label>Estado del proyecto *</label>
-        <select
-          value={estado}
-          onChange={onChangeEstado}
-          placeholder="estado"
-          required
-        >
+        <select value={estado.idestado} onChange={onChangeEstado} required>
+          <option></option>
           {estados.map((estado) => (
-            <option value={estado} key={estado}>
-              {estado}
+            <option key={estado.idestado} value={estado.nombre}>
+              {estado.nombre}
             </option>
           ))}
         </select>

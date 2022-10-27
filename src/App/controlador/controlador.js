@@ -1,6 +1,8 @@
 import React from "react";
+import Axios from "axios";
+import { useEffect } from "react";
 
-const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
+//const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
 
 //creación del context
 const POContext = React.createContext();
@@ -11,6 +13,9 @@ function POProvider(props) {
 
   //cargamos la lista de proyectos en un estado
   const [proyectos, setProyectos] = React.useState([]);
+
+  //lista de estados
+  const [estados,setEstados]=React.useState([]);
 
   //para mostrar un proyecto en especifico es necesario extraer sus datos, por tanto se encapsula temporalmente en el estado
   //proyectoSelect
@@ -31,9 +36,32 @@ function POProvider(props) {
 
   //datos generales de la sesión
   let unidad = "Unidad de servicio al usuario";
-  let jefeUnidad =  "Carolina Parra";
-  let usuarioJefe="jcortes";
+  let jefeUnidad = "Carolina Parra";
+  let usuarioJefe = "jcortes";
 
+  //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
+
+  const [openModal, setOpenModal] = React.useState(false);
+  const [openModalEstado, setOpenModalEstado] = React.useState(false);
+  const [openModalEditar, setOpenModalEditar] = React.useState(false);
+  const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
+  const [openModalAnular, setOpenModalAnular] = React.useState(false);
+
+
+  //llamamos a los proyectos de la BD utilizando el modelo
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+    console.log(response)  
+    setProyectos(response.data[0]);
+    });
+  }, []);
+
+  if(openModal || openModalEditar||openModalVerMas){
+    Axios.get("http://localhost:3001/api/get/es").then((response) => {
+      setEstados(response.data);
+    });
+  }
+  
 
   var fechaHoy = new Date();
   var dd = String(fechaHoy.getDate()).padStart(2, "0");
@@ -76,13 +104,7 @@ function POProvider(props) {
   );
   let proyectosSuspendidosValue = proyectosSuspendidos.length;
 
-  //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
 
-  const [openModal, setOpenModal] = React.useState(false);
-  const [openModalEstado, setOpenModalEstado] = React.useState(false);
-  const [openModalEditar, setOpenModalEditar] = React.useState(false);
-  const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
-  const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
   //función para agregar proyectos
   const agregarProyecto = (
@@ -168,22 +190,12 @@ function POProvider(props) {
       return 0;
     });
   }
-  //en el caso que el estado seleccinado cambie, se filtrará para que se impriman solo los proyectos
-  //que incluyen el valor del estado
-  if (!estadoSelec.length > 0) {
-    proyectosBuscados = proyectos;
-  } else {
-    proyectosBuscados = proyectos.filter((proyecto) => {
-      const proyectoEstado = proyecto.estado;
-      return proyectoEstado.includes(estadoSelec);
-    });
-  }
 
   //en el caso que el valor de busqueda cambie y sea mayor o igual a 1, se filtrará para que se impriman solo los proyectos
   //que incluyen el valor buscado ensu nombre
 
   if (!searchValue.length >= 1) {
-    console.log(searchValue);
+    console.log(searchValue)
     proyectosBuscados = proyectos;
   } else {
     proyectosBuscados = proyectos.filter((proyecto) => {
@@ -192,7 +204,17 @@ function POProvider(props) {
       return proyectoNombre.includes(searchText);
     });
   }
-
+  //en el caso que el estado seleccinado cambie, se filtrará para que se impriman solo los proyectos
+  //que incluyen el valor del estado
+  if (!estadoSelec.length > 0) {
+    proyectosBuscados = proyectosBuscados;
+  } else {
+    console.log(estadoSelec);
+    proyectosBuscados = proyectos.filter((proyecto) => {
+      const proyectoEstado = proyecto.estado;
+      return proyectoEstado.includes(estadoSelec);
+    });
+  }
   //función para anular proyecto
   const anularProyecto = (text, razon) => {
     const proyectoIndex = proyectosBuscados.findIndex(
@@ -208,7 +230,7 @@ function POProvider(props) {
 
   const mostrarProyecto = (text) => {
     const proyectoIndex = proyectosBuscados.findIndex(
-      (proyecto) => proyecto.nombre === text
+      (proyecto) => proyecto.ID === text
     );
     setProyectoSelec(proyectos[proyectoIndex]);
   };
