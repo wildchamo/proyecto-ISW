@@ -13,8 +13,8 @@ const db = mysql.createPool({
 });
 
 app.get("/api/get", (req, res) => {
-  const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad('jcortes');";
-  db.query(sqlSelect, (err, result) => {
+  const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad(?);";
+  db.query(sqlSelect,['amunoz'], (err, result) => {
     res.send(result);
   });
 })  
