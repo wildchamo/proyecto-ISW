@@ -20,7 +20,7 @@ app.get("/api/get/es", (req, res) => {
 
 app.get("/api/get", (req, res) => {
   const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad(?);";
-  db.query(sqlSelect, ["amunoz"], (err, result) => {
+  db.query(sqlSelect, ["cparra"], (err, result) => {
     res.send(result);
   });
 });
