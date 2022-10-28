@@ -28,6 +28,28 @@ app.get("/api/get", (req, res) => {
   });
 });
 
+app.post("/login", (req, res) => {
+  const user = req.body.user;
+  const password = req.body.password;
+  console.log(user,password)
+  const sqlSelect =
+    "SELECT * FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
+
+  db.query(sqlSelect, [user, password], (err, result) => {
+    if (err) {
+      res.send({ err: err });
+    }
+    if (result.length > 0) {
+      res.send(result);
+      console.log(result)
+    } else {
+      res.send({
+        message: "Combinación de usuario y contraseña incorrectos!",
+      });
+    }
+  });
+});
+
 app.post("/api/insert", (req, res) => {
   const nombreProyecto = req.body.nombreProyecto;
   const fechaRegProyecto = req.body.fechaRegProyecto;

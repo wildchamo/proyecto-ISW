@@ -2,27 +2,41 @@ import React, { useState } from "react";
 import logouao from "./logouao.png";
 import opmanager from "./opmanager.png";
 import trabajo from "./trabajo.png";
-import axios from "axios";
+import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [msg, setMsg] = useState("");
+  const [loginStatus, setLoginStatus] = useState("");
 
   const history = useNavigate();
 
-  const Auth = async (e) => {
-    e.preventDefault();
+  const Login = (event) => {
+    event.preventDefault();
+
+    Axios.post("http://localhost:3001/login", {
+      user: user,
+      password: password,
+    }).then((response) => {
+      console.log(response)
+      // if (response.data.message) {
+      //   setLoginStatus(response.data.message);
+      //   console.log(loginStatus);
+      //   // history("/dashboard");
+      // } else {
+      //   setLoginStatus(response.data[0]);
+      // }
+    });
+
     //     try {
     //       await axios.post("http://localhost:5000/login", {
     //         email: email,
     //         password: password,
     //       });
-    if (user === "cparra" && password === "1234") {
-      history("/dashboard");
-    }
+    // if (user === "cparra" && password === "1234") {
+    // }
 
     //     } catch (error) {
     //       if (error.response) {
@@ -41,7 +55,7 @@ const Login = () => {
             <img src={opmanager} alt="Logo" />
           </div>
 
-          <form onSubmit={Auth}>
+          <form onSubmit={Login}>
             <label className="label">Nombre de usuario</label>
             <div>
               <input
@@ -49,7 +63,7 @@ const Login = () => {
                 className="input"
                 placeholder="Nombre de usuario"
                 value={user}
-                onChange={(e) => setUser(e.target.value)}
+                onChange={(e) => {setUser(e.target.value)}}
               />
             </div>
 
@@ -60,11 +74,11 @@ const Login = () => {
                 className="input"
                 placeholder="Contraseña"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {setPassword(e.target.value)}}
               />
             </div>
             <div className="btn">
-            <button>Iniciar sesión</button>
+              <button>Iniciar sesión</button>
             </div>
           </form>
           <div>
