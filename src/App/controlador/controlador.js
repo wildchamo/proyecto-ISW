@@ -125,6 +125,12 @@ function POProvider(props) {
       descripcion,
     });
     setProyectos(newProyectos);
+
+    Axios.post("http://localhost:3001/api/insert/pp",{
+      nombreProyecto:nombre
+    }.then(()=>{
+      alert("todo bien")
+    }))
   };
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
   const editarProyecto = (
