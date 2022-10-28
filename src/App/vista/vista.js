@@ -7,7 +7,7 @@ import { Modal } from "./Components/modal/modal";
 import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
 
 function AppUI() {
-  const { setProyectos,openModal} = React.useContext(POContext);
+  const { openModal} = React.useContext(POContext);
 
 
   return (

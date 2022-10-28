@@ -50,7 +50,7 @@ function FormularioPO() {
   return (
     <form className="formularioPO" onSubmit={onSubmit}>
       <div  className="Atras">
-      <img src={atras} alt="atras" />
+      <img src={atras} alt="atras"  onClick={onCancel}/>
       </div>
 
       <h2>Creando proyecto nuevo...</h2>
