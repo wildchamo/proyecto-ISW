@@ -13,7 +13,23 @@ function POProvider(props) {
 
   //cargamos la lista de proyectos en un estado
   const [proyectos, setProyectos] = React.useState([]);
+  const [loginStatus, setLoginStatus] = React.useState();
 
+  const Login = (user, password) => {
+    Axios.post("http://localhost:3001/login", {
+      user: user,
+      password: password,
+    }).then((response) => {
+      console.log(response);
+      // if (response.data.message) {
+      //   setLoginStatus(response.data.message);
+      //   console.log(loginStatus);
+      //   // history("/dashboard");
+      // } else {
+      //   setLoginStatus(response.data[0]);
+      // }
+    });
+  };
   //lista de estados
   const [estados, setEstados] = React.useState([]);
 
@@ -246,6 +262,8 @@ function POProvider(props) {
   return (
     <POContext.Provider
       value={{
+
+        Login,
         //valores
         unidad,
         jefeUnidad,

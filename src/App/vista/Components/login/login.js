@@ -4,31 +4,20 @@ import opmanager from "./opmanager.png";
 import trabajo from "./trabajo.png";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { POContext } from "../../../controlador/controlador";
 import "./login.css";
 
 const Login = () => {
+
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
+  const {Login}=React.useContext(POContext)
 
   const history = useNavigate();
 
-  const Login = (event) => {
+  const Log = (event) => {
     event.preventDefault();
-
-    Axios.post("http://localhost:3001/login", {
-      user: user,
-      password: password,
-    }).then((response) => {
-      console.log(response)
-      // if (response.data.message) {
-      //   setLoginStatus(response.data.message);
-      //   console.log(loginStatus);
-      //   // history("/dashboard");
-      // } else {
-      //   setLoginStatus(response.data[0]);
-      // }
-    });
+    Login(user,password)
 
     //     try {
     //       await axios.post("http://localhost:5000/login", {
@@ -55,7 +44,7 @@ const Login = () => {
             <img src={opmanager} alt="Logo" />
           </div>
 
-          <form onSubmit={Login}>
+          <form onSubmit={Log}>
             <label className="label">Nombre de usuario</label>
             <div>
               <input
