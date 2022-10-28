@@ -20,7 +20,7 @@ function POProvider(props) {
       user: user,
       password: password,
     }).then((response) => {
-      console.log(response);
+      console.log(response.data);
       // if (response.data.message) {
       //   setLoginStatus(response.data.message);
       //   console.log(loginStatus);
@@ -126,26 +126,12 @@ function POProvider(props) {
     estado,
     descripcion
   ) => {
-    // const newProyectos = [...proyectos];
-    // newProyectos.push({
-    //   nombre,
-    //   fechaInicio,
-    //   fechaFin,
-    //   fechaCreacion,
-    //   estado,
-    //   descripcion,
-    // });
-    // setProyectos(newProyectos);
-    console.log(fechaInicio);
-    console.log(nombre);
     Axios.post("http://localhost:3001/api/insert", {
       nombreProyecto: nombre,
       fechaRegProyecto: fechaCreacion,
       fechaIniProyecto: fechaInicio,
       fechaFinProyecto: fechaFin,
       descripcion: descripcion,
-    }).then(() => {
-      alert("todo bien");
     });
   };
 
@@ -262,7 +248,6 @@ function POProvider(props) {
   return (
     <POContext.Provider
       value={{
-
         Login,
         //valores
         unidad,
