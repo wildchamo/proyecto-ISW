@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql");
 var cors = require("cors");
+const bodyParser = require("body-parser");
 
 app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended:true}))
 
 const db = mysql.createPool({
   host: "localhost",
@@ -25,16 +28,16 @@ app.get("/api/get", (req, res) => {
   });
 });
 
-app.post("/api/insert/pp", (req, res) => {
+app.post("/api/insert", (req, res) => {
   const nombreProyecto = req.body.nombreProyecto;
-  const estadoProyecto = req.body.estadoProyecto;
-  const fechaRProyecto = req.body.fechaRProyecto;
-  const fechaIProyecto = req.body.fechaIProyecto;
-  const fechaFProyecto = req.body.fechaFProyecto;
-  const descripcionProyecto = req.body.descripcion;
-  const idUnidad = req.body.idUnidad;
+  // const estadoProyecto = req.body.estadoProyecto;
+  // const fechaRProyecto = req.body.fechaRProyecto;
+  // const fechaIProyecto = req.body.fechaIProyecto;
+  // const fechaFProyecto = req.body.fechaFProyecto;
+  // const descripcionProyecto = req.body.descripcion;
+  // const idUnidad = req.body.idUnidad;
 
-  const sqlInsert = "INSERT INTO proyectos(nombre) VALUES (?)";
+  const sqlInsert = "INSERT INTO proyectos(nombre) VALUES (?);";
   db.query(sqlInsert,[nombreProyecto],(err,result)=>{
     console.log(result)
   })

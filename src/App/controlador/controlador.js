@@ -15,7 +15,7 @@ function POProvider(props) {
   const [proyectos, setProyectos] = React.useState([]);
 
   //lista de estados
-  const [estados,setEstados]=React.useState([]);
+  const [estados, setEstados] = React.useState([]);
 
   //para mostrar un proyecto en especifico es necesario extraer sus datos, por tanto se encapsula temporalmente en el estado
   //proyectoSelect
@@ -47,21 +47,18 @@ function POProvider(props) {
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
-
   //llamamos a los proyectos de la BD utilizando el modelo
   useEffect(() => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
-    console.log(response)  
-    setProyectos(response.data[0]);
+      setProyectos(response.data[0]);
     });
   }, []);
 
-  if(openModal || openModalEditar||openModalVerMas){
+  if (openModal || openModalEditar || openModalVerMas) {
     Axios.get("http://localhost:3001/api/get/es").then((response) => {
       setEstados(response.data);
     });
   }
-  
 
   var fechaHoy = new Date();
   var dd = String(fechaHoy.getDate()).padStart(2, "0");
@@ -104,8 +101,6 @@ function POProvider(props) {
   );
   let proyectosSuspendidosValue = proyectosSuspendidos.length;
 
-
-
   //función para agregar proyectos
   const agregarProyecto = (
     nombre,
@@ -115,22 +110,25 @@ function POProvider(props) {
     estado,
     descripcion
   ) => {
-    const newProyectos = [...proyectos];
-    newProyectos.push({
-      nombre,
-      fechaInicio,
-      fechaFin,
-      fechaCreacion,
-      estado,
-      descripcion,
-    });
-    setProyectos(newProyectos);
+    // => {
+    //   const newProyectos = [...proyectos];
+    //   newProyectos.push({
+    //     nombre,
+    //     fechaInicio,
+    //     fechaFin,
+    //     fechaCreacion,
+    //     estado,
+    //     descripcion,
+    //   });
+    //   setProyectos(newProyectos);
 
-    Axios.post("http://localhost:3001/api/insert/pp",{
-      nombreProyecto:nombre
-    }.then(()=>{
-      alert("todo bien")
-    }))
+    Axios.post(
+      "http://localhost:3001/api/insert",
+      {
+        nombreProyecto: nombre,
+      }).then(() => {
+        alert("todo bien");
+      })
   };
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
   const editarProyecto = (
@@ -201,7 +199,6 @@ function POProvider(props) {
   //que incluyen el valor buscado ensu nombre
 
   if (!searchValue.length >= 1) {
-    console.log(searchValue)
     proyectosBuscados = proyectos;
   } else {
     proyectosBuscados = proyectos.filter((proyecto) => {
