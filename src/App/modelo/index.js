@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = mysql.createPool({
   host: "localhost",
@@ -30,27 +30,28 @@ app.get("/api/get", (req, res) => {
 
 app.post("/api/insert", (req, res) => {
   const nombreProyecto = req.body.nombreProyecto;
+  // const fechaRegProyecto = req.body.fechaRegProyecto;
+  const fechaIniProyecto = req.body.fechaIniProyecto;
+  // const fechaFinProyecto = req.body.fechaFinProyecto;
+  const descripcionProyecto = req.body.descripcion;
   // const estadoProyecto = req.body.estadoProyecto;
-  // const fechaRProyecto = req.body.fechaRProyecto;
-  // const fechaIProyecto = req.body.fechaIProyecto;
-  // const fechaFProyecto = req.body.fechaFProyecto;
-  // const descripcionProyecto = req.body.descripcion;
-  // const idUnidad = req.body.idUnidad;
+  // const idUnidad = req.body.idUnidad; fecharegistro,fechainicio,fechafin
 
-  const sqlInsert = "INSERT INTO proyectos(nombre) VALUES (?);";
-  db.query(sqlInsert,[nombreProyecto],(err,result)=>{
-    console.log(result)
-  })
+  const sqlInsert = "INSERT INTO proyectos(nombre,fechainicio,descripcion) VALUES (?,?,?);";
+  db.query(
+    sqlInsert,
+    [
+      nombreProyecto,
+      // fechaRegProyecto,
+      fechaIniProyecto,
+      // fechaFinProyecto,
+      descripcionProyecto,
+    ],
+    (err, result) => {
+      console.log(result);
+    }
+  );
 });
-
-// app.get("/", (req, res) => {
-//   const sqlInsert =
-//     "INSERT INTO administrador (nombre,correo,contraseña) VALUES ('jose','jose@uao.co', '1234');";
-
-//     db.query(sqlInsert, (req, result)=>{
-//     res.send("se insertó");
-//     })
-// });
 
 app.listen(3001, () => {
   console.log("holamihermano, puerto 3001");

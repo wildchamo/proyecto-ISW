@@ -110,26 +110,28 @@ function POProvider(props) {
     estado,
     descripcion
   ) => {
-    // => {
-    //   const newProyectos = [...proyectos];
-    //   newProyectos.push({
-    //     nombre,
-    //     fechaInicio,
-    //     fechaFin,
-    //     fechaCreacion,
-    //     estado,
-    //     descripcion,
-    //   });
-    //   setProyectos(newProyectos);
+    // const newProyectos = [...proyectos];
+    // newProyectos.push({
+    //   nombre,
+    //   fechaInicio,
+    //   fechaFin,
+    //   fechaCreacion,
+    //   estado,
+    //   descripcion,
+    // });
+    // setProyectos(newProyectos);
 
-    Axios.post(
-      "http://localhost:3001/api/insert",
-      {
-        nombreProyecto: nombre,
-      }).then(() => {
-        alert("todo bien");
-      })
+    Axios.post("http://localhost:3001/api/insert", {
+      nombreProyecto: nombre,
+      // fechaRegProyecto: fechaCreacion,
+      fechaIniProyecto: "2022-10-05",
+      // fechaFinProyecto: fechaFin,
+      descripcion: descripcion,
+    }).then(() => {
+      alert("todo bien");
+    });
   };
+
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
   const editarProyecto = (
     nombre,
