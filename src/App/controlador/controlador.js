@@ -120,12 +120,13 @@ function POProvider(props) {
     //   descripcion,
     // });
     // setProyectos(newProyectos);
-
+    console.log(fechaInicio);
+    console.log(nombre);
     Axios.post("http://localhost:3001/api/insert", {
       nombreProyecto: nombre,
-      // fechaRegProyecto: fechaCreacion,
-      fechaIniProyecto: "2022-10-05",
-      // fechaFinProyecto: fechaFin,
+      fechaRegProyecto: fechaCreacion,
+      fechaIniProyecto: fechaInicio,
+      fechaFinProyecto: fechaFin,
       descripcion: descripcion,
     }).then(() => {
       alert("todo bien");

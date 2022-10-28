@@ -49,13 +49,14 @@ function FormularioPO() {
 
   return (
     <form className="formularioPO" onSubmit={onSubmit}>
-      <div  className="Atras">
-      <img src={atras} alt="atras"  onClick={onCancel}/>
+      <div className="Atras">
+        <img src={atras} alt="atras" onClick={onCancel} />
       </div>
 
       <h2>Creando proyecto nuevo...</h2>
       <label>Nombre del proyecto *</label>
-      <textarea className="entradas"
+      <textarea
+        className="entradas"
         required
         value={nombre}
         onChange={onChangeNombre}
@@ -65,51 +66,59 @@ function FormularioPO() {
       <div className="divisor">
         <div className="titulos">
           <label>Fecha de inicio *</label>
-        <input className="fecha"
-          type="date"
-          onChange={onChangeFechaIni}
-          placeholder="fecha de inicio"
-          min={fechaCreacion}
-        /> </div>
-        
-        <div className="titulos">         
-          <label>Fecha de finalización *</label>
-        <input className="fecha"
-          type="date"
-          onChange={onChangeFechaFin}
-          placeholder="fecha de finalización"
-          min={fechaInicio}
-        /> </div>
+          <input
+            className="fecha"
+            type="date"
+            onChange={onChangeFechaIni}
+            placeholder="fecha de inicio"
+            min={fechaCreacion}
+          />{" "}
+        </div>
 
         <div className="titulos">
-         <label>Fecha de creación</label>
-        <input className="fecha"
-          type="date"
-          disabled
-          value={fechaCreacion}
-          placeholder="fecha de creación"
-        /> </div>
+          <label>Fecha de finalización *</label>
+          <input
+            className="fecha"
+            type="date"
+            onChange={onChangeFechaFin}
+            placeholder="fecha de finalización"
+            min={fechaInicio}
+          />{" "}
+        </div>
+
+        <div className="titulos">
+          <label>Fecha de creación</label>
+          <input
+            className="fecha"
+            type="date"
+            disabled
+            value={fechaCreacion}
+            placeholder="fecha de creación"
+          />{" "}
+        </div>
 
         <div className="titulos">
           <label>Estado *</label>
-        <select className="estado"
-          value={estado}
-          onChange={onChangeEstado}
-          placeholder="estado"
-          required
-        >
-          <option></option>
-          {estados.map((estado) => (
-            <option key={estado.idestado} value={estado.idestado}>
-              {estado.nombre}
-            </option>
-          ))}
-        </select>
+          <select
+            className="estado"
+            value={estado}
+            onChange={onChangeEstado}
+            placeholder="estado"
+            required
+          >
+            <option></option>
+            {estados.map((estado) => (
+              <option key={estado.idestado} value={estado.idestado}>
+                {estado.nombre}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
       <label>Descripción del proyecto</label>
-      <textarea className="entradas"
+      <textarea
+        className="entradas"
         onChange={onChangeDes}
         placeholder="Descripción proyecto"
         maxLength={1000}
