@@ -15,7 +15,7 @@ function POProvider(props) {
 
   //cargamos la lista de proyectos en un estado
   const [proyectos, setProyectos] = React.useState([]);
-  const [loginStatus, setLoginStatus] = React.useState();
+  const [loginStatus, setLoginStatus] = React.useState({});
 
   const Login = (user, password) => {
     Axios.post("http://localhost:3001/login", {
@@ -64,7 +64,7 @@ function POProvider(props) {
 
   //llamamos a los proyectos de la BD utilizando el modelo
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/get").then((response) => {
+    Axios.get("http://localhost:3001/api/get",{user:usuarioJefe}).then((response) => {
       setProyectos(response.data[0]);
     });
   }, []);

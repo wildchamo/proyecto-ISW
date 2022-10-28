@@ -22,11 +22,14 @@ app.get("/api/get/es", (req, res) => {
 });
 
 app.get("/api/get", (req, res) => {
+  const user = req.body.user;
   const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad(?);";
-  db.query(sqlSelect, ["cparra"], (err, result) => {
+  db.query(sqlSelect, [user], (err, result) => {
     res.send(result);
   });
 });
+
+
 
 app.post("/login", (req, res) => {
   const user = req.body.user;
