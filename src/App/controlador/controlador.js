@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 //const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
 
@@ -10,6 +11,7 @@ const POContext = React.createContext();
 function POProvider(props) {
   //seteamos los estados necesarios para la implementación del proyecto, los estados cambian según las
   //interacciones que realice el usuario con el componente vista
+  const history = useNavigate();
 
   //cargamos la lista de proyectos en un estado
   const [proyectos, setProyectos] = React.useState([]);
@@ -20,14 +22,10 @@ function POProvider(props) {
       user: user,
       password: password,
     }).then((response) => {
-      console.log(response.data);
-      // if (response.data.message) {
-      //   setLoginStatus(response.data.message);
-      //   console.log(loginStatus);
-      //   // history("/dashboard");
-      // } else {
-      //   setLoginStatus(response.data[0]);
-      // }
+      if (response.data.message === undefined) {
+        setLoginStatus(response.data[0]);
+        history("/dashboard");
+      }
     });
   };
   //lista de estados

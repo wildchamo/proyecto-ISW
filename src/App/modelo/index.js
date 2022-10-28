@@ -41,7 +41,6 @@ app.post("/login", (req, res) => {
     }
     if (result.length > 0) {
       res.send(result);
-      console.log(result)
     } else {
       res.send({
         message: "Combinación de usuario y contraseña incorrectos!",
