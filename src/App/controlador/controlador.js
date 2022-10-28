@@ -28,6 +28,7 @@ function POProvider(props) {
       }
     });
   };
+  console.log(loginStatus)
   //lista de estados
   const [estados, setEstados] = React.useState([]);
 
@@ -49,9 +50,9 @@ function POProvider(props) {
   const [estadoSelec, setEstadoSelec] = React.useState("");
 
   //datos generales de la sesión
-  let unidad = "Unidad de servicio al usuario";
-  let jefeUnidad = "Carolina Parra";
-  let usuarioJefe = "jcortes";
+  let unidad = loginStatus.idunidad;
+  let jefeUnidad = loginStatus.nombre;
+  let usuarioJefe = loginStatus.nombreUsu;
 
   //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
 
