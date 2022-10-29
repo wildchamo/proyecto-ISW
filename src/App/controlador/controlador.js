@@ -24,11 +24,12 @@ function POProvider(props) {
     }).then((response) => {
       if (response.data.message === undefined) {
         setLoginStatus(response.data[0]);
+        mostrarP(user);
         history("/dashboard");
       }
     });
   };
-  console.log(loginStatus)
+  console.log(loginStatus);
   //lista de estados
   const [estados, setEstados] = React.useState([]);
 
@@ -52,7 +53,7 @@ function POProvider(props) {
   //datos generales de la sesión
   let unidad = loginStatus.idunidad;
   let jefeUnidad = loginStatus.nombre;
-  let usuarioJefe = loginStatus.nombreUsu;
+  let usuarioJefe = "cparra";
 
   //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
 
@@ -63,11 +64,14 @@ function POProvider(props) {
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
   //llamamos a los proyectos de la BD utilizando el modelo
-  useEffect(() => {
-    Axios.get("http://localhost:3001/api/get",{user:usuarioJefe}).then((response) => {
+
+  const mostrarP = (user) => {
+    Axios.post("http://localhost:3001/api/get", {
+      user: user,
+    }).then((response) => {
       setProyectos(response.data[0]);
     });
-  }, []);
+  };
 
   if (openModal || openModalEditar || openModalVerMas) {
     Axios.get("http://localhost:3001/api/get/es").then((response) => {

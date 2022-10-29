@@ -21,15 +21,14 @@ app.get("/api/get/es", (req, res) => {
   });
 });
 
-app.get("/api/get", (req, res) => {
+app.post("/api/get", (req, res) => {
   const user = req.body.user;
+  console.log(user)
   const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad(?);";
   db.query(sqlSelect, [user], (err, result) => {
     res.send(result);
   });
 });
-
-
 
 app.post("/login", (req, res) => {
   const user = req.body.user;
