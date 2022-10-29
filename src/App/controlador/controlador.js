@@ -1,6 +1,5 @@
 import React from "react";
 import Axios from "axios";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
@@ -17,6 +16,8 @@ function POProvider(props) {
   const [proyectos, setProyectos] = React.useState([]);
   const [loginStatus, setLoginStatus] = React.useState({});
 
+
+  //función para logearse en la app que se conecta con el modelo
   const Login = (user, password) => {
     Axios.post("http://localhost:3001/login", {
       user: user,
@@ -29,7 +30,6 @@ function POProvider(props) {
       }
     });
   };
-  console.log(loginStatus);
   //lista de estados
   const [estados, setEstados] = React.useState([]);
 
@@ -63,8 +63,7 @@ function POProvider(props) {
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
-  //llamamos a los proyectos de la BD utilizando el modelo
-
+  //función para llamar a los proyectos de la BD utilizando el modelo
   const mostrarP = (user) => {
     Axios.post("http://localhost:3001/api/get", {
       user: user,
@@ -72,6 +71,8 @@ function POProvider(props) {
       setProyectos(response.data[0]);
     });
   };
+
+  //función que carga los estados en las interfaces cuando se abre algún modal que los utilice
 
   if (openModal || openModalEditar || openModalVerMas) {
     Axios.get("http://localhost:3001/api/get/es").then((response) => {
@@ -220,7 +221,6 @@ function POProvider(props) {
   if (!estadoSelec.length > 0) {
     proyectosBuscados = proyectosBuscados;
   } else {
-    console.log(estadoSelec);
     proyectosBuscados = proyectos.filter((proyecto) => {
       const proyectoEstado = proyecto.estado;
       return proyectoEstado.includes(estadoSelec);
@@ -232,7 +232,6 @@ function POProvider(props) {
       (proyecto) => proyecto.nombre === text
     );
     const newProyectos = [...proyectos];
-    console.log(newProyectos);
     newProyectos[proyectoIndex].estado = "Anulado";
     newProyectos[proyectoIndex].motivoCancelacion = razon;
     setProyectos(newProyectos);
