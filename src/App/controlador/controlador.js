@@ -16,7 +16,6 @@ function POProvider(props) {
   const [proyectos, setProyectos] = React.useState([]);
   const [loginStatus, setLoginStatus] = React.useState({});
 
-
   //función para logearse en la app que se conecta con el modelo
   const Login = (user, password) => {
     Axios.post("http://localhost:3001/login", {
@@ -30,6 +29,7 @@ function POProvider(props) {
       }
     });
   };
+
   //lista de estados
   const [estados, setEstados] = React.useState([]);
 
@@ -53,7 +53,7 @@ function POProvider(props) {
   //datos generales de la sesión
   let unidad = loginStatus.idunidad;
   let jefeUnidad = loginStatus.nombre;
-  let usuarioJefe = "cparra";
+  let usuarioJefe = loginStatus.nombreUsu;
 
   //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
 
@@ -260,7 +260,6 @@ function POProvider(props) {
         estados,
         proyectosBTotal,
         setProyectos,
-        usuarioJefe,
 
         //busqueda
         searchValue,
