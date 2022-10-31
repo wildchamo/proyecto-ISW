@@ -26,8 +26,8 @@ function Main() {
                 descripcion={proyecto.descripcion}
                 prueba={index}
                 motivoCancelacion={proyecto.motivoCancelacion}
-                onAnular={() => anularProyecto(proyecto.nombre)}
-                onMostrar={() => mostrarProyecto(proyecto.nombre)}
+                onAnular={() => anularProyecto(proyecto.ID)}
+                onMostrar={() => mostrarProyecto(proyecto.ID)}
               />
             ))}
           </ListaProyectoOperativo>

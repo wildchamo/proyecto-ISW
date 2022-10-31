@@ -8,7 +8,7 @@ function FormularioPOanular() {
   const onCancel = () => {
     setOpenModalAnular(false);
   };
-  const [nombre] = React.useState(proyectoSelec.nombre);
+  const [nombre] = React.useState(proyectoSelec.ID);
   const [motivo, setMotivo] = React.useState(proyectoSelec.motivoCancelacion);
 
   const onChangeMotivo = (event) => {

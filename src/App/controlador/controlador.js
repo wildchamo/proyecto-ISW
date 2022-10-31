@@ -2,7 +2,6 @@ import React from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-//const estados = ["Activo", "Cerrado", "Suspendido", "Cancelado"];
 
 //creación del context
 const POContext = React.createContext();
@@ -29,7 +28,7 @@ function POProvider(props) {
       }
     });
   };
-
+  
   //lista de estados
   const [estados, setEstados] = React.useState([]);
 
@@ -226,16 +225,7 @@ function POProvider(props) {
       return proyectoEstado.includes(estadoSelec);
     });
   }
-  //función para anular proyecto
-  const anularProyecto = (text, razon) => {
-    const proyectoIndex = proyectosBuscados.findIndex(
-      (proyecto) => proyecto.nombre === text
-    );
-    const newProyectos = [...proyectos];
-    newProyectos[proyectoIndex].estado = "Anulado";
-    newProyectos[proyectoIndex].motivoCancelacion = razon;
-    setProyectos(newProyectos);
-  };
+
   //función que realiza una consulta utilizando el nombre del proyecto clickado para mostrarlo después en un interfaz
 
   const mostrarProyecto = (text) => {
@@ -244,7 +234,22 @@ function POProvider(props) {
     );
     setProyectoSelec(proyectos[proyectoIndex]);
   };
+
   let proyectosBTotal = proyectosBuscados.length;
+  
+  
+  //función para anular proyecto
+  const anularProyecto = (text, razon) => {
+    const proyectoIndex = proyectosBuscados.findIndex(
+      (proyecto) => proyecto.ID === text
+    );
+    const newProyectos = [...proyectos];
+    newProyectos[proyectoIndex].estado = "Anulado";
+    newProyectos[proyectoIndex].motivoCancelacion = razon;
+    setProyectos(newProyectos);
+  };
+  
+console.log(proyectos)
 
   // todo lo que se exporta de la aplicación para que la vista y los componentes lo consuman y puedan cambiarlo
   return (
