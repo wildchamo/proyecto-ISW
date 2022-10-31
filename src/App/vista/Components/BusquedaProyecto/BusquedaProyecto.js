@@ -1,6 +1,7 @@
 import React from "react";
 import { POContext } from "../../../controlador/controlador";
 import "./busquedaProyecto.css";
+import lupa from "./lupa.png";
 
 function BusquedaProyecto() {
   const { searchValue, setSearchValue } = React.useContext(POContext);
@@ -16,7 +17,8 @@ function BusquedaProyecto() {
       className="busquedaProyecto"
       placeholder="Buscar"
       value={searchValue}
-    />
+    /> 
+     
   );
 }
 export { BusquedaProyecto };
