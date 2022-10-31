@@ -6,6 +6,7 @@
   line-height: 23px;
   font-style: normal;
   color: #3a3a49;
+  padding-top: 5%;
 }
 .grafica {
   text-align: center;
@@ -15,16 +16,29 @@
   font-style: no rmal;
   color: #3a3a49;
 }
-.puntito {
+.puntito{
   display: grid;
   justify-content: center;
-  grid-template-columns: 1% 37%;
+  grid-template-columns: 4% 35%;
   align-items: center;
 }
 
-#p-activo {
-  color: #31b465;
+#p-activo{
+  color: #31B465;
 }
-#p-cerrado {
+
+#p-cerrado{
   color: #FFD600;
+
+}
+#p-anulado{
+  color: #7E818C;
+}
+
+#p-cancelado{
+  color: #9E0B0F;
+}
+
+#p-suspendido{
+  color: #0024A9;
 }

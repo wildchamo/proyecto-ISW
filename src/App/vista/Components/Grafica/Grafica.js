@@ -50,22 +50,24 @@ function Grafica() {
 
         <div className="proyectos">
           <div className="puntito">
-            <p id="p-activo">●</p>{" "}
-            <p> {proyectosActivosValue} proyectos Activos</p>{" "}
+            <p id="p-activo">●</p> {" "}
+            <p> {proyectosActivosValue} Proyectos activos</p> 
           </div>
           <div className="puntito">
-            <p id="p-cerrado">●</p>{" "}
-            <p> {proyectosCerradosValue} proyectos Cerrados</p>{" "}
-          </div>
-
-          <div className="puntito">
-            ●<p>{proyectosAnuladosValue} proyectos Anulados</p>{" "}
+            <p id="p-cerrado">●</p> {" "}
+            <p>{proyectosCerradosValue} Proyectos cerrados</p> 
           </div>
           <div className="puntito">
-            ●<p>{proyectosCanceladosValue} proyectos Cancelados</p>{" "}
+            <p id="p-anulado">●</p> {" "}
+            <p>{proyectosAnuladosValue} Proyectos anulados</p> 
           </div>
           <div className="puntito">
-            ●<p>{proyectosSuspendidosValue} proyectos Suspendidos</p>{" "}
+            <p id="p-cancelado">●</p> {" "}
+            <p>{proyectosCanceladosValue} Proyectos cancelados</p> 
+          </div>
+          <div className="puntito">
+            <p id="p-suspendido">●</p> {" "}
+            <p>{proyectosSuspendidosValue} Proyectos suspendidos</p> 
           </div>
         </div>
       </div>
