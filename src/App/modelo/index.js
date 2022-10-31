@@ -34,7 +34,7 @@ app.post("/login", (req, res) => {
   const password = req.body.password;
   console.log(user, password);
   const sqlSelect =
-    "SELECT * FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
+    "SELECT nombreUsu,nombre,idunidad FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
 
   db.query(sqlSelect, [user, password], (err, result) => {
     if (err) {
