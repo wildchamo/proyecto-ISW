@@ -49,12 +49,15 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.post("/api/anul", (req, res) => {
+app.put("/api/anul", (req, res) => {
   const idProyecto = req.body.idProyecto;
   const razon = req.body.razon;
 
-  const sqlInsert = "call ISW.anularPP(?,?);";
-  db.query(sqlInsert, [idProyecto, razon], (err, result) => {
+  console.log(idProyecto);
+  console.log(razon);
+
+  const sqlUpdate = "call ISW.Modificar_Estados_Anulados(?,?);";
+  db.query(sqlUpdate, [idProyecto, razon], (err, result) => {
     console.log(result);
   });
 });

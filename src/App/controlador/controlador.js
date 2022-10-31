@@ -238,14 +238,16 @@ function POProvider(props) {
 
   //función para anular proyecto
   const anularProyecto = (text, razon) => {
-    Axios.post("http://localhost:3001/api/anul", {
+    console.log(text);
+    console.log(razon);
+    Axios.put("http://localhost:3001/api/anul", {
       idProyecto: text,
       razon: razon,
     });
     mostrarP(loginStatus.nombreUsu);
   };
 
-
+  console.log(proyectoSelec);
   // todo lo que se exporta de la aplicación para que la vista y los componentes lo consuman y puedan cambiarlo
   return (
     <POContext.Provider
