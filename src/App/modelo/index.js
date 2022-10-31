@@ -23,7 +23,6 @@ app.get("/api/get/es", (req, res) => {
 
 app.post("/api/get", (req, res) => {
   const user = req.body.user;
-  console.log(user)
   const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad(?);";
   db.query(sqlSelect, [user], (err, result) => {
     res.send(result);
@@ -48,6 +47,16 @@ app.post("/login", (req, res) => {
         message: "Combinación de usuario y contraseña incorrectos!",
       });
     }
+  });
+});
+
+app.post("/api/anul", (req, res) => {
+  const idProyecto = req.body.idProyecto;
+  const razon = req.body.razon;
+
+  const sqlInsert = "call ISW.anularPP(?,?);";
+  db.query(sqlInsert, [idProyecto, razon], (err, result) => {
+    console.log(result);
   });
 });
 

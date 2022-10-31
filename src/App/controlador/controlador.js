@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 
 //creación del context
 const POContext = React.createContext();
@@ -23,12 +23,12 @@ function POProvider(props) {
     }).then((response) => {
       if (response.data.message === undefined) {
         setLoginStatus(response.data[0]);
-        mostrarP(user);
+        mostrarP(loginStatus.nombreUsu);
         history("/dashboard");
       }
     });
   };
-  
+
   //lista de estados
   const [estados, setEstados] = React.useState([]);
 
@@ -52,7 +52,6 @@ function POProvider(props) {
   //datos generales de la sesión
   let unidad = loginStatus.idunidad;
   let jefeUnidad = loginStatus.nombre;
-  let usuarioJefe = loginStatus.nombreUsu;
 
   //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
 
@@ -236,20 +235,17 @@ function POProvider(props) {
   };
 
   let proyectosBTotal = proyectosBuscados.length;
-  
-  
+
   //función para anular proyecto
   const anularProyecto = (text, razon) => {
-    const proyectoIndex = proyectosBuscados.findIndex(
-      (proyecto) => proyecto.ID === text
-    );
-    const newProyectos = [...proyectos];
-    newProyectos[proyectoIndex].estado = "Anulado";
-    newProyectos[proyectoIndex].motivoCancelacion = razon;
-    setProyectos(newProyectos);
+    Axios.post("http://localhost:3001/api/anul", {
+      idProyecto: text,
+      razon: razon,
+    });
+    mostrarP(loginStatus.nombreUsu);
   };
-  
-console.log(proyectos)
+
+  console.log(proyectos);
 
   // todo lo que se exporta de la aplicación para que la vista y los componentes lo consuman y puedan cambiarlo
   return (
