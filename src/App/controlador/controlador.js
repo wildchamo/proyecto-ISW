@@ -15,6 +15,15 @@ function POProvider(props) {
   const [proyectos, setProyectos] = React.useState([]);
   const [loginStatus, setLoginStatus] = React.useState({});
 
+  //función para llamar a los proyectos de la BD utilizando el modelo
+  const mostrarP = (user) => {
+    Axios.post("http://localhost:3001/api/get", {
+      user: user,
+    }).then((response) => {
+      setProyectos(response.data[0]);
+    });
+  };
+
   //función para logearse en la app que se conecta con el modelo
   const Login = (user, password) => {
     Axios.post("http://localhost:3001/login", {
@@ -23,8 +32,8 @@ function POProvider(props) {
     }).then((response) => {
       if (response.data.message === undefined) {
         setLoginStatus(response.data[0]);
-        mostrarP(loginStatus.nombreUsu);
         history("/dashboard");
+        mostrarP(user);
       }
     });
   };
@@ -60,15 +69,6 @@ function POProvider(props) {
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
-
-  //función para llamar a los proyectos de la BD utilizando el modelo
-  const mostrarP = (user) => {
-    Axios.post("http://localhost:3001/api/get", {
-      user: user,
-    }).then((response) => {
-      setProyectos(response.data[0]);
-    });
-  };
 
   //función que carga los estados en las interfaces cuando se abre algún modal que los utilice
 
@@ -245,7 +245,6 @@ function POProvider(props) {
     mostrarP(loginStatus.nombreUsu);
   };
 
-  console.log(proyectos);
 
   // todo lo que se exporta de la aplicación para que la vista y los componentes lo consuman y puedan cambiarlo
   return (

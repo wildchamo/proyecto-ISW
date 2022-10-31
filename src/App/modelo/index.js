@@ -32,7 +32,6 @@ app.post("/api/get", (req, res) => {
 app.post("/login", (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
-  console.log(user, password);
   const sqlSelect =
     "SELECT nombreUsu,nombre,idunidad FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
 
