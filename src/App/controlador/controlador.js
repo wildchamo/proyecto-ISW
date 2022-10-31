@@ -134,6 +134,8 @@ function POProvider(props) {
       fechaIniProyecto: fechaInicio,
       fechaFinProyecto: fechaFin,
       descripcion: descripcion,
+      estado:estado,
+      idUnidadP:unidad
     });
   };
 
@@ -247,7 +249,6 @@ function POProvider(props) {
     mostrarP(loginStatus.nombreUsu);
   };
 
-  console.log(proyectoSelec);
   // todo lo que se exporta de la aplicación para que la vista y los componentes lo consuman y puedan cambiarlo
   return (
     <POContext.Provider

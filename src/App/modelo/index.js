@@ -72,7 +72,7 @@ app.post("/api/insert", (req, res) => {
   // const idUnidad = req.body.idUnidad; fecharegistro,fechainicio,fechafin
 
   const sqlInsert =
-    "INSERT INTO proyectos(nombre,fecharegistro,fechainicio,fechafin,descripcion) VALUES (?,?,?,?,?);";
+    "INSERT INTO proyectos(nombre,fecharegistro,fechainicio,fechafin,descripcion) VALUES (?,?,?,?,?,?,?);";
   db.query(
     sqlInsert,
     [
@@ -81,6 +81,8 @@ app.post("/api/insert", (req, res) => {
       fechaIniProyecto,
       fechaFinProyecto,
       descripcionProyecto,
+      estado,
+      idUnidadP
     ],
     (err, result) => {
       console.log(result);
