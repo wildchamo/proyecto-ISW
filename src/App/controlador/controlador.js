@@ -40,7 +40,6 @@ function POProvider(props) {
 
   //lista de estados
   const [estados, setEstados] = React.useState([]);
-
   //para mostrar un proyecto en especifico es necesario extraer sus datos, por tanto se encapsula temporalmente en el estado
   //proyectoSelect
   const [proyectoSelec, setProyectoSelec] = React.useState();
@@ -142,6 +141,21 @@ function POProvider(props) {
         estado: estado,
         idUnidadP: unidad,
       });
+
+      const newProyectos = [...proyectos];
+      newProyectos.push({
+        nombre,
+        fechaInicio,
+        fechaFin,
+        fechaCreacion,
+        estado: estados[estado].nombre,
+        descripcion,
+        ID:0
+      });
+      setProyectos(newProyectos);
+
+
+
     } else if (
       fechaInicio.length == 0 &&
       fechaFin.length == 0 &&

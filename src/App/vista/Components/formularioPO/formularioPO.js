@@ -45,8 +45,6 @@ function FormularioPO() {
       descripcion
     );
 
-
-    console.log(estado)
     setOpenModal(false);
   };
 

@@ -68,11 +68,11 @@ app.post("/api/insert", (req, res) => {
   const fechaIniProyecto = req.body.fechaIniProyecto;
   const fechaFinProyecto = req.body.fechaFinProyecto;
   const descripcionProyecto = req.body.descripcion;
-  // const estadoProyecto = req.body.estadoProyecto;
-  // const idUnidad = req.body.idUnidad; fecharegistro,fechainicio,fechafin
+  const estado= req.body.estado;
+  const idUnidadP = req.body.idUnidadP;
 
   const sqlInsert =
-    "INSERT INTO proyectos(nombre,fecharegistro,fechainicio,fechafin,descripcion) VALUES (?,?,?,?,?,?,?);";
+    "call ISW.Crear_proyecto_Completo(?,?,?,?,?,?,?);";
   db.query(
     sqlInsert,
     [
