@@ -1,7 +1,6 @@
 import React from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 //creación del context
 const POContext = React.createContext();
@@ -148,7 +147,7 @@ function POProvider(props) {
         fechaInicio,
         fechaFin,
         fechaCreacion,
-        estado: estados[estado].nombre,
+        estado: estados[estado-1].nombre,
         descripcion,
         ID:0
       });
@@ -157,37 +156,37 @@ function POProvider(props) {
 
 
     } else if (
-      fechaInicio.length == 0 &&
-      fechaFin.length == 0 &&
+      fechaInicio.length === 0 &&
+      fechaFin.length === 0 &&
       descripcion.length > 0
     ) {
       //solodescripcion
     } else if (
       fechaInicio.length > 0 &&
-      fechaFin.length == 0 &&
-      descripcion.length == 0
+      fechaFin.length === 0 &&
+      descripcion.length === 0
     ) {
       //solo fecha inicio
     } else if (
-      fechaInicio.length == 0 &&
+      fechaInicio.length === 0 &&
       fechaFin.length > 0 &&
-      descripcion.length == 0
+      descripcion.length === 0
     ) {
       //solo fecha fin
     } else if (
       fechaInicio.length > 0 &&
       fechaFin.length > 0 &&
-      descripcion.length == 0
+      descripcion.length === 0
     ) {
       //fecha fin y fecha inicio
     } else if (
       fechaInicio.length > 0 &&
-      fechaFin.length == 0 &&
+      fechaFin.length === 0 &&
       descripcion.length > 0
     ) {
       //fecha inicio y descripción
     } else if (
-      fechaInicio.length == 0 &&
+      fechaInicio.length === 0 &&
       fechaFin.length > 0 &&
       descripcion.length > 0
     ) {
