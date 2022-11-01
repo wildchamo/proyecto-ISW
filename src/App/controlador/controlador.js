@@ -128,15 +128,57 @@ function POProvider(props) {
     estado,
     descripcion
   ) => {
-    Axios.post("http://localhost:3001/api/insert", {
-      nombreProyecto: nombre,
-      fechaRegProyecto: fechaCreacion,
-      fechaIniProyecto: fechaInicio,
-      fechaFinProyecto: fechaFin,
-      descripcion: descripcion,
-      estado:estado,
-      idUnidadP:unidad
-    });
+    if (
+      fechaInicio.length > 0 &&
+      fechaFin.length > 0 &&
+      descripcion.length > 0
+    ) {
+      Axios.post("http://localhost:3001/api/insert", {
+        nombreProyecto: nombre,
+        fechaRegProyecto: fechaCreacion,
+        fechaIniProyecto: fechaInicio,
+        fechaFinProyecto: fechaFin,
+        descripcion: descripcion,
+        estado: estado,
+        idUnidadP: unidad,
+      });
+    } else if (
+      fechaInicio.length == 0 &&
+      fechaFin.length == 0 &&
+      descripcion.length > 0
+    ) {
+      //solodescripcion
+    } else if (
+      fechaInicio.length > 0 &&
+      fechaFin.length == 0 &&
+      descripcion.length == 0
+    ) {
+      //solo fecha inicio
+    } else if (
+      fechaInicio.length == 0 &&
+      fechaFin.length > 0 &&
+      descripcion.length == 0
+    ) {
+      //solo fecha fin
+    } else if (
+      fechaInicio.length > 0 &&
+      fechaFin.length > 0 &&
+      descripcion.length == 0
+    ) {
+      //fecha fin y fecha inicio
+    } else if (
+      fechaInicio.length > 0 &&
+      fechaFin.length == 0 &&
+      descripcion.length > 0
+    ) {
+      //fecha inicio y descripción
+    } else if (
+      fechaInicio.length == 0 &&
+      fechaFin.length > 0 &&
+      descripcion.length > 0
+    ) {
+      //fecha fin y descripción
+    }
   };
 
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
