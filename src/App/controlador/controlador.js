@@ -141,54 +141,87 @@ function POProvider(props) {
         estado: estado,
         idUnidadP: unidad,
       });
-
-      // const newProyectos = [...proyectos];
-      // newProyectos.push({
-      //   nombre,
-      //   fechaInicio,
-      //   fechaFin,
-      //   fechaCreacion,
-      //   estado: estados[estado-1].nombre,
-      //   descripcion,
-      //   ID:0
-      // });
-      // setProyectos(newProyectos);
     } else if (
       fechaInicio.length === 0 &&
       fechaFin.length === 0 &&
       descripcion.length > 0
     ) {
       //solodescripcion
+      Axios.post("http://localhost:3001/api/insert", {
+        nombreProyecto: nombre,
+        fechaRegProyecto: fechaCreacion,
+        descripcion: descripcion,
+        estado: estado,
+        idUnidadP: unidad,
+      });
     } else if (
       fechaInicio.length > 0 &&
       fechaFin.length === 0 &&
       descripcion.length === 0
     ) {
       //solo fecha inicio
+      Axios.post("http://localhost:3001/api/insert", {
+        nombreProyecto: nombre,
+        fechaRegProyecto: fechaCreacion,
+        fechaIniProyecto: fechaInicio,
+        estado: estado,
+        idUnidadP: unidad,
+      });
     } else if (
       fechaInicio.length === 0 &&
       fechaFin.length > 0 &&
       descripcion.length === 0
     ) {
       //solo fecha fin
+      Axios.post("http://localhost:3001/api/insert", {
+        nombreProyecto: nombre,
+        fechaRegProyecto: fechaCreacion,
+        fechaFinProyecto: fechaFin,
+        estado: estado,
+        idUnidadP: unidad,
+      });
     } else if (
       fechaInicio.length > 0 &&
       fechaFin.length > 0 &&
       descripcion.length === 0
     ) {
       //fecha fin y fecha inicio
+      Axios.post("http://localhost:3001/api/insert", {
+        nombreProyecto: nombre,
+        fechaRegProyecto: fechaCreacion,
+        fechaIniProyecto: fechaInicio,
+        fechaFinProyecto: fechaFin,
+        estado: estado,
+        idUnidadP: unidad,
+      });
     } else if (
       fechaInicio.length > 0 &&
       fechaFin.length === 0 &&
       descripcion.length > 0
     ) {
       //fecha inicio y descripción
+      Axios.post("http://localhost:3001/api/insert", {
+        nombreProyecto: nombre,
+        fechaRegProyecto: fechaCreacion,
+        fechaIniProyecto: fechaInicio,
+        descripcion: descripcion,
+        estado: estado,
+        idUnidadP: unidad,
+      });
     } else if (
       fechaInicio.length === 0 &&
       fechaFin.length > 0 &&
       descripcion.length > 0
     ) {
       //fecha fin y descripción
+      Axios.post("http://localhost:3001/api/insert", {
+        nombreProyecto: nombre,
+        fechaRegProyecto: fechaCreacion,
+        fechaFinProyecto: fechaFin,
+        descripcion: descripcion,
+        estado: estado,
+        idUnidadP: unidad,
+      });
     }
     mostrarP(usuariojefe);
   };
