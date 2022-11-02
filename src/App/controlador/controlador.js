@@ -14,6 +14,11 @@ function POProvider(props) {
   const [proyectos, setProyectos] = React.useState([]);
   const [loginStatus, setLoginStatus] = React.useState({});
 
+  //datos generales de la sesión
+  let unidad = loginStatus.idunidad;
+  let jefeUnidad = loginStatus.nombre;
+  let usuariojefe = loginStatus.nombreUsu;
+
   //función para llamar a los proyectos de la BD utilizando el modelo
   const mostrarP = (user) => {
     Axios.post("http://localhost:3001/api/get", {
@@ -32,10 +37,10 @@ function POProvider(props) {
       if (response.data.message === undefined) {
         setLoginStatus(response.data[0]);
         history("/dashboard");
-        mostrarP(user);
       }
     });
   };
+  mostrarP(usuariojefe);
 
   //lista de estados
   const [estados, setEstados] = React.useState([]);
@@ -55,10 +60,6 @@ function POProvider(props) {
 
   //se almacena el estado seleccionado por el usuario para filtrar los proyectos que incluyan ese estado
   const [estadoSelec, setEstadoSelec] = React.useState("");
-
-  //datos generales de la sesión
-  let unidad = loginStatus.idunidad;
-  let jefeUnidad = loginStatus.nombre;
 
   //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
 
@@ -141,20 +142,17 @@ function POProvider(props) {
         idUnidadP: unidad,
       });
 
-      const newProyectos = [...proyectos];
-      newProyectos.push({
-        nombre,
-        fechaInicio,
-        fechaFin,
-        fechaCreacion,
-        estado: estados[estado-1].nombre,
-        descripcion,
-        ID:0
-      });
-      setProyectos(newProyectos);
-
-
-
+      // const newProyectos = [...proyectos];
+      // newProyectos.push({
+      //   nombre,
+      //   fechaInicio,
+      //   fechaFin,
+      //   fechaCreacion,
+      //   estado: estados[estado-1].nombre,
+      //   descripcion,
+      //   ID:0
+      // });
+      // setProyectos(newProyectos);
     } else if (
       fechaInicio.length === 0 &&
       fechaFin.length === 0 &&
@@ -192,6 +190,7 @@ function POProvider(props) {
     ) {
       //fecha fin y descripción
     }
+    mostrarP(usuariojefe);
   };
 
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
