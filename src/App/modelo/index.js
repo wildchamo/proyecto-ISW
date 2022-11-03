@@ -60,7 +60,7 @@ app.get("/login", (req, res) => {
   }
 });
 
-app.post("/loginAdmin", (req, res) => {
+app.post("/login", (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
   const sqlSelect =

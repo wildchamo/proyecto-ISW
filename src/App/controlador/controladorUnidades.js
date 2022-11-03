@@ -37,8 +37,7 @@ function UOProvider(props) {
         setLoginStatus(response.data.result[0]);
         localStorage.setItem("token", response.data.token);
         // mostrarP(user);
-        // history("/dashboardAdmin");
-        console.log("te logeaste pa")
+        history("/dashboardAdmin");
       }
     });
   };

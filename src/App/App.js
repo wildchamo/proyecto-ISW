@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
 import { AppUI } from "./vista/vista.js";
+import { AppUIAdmin } from "./vista/vistaAdmin";
 import { POProvider } from "./controlador/controlador";
 import { UOProvider } from "./controlador/controladorUnidades";
 import { Login } from "./vista/Components/login/login.js";
@@ -10,13 +11,14 @@ function App() {
   return (
     <BrowserRouter>
       <POProvider>
-          <UOProvider>
-        <Routes>
+        <UOProvider>
+          <Routes>
             <Route path="/admin" element={<LoginAdmin />}></Route>
-          <Route exact path="/" element={<Login />}></Route>
-          <Route path="/dashboard" element={<AppUI />}></Route>
-        </Routes>
-          </UOProvider>
+            <Route path="/dashboardAdmin" element={<AppUIAdmin />}></Route>
+            <Route exact path="/" element={<Login />}></Route>
+            <Route path="/dashboard" element={<AppUI />}></Route>
+          </Routes>
+        </UOProvider>
       </POProvider>
     </BrowserRouter>
   );
