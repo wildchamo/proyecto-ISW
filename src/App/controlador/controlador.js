@@ -40,6 +40,12 @@ function POProvider(props) {
     });
   };
 
+  const logout = () => {
+    setLoginStatus({});
+    setProyectos([]);
+    history("/");
+  };
+
   //función para logearse en la app que se conecta con el modelo
   const Login = (user, password) => {
     Axios.post("http://localhost:3001/login", {
@@ -50,10 +56,10 @@ function POProvider(props) {
       if (response.data.auth) {
         setLoginStatus(response.data.result[0]);
         localStorage.setItem("token", response.data.token);
+        mostrarP(user);
         history("/dashboard");
       }
     });
-    mostrarP(usuariojefe);
   };
 
   //lista de estados
@@ -141,102 +147,15 @@ function POProvider(props) {
     estado,
     descripcion
   ) => {
-    if (
-      fechaInicio.length > 0 &&
-      fechaFin.length > 0 &&
-      descripcion.length > 0
-    ) {
-      Axios.post("http://localhost:3001/api/insert", {
-        nombreProyecto: nombre,
-        fechaRegProyecto: fechaCreacion,
-        fechaIniProyecto: fechaInicio,
-        fechaFinProyecto: fechaFin,
-        descripcion: descripcion,
-        estado: estado,
-        idUnidadP: unidad,
-      });
-    } else if (
-      fechaInicio.length === 0 &&
-      fechaFin.length === 0 &&
-      descripcion.length > 0
-    ) {
-      //solodescripcion
-      Axios.post("http://localhost:3001/api/insert", {
-        nombreProyecto: nombre,
-        fechaRegProyecto: fechaCreacion,
-        descripcion: descripcion,
-        estado: estado,
-        idUnidadP: unidad,
-      });
-    } else if (
-      fechaInicio.length > 0 &&
-      fechaFin.length === 0 &&
-      descripcion.length === 0
-    ) {
-      //solo fecha inicio
-      Axios.post("http://localhost:3001/api/insert", {
-        nombreProyecto: nombre,
-        fechaRegProyecto: fechaCreacion,
-        fechaIniProyecto: fechaInicio,
-        estado: estado,
-        idUnidadP: unidad,
-      });
-    } else if (
-      fechaInicio.length === 0 &&
-      fechaFin.length > 0 &&
-      descripcion.length === 0
-    ) {
-      //solo fecha fin
-      Axios.post("http://localhost:3001/api/insert", {
-        nombreProyecto: nombre,
-        fechaRegProyecto: fechaCreacion,
-        fechaFinProyecto: fechaFin,
-        estado: estado,
-        idUnidadP: unidad,
-      });
-    } else if (
-      fechaInicio.length > 0 &&
-      fechaFin.length > 0 &&
-      descripcion.length === 0
-    ) {
-      //fecha fin y fecha inicio
-      Axios.post("http://localhost:3001/api/insert", {
-        nombreProyecto: nombre,
-        fechaRegProyecto: fechaCreacion,
-        fechaIniProyecto: fechaInicio,
-        fechaFinProyecto: fechaFin,
-        estado: estado,
-        idUnidadP: unidad,
-      });
-    } else if (
-      fechaInicio.length > 0 &&
-      fechaFin.length === 0 &&
-      descripcion.length > 0
-    ) {
-      //fecha inicio y descripción
-      Axios.post("http://localhost:3001/api/insert", {
-        nombreProyecto: nombre,
-        fechaRegProyecto: fechaCreacion,
-        fechaIniProyecto: fechaInicio,
-        descripcion: descripcion,
-        estado: estado,
-        idUnidadP: unidad,
-      });
-    } else if (
-      fechaInicio.length === 0 &&
-      fechaFin.length > 0 &&
-      descripcion.length > 0
-    ) {
-      //fecha fin y descripción
-      Axios.post("http://localhost:3001/api/insert", {
-        nombreProyecto: nombre,
-        fechaRegProyecto: fechaCreacion,
-        fechaFinProyecto: fechaFin,
-        descripcion: descripcion,
-        estado: estado,
-        idUnidadP: unidad,
-      });
-    }
+    Axios.post("http://localhost:3001/api/insert", {
+      nombreProyecto: nombre,
+      fechaRegProyecto: fechaCreacion,
+      fechaIniProyecto: fechaInicio,
+      fechaFinProyecto: fechaFin,
+      descripcion: descripcion,
+      estado: estado,
+      idUnidadP: unidad,
+    });
     mostrarP(usuariojefe);
   };
 
@@ -402,6 +321,7 @@ function POProvider(props) {
         editarProyecto,
         anularProyecto,
         mostrarProyecto,
+        logout,
 
         //Grafica
         proyectosActivosValue,

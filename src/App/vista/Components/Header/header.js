@@ -10,12 +10,11 @@ import { useNavigate } from "react-router-dom";
 
 function Header() {
   const history = useNavigate();
-  const { jefeUnidad } = React.useContext(POContext);
+  const { jefeUnidad, logout } = React.useContext(POContext);
 
-  const logout = async (e) => {
-    history("/");
+  const logoutt = async (e) => {
+    logout();
   };
-
 
   return (
     <header className="box">
@@ -39,7 +38,7 @@ function Header() {
           className="salir"
           src={salir}
           alt="Cerrar sesión"
-          onClick={logout}
+          onClick={logoutt}
         />
       </div>
     </header>
