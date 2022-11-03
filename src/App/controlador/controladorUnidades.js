@@ -37,7 +37,8 @@ function UOProvider(props) {
         setLoginStatus(response.data.result[0]);
         localStorage.setItem("token", response.data.token);
         // mostrarP(user);
-        history("/dashboardAdmin");
+        // history("/dashboardAdmin");
+        console.log("te logeaste pa")
       }
     });
   };
@@ -73,7 +74,7 @@ function UOProvider(props) {
   const agregarUnidad = (nombre, jefe) => {
     Axios.post("http://localhost:3001/api/insert", {
       nombreUnidad: nombre,
-      fechaRegUnidad: fechaCreacion,
+      fechaRegUnidad: fechaHoy,
       jefeUnidad: jefe,
     });
   };

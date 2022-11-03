@@ -86,6 +86,7 @@ app.post("/loginAdmin", (req, res) => {
     }
   });
 });
+
 app.post("/loginAdmin", (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
