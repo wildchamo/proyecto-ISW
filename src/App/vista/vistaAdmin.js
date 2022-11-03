@@ -1,13 +1,13 @@
 import React from "react";
 import { Header } from "./Components/Header/header";
 import { MainAdmin } from "./Components/Main/MainAdmin.js";
-import { POContext } from "../controlador/controlador";
+import { UOContext } from "../controlador/controladorUnidades";
 import { Modal } from "./Components/modal/modal";
 
-import { FormularioPO } from "./Components/formularioPO/formularioPO.js";
+import { FormularioUO } from "./Components/formularioUO/formularioUO.js";
 
 function AppUIAdmin() {
-  const { openModal} = React.useContext(POContext);
+  const { openModalCrear} = React.useContext(UOContext);
 
 
   return (
@@ -17,9 +17,9 @@ function AppUIAdmin() {
 
       <p>soy admin :devil</p>
 
-      {openModal && (
+      {openModalCrear && (
         <Modal>
-          <FormularioPO />
+          <FormularioUO />
         </Modal>
       )}
     </React.Fragment>

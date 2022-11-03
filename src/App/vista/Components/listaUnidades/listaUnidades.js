@@ -1,18 +1,21 @@
 import React from "react";
-import "./listaProyectoOperativo.css";
+import "./listaUnidades.css";
 import { UOContext } from "../../../controlador/controladorUnidades";
-import { BotonCrearProyecto } from "../BotonCrearProyecto/BotonCrearProyecto";
+import { BotonCrearUnidad } from "../BotonCrearUnidad/BotonCrearUnidad.js";
 
 function ListaUnidades(props) {
-  const {unidades} = React.useContext(UOContext);
+  const {setOpenModalCrear} = React.useContext(UOContext);
 
   return (
     <section className="listaProyectoOperativo">
       <h1>Unidades Operativas de la DTI</h1>
 
       <ul>{props.children}</ul>
-      <div className="footer">
 
+
+      <div className="footer">
+        número de unidades
+        <BotonCrearUnidad setOpenModal={setOpenModalCrear} />
       </div>
     </section>
   );
