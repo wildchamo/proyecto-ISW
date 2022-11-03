@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 //creación del context
 const POContext = React.createContext();
@@ -84,12 +83,12 @@ function POProvider(props) {
   //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
 
   const [openModal, setOpenModal] = React.useState(false);
-  const [openModalEstado, setOpenModalEstado] = React.useState(false);
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
+  const [openModalEstado, setOpenModalEstado] = React.useState(false);
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
-  //función que carga los estados en las interfaces cuando se abre algún modal que los utilice
+    //función que carga los estados en las interfaces cuando se abre algún modal que los utilice
 
   if (openModal || openModalEditar || openModalVerMas) {
     Axios.get("http://localhost:3001/api/get/es").then((response) => {
@@ -259,9 +258,9 @@ function POProvider(props) {
   let proyectosBTotal = proyectosBuscados.length;
 
   //función para anular proyecto
-  const anularProyecto = (text, razon) => {
+  const anularProyecto = (id, razon) => {
     Axios.put("http://localhost:3001/api/anul", {
-      idProyecto: text,
+      idProyecto: id,
       razon: razon,
     });
     mostrarP(loginStatus.nombreUsu);
