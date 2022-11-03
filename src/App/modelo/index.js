@@ -51,6 +51,14 @@ app.post("/api/get", (req, res) => {
   });
 });
 
+app.get("/login", (req, res) => {
+  if (req.session.user) {
+    res.send({ loggedIn: true, user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
+
 app.post("/login", (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
@@ -63,8 +71,9 @@ app.post("/login", (req, res) => {
     }
     if (result.length > 0) {
       req.session.user = result;
-      console.log(req.session.user)
+      console.log(req.session.user);
       res.send(result);
+      console.log(result)
     } else {
       res.send({
         message: "Combinación de usuario y contraseña incorrectos!",

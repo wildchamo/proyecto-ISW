@@ -16,7 +16,7 @@ function Main() {
           <ListaProyectoOperativo>
             {proyectosBuscados.map((proyecto, index) => (
               <ProyectoOperativo
-                key={proyecto.nombre}
+                key={proyecto.ID}
                 ID={proyecto.ID}
                 nombre={proyecto.nombre}
                 fechaInicio={proyecto.fechaInicio}

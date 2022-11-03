@@ -11,13 +11,6 @@ function POProvider(props) {
   //interacciones que realice el usuario con el componente vista
   const history = useNavigate();
 
-  useEffect(() => {
-    Axios.get("http://localhost:3001/login").then((response)=>{
-    console.log(response)
-      // setLoginStatus(response.data[0]);
-    });
-  }, []);
-
   //cargamos la lista de proyectos en un estado
   const [proyectos, setProyectos] = React.useState([]);
   const [loginStatus, setLoginStatus] = React.useState({});
@@ -26,6 +19,16 @@ function POProvider(props) {
   let unidad = loginStatus.idunidad;
   let jefeUnidad = loginStatus.nombre;
   let usuariojefe = loginStatus.nombreUsu;
+
+  Axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/login").then((response) => {
+      if (response.data.loggedIn == true) {
+        setLoginStatus(response.data.user[0]);
+      }
+    });
+  }, []);
 
   //función para llamar a los proyectos de la BD utilizando el modelo
   const mostrarP = (user) => {
