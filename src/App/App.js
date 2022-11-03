@@ -14,8 +14,12 @@ function App() {
         <UOProvider>
           <Routes>
             <Route path="/admin" element={<LoginAdmin />}></Route>
-            <Route path="/dashboardAdmin" element={<AppUIAdmin />}></Route>
-            <Route exact path="/" element={<Login />}></Route>
+            <Route
+              exact
+              path="/dashboardAdmin"
+              element={<AppUIAdmin />}
+            ></Route>
+            <Route path="/" element={<Login />}></Route>
             <Route path="/dashboard" element={<AppUI />}></Route>
           </Routes>
         </UOProvider>

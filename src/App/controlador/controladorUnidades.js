@@ -2,8 +2,28 @@ import React, { useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
+const defaultUnidades = [
+  {
+    ID:1,
+    nombre: "Uao virtual",
+    jefeUnidad: "Jhon Cortes",
+  },
+  {
+    ID:2,
+    nombre: "hardware",
+    jefeUnidad: "Jhon Cortes",
+  },{
+    ID:3,
+    nombre: "software",
+    jefeUnidad: "Jhon Cortes",
+  },
+];
+
 //creación del context
 const UOContext = React.createContext();
+
+
 
 function UOProvider(props) {
   //seteamos los estados necesarios para la implementación del proyecto, los estados cambian según las
@@ -11,7 +31,8 @@ function UOProvider(props) {
   const history = useNavigate();
 
   //cargamos la lista de proyectos en un estado
-  const [unidades, setUnidades] = React.useState([]);
+  const [unidades, setUnidades] = React.useState(defaultUnidades);
+  console.log(unidades)
   const [loginStatus, setLoginStatus] = React.useState({});
 
   //datos generales de la sesión
@@ -78,6 +99,13 @@ function UOProvider(props) {
     });
   };
 
+  const mostrarUnidad = (text) => {
+    const unidadIndex = unidades.findIndex(
+      (unidad) => unidad.ID === text
+    );
+    setUnidadSelect(unidades[unidadIndex]);
+  };
+
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
 
   //función para anular proyecto
@@ -100,6 +128,7 @@ function UOProvider(props) {
         unidadSelect,
         openModalCrear,
         setOpenModalCrear,
+        mostrarUnidad,
         openModalEditar,
         setOpenModalEditar,
         fechaHoy,

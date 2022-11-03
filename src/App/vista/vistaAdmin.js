@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "./Components/Header/header";
-import { Main } from "./Components/Main/Main.js";
+import { MainAdmin } from "./Components/Main/MainAdmin.js";
 import { POContext } from "../controlador/controlador";
 import { Modal } from "./Components/modal/modal";
 
@@ -13,7 +13,7 @@ function AppUIAdmin() {
   return (
     <React.Fragment>
       <Header />
-      <Main />
+      <MainAdmin />
 
       <p>soy admin :devil</p>
 
