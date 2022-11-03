@@ -10,6 +10,7 @@
   box-shadow: 1px 2px 3px rgba(70, 118, 251, 0.41);
   border-radius: 22px;
   color: #666666;
+  font-style: bold;
 }
 
 .formularioPO textarea {
@@ -20,6 +21,7 @@
   color: #1e1e1f;
   width: calc(100% - 25px); 
   resize: none;
+  
 }
 
 .final{
@@ -59,6 +61,8 @@
   border: none;
   border-bottom: 2px solid lightgrey;
   border-radius: 2px;
+  width: 200px;
+  height: 35px;
 }
 
 .input{

@@ -13,6 +13,7 @@ function BusquedaProyecto() {
 
   return (
     <input
+      img src={lupa} alt="lupa"
       onChange={onSearchValueChange}
       className="busquedaProyecto"
       placeholder="Buscar"

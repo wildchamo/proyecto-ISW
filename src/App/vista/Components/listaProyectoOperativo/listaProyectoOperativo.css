@@ -16,6 +16,8 @@ ul {
 }
 .footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-left: 3%;
   align-items: center;
+  font-size: small;
 }
