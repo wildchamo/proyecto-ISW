@@ -5,6 +5,7 @@ var cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const jwt = require("jsonwebtoken");
 
 app.use(express.json());
 app.use(
@@ -63,24 +64,44 @@ app.post("/login", (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
   const sqlSelect =
-    "SELECT nombreUsu,nombre,idunidad FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
+    "SELECT idusuario,nombreUsu,nombre,idunidad FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
 
   db.query(sqlSelect, [user, password], (err, result) => {
     if (err) {
       res.send({ err: err });
     }
     if (result.length > 0) {
+      const id = result[0].idusuario;
+      const token = jwt.sign({ id }, "jwtSecret", {
+        expiresIn: 300,
+      });
+
       req.session.user = result;
-      console.log(req.session.user);
-      res.send(result);
-      console.log(result)
+      res.json({ auth: true, token: token, result: result });
     } else {
       res.send({
+        auth: false,
         message: "Combinación de usuario y contraseña incorrectos!",
       });
     }
   });
 });
+
+const verifyJWT = (req, res, next) => {
+  const token = req.headers["x-access-token"];
+  if (!token) {
+    res.send("necesitas un token papá");
+  } else {
+    jwt.verify(token, "jwtSecret", (err, decoded) => {
+      if (err) {
+        res.json({ auth: false, message: "Falló la autenticación" });
+      } else {
+        req.userId = decoded.id;
+        next();
+      }
+    });
+  }
+};
 
 app.put("/api/anul", (req, res) => {
   const idProyecto = req.body.idProyecto;

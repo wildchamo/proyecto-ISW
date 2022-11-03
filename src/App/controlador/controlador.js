@@ -26,6 +26,7 @@ function POProvider(props) {
     Axios.get("http://localhost:3001/login").then((response) => {
       if (response.data.loggedIn == true) {
         setLoginStatus(response.data.user[0]);
+        mostrarP(response.data.user[0].nombreUsu);
       }
     });
   }, []);
@@ -45,13 +46,15 @@ function POProvider(props) {
       user: user,
       password: password,
     }).then((response) => {
-      if (response.data.message === undefined) {
-        setLoginStatus(response.data[0]);
+      console.log(response);
+      if (response.data.auth) {
+        setLoginStatus(response.data.result[0]);
+        localStorage.setItem("token", response.data.token);
         history("/dashboard");
       }
     });
+    mostrarP(usuariojefe);
   };
-  mostrarP(usuariojefe);
 
   //lista de estados
   const [estados, setEstados] = React.useState([]);
@@ -338,8 +341,6 @@ function POProvider(props) {
 
   //función para anular proyecto
   const anularProyecto = (text, razon) => {
-    console.log(text);
-    console.log(razon);
     Axios.put("http://localhost:3001/api/anul", {
       idProyecto: text,
       razon: razon,
