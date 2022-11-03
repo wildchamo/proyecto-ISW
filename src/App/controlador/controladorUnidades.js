@@ -20,6 +20,21 @@ const defaultUnidades = [
   },
 ];
 
+const defaultJefes = [
+  {
+    ID: 1,
+    nombre: "Duvan100",
+  },
+  {
+    ID: 2,
+    nombre: "Joselo100",
+  },
+  {
+    ID: 3,
+    nombre: "ferxoo100",
+  },
+];
+
 //creación del context
 const UOContext = React.createContext();
 
@@ -62,7 +77,7 @@ function UOProvider(props) {
   };
 
   //lista de jefes unidad sin unidad asociada
-  const [jefes, setJefes] = React.useState([]);
+  const [jefes, setJefes] = React.useState(defaultJefes);
 
   //para mostrar un proyecto en especifico es necesario extraer sus datos, por tanto se encapsula temporalmente en el estado
   //proyectoSelect

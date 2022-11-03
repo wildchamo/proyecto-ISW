@@ -30,11 +30,34 @@ function FormularioUO() {
   return (
     <form className="formularioPO" onSubmit={onSubmit}>
       <h2>Creando Unidad Nueva...</h2>
+      <label>Nombre del proyecto *</label>
+      <textarea
+        className="entradas"
+        required
+        value={nombre}
+        onChange={onChangeNombre}
+        placeholder="Nombre del proyecto"
+        maxLength={50}
+      ></textarea>
 
+      <select
+        className="estado"
+        value={jefe}
+        onChange={onChangeJefe}
+        placeholder="Jefe"
+        required
+      >
+        <option></option>
+        {jefes.map((jefe) => (
+          <option key={jefe.ID} value={jefe.nombre}>
+            {jefe.nombre}
+          </option>
+        ))}
+      </select>
       <button type="button" onClick={onCancel}>
         Cancelar
       </button>
     </form>
   );
 }
-export {FormularioUO};
+export { FormularioUO };
