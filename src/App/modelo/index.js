@@ -60,11 +60,37 @@ app.get("/login", (req, res) => {
   }
 });
 
-app.post("/login", (req, res) => {
+app.post("/loginAdmin", (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
   const sqlSelect =
-    "SELECT idusuario,nombreUsu,nombre,idunidad FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
+    "SELECT idusuario,nombreUsu,nombre FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
+
+  db.query(sqlSelect, [user, password], (err, result) => {
+    if (err) {
+      res.send({ err: err });
+    }
+    if (result.length > 0) {
+      const id = result[0].idusuario;
+      const token = jwt.sign({ id }, "jwtSecret", {
+        expiresIn: 300,
+      });
+
+      req.session.user = result;
+      res.json({ auth: true, token: token, result: result });
+    } else {
+      res.send({
+        auth: false,
+        message: "Combinación de usuario y contraseña incorrectos!",
+      });
+    }
+  });
+});
+app.post("/loginAdmin", (req, res) => {
+  const user = req.body.user;
+  const password = req.body.password;
+  const sqlSelect =
+    "SELECT idusuario,nombreUsu,nombre FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
 
   db.query(sqlSelect, [user, password], (err, result) => {
     if (err) {

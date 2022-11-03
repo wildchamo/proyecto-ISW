@@ -21,7 +21,7 @@ function UOProvider(props) {
   Axios.defaults.withCredentials = true;
 
   //función para deslogearse
-  const logout = () => {
+  const Logout = () => {
     setLoginStatus({});
     setUnidades([]);
     // history("/");
@@ -82,12 +82,34 @@ function UOProvider(props) {
 
   //función para anular proyecto
   const editarUnidad = (id, nombreUnidad, jefeUnidad) => {
-    Axios.put("http://localhost:3001/api/anul", {
+    Axios.put("http://localhost:3001/api/putUni", {
       idUnidad: id,
       nombreUnidad: nombreUnidad,
       jefeUnidad: jefeUnidad,
     });
   };
+
+  return (
+    <UOContext.Provider
+      value={{
+        unidades,
+        admin,
+        Login,
+        Logout,
+        jefes,
+        unidadSelect,
+        openModalCrear,
+        setOpenModalCrear,
+        openModalEditar,
+        setOpenModalEditar,
+        fechaHoy,
+        agregarUnidad,
+        editarUnidad,
+      }}
+    >
+      {props.children}
+    </UOContext.Provider>
+  );
 }
 
 export { UOContext, UOProvider };
