@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 //creación del context
 const POContext = React.createContext();
@@ -9,6 +10,13 @@ function POProvider(props) {
   //seteamos los estados necesarios para la implementación del proyecto, los estados cambian según las
   //interacciones que realice el usuario con el componente vista
   const history = useNavigate();
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/login").then((response)=>{
+    console.log(response)
+      // setLoginStatus(response.data[0]);
+    });
+  }, []);
 
   //cargamos la lista de proyectos en un estado
   const [proyectos, setProyectos] = React.useState([]);

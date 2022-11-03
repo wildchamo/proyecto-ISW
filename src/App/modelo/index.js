@@ -3,10 +3,32 @@ const app = express();
 const mysql = require("mysql");
 var cors = require("cors");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
-app.use(cors());
 app.use(express.json());
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET, POST, PUT"],
+    credentials: true,
+  })
+);
+
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    key: "userID",
+    secret: "suscribe",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 60 * 60 * 24,
+    },
+  })
+);
 
 const db = mysql.createPool({
   host: "localhost",
@@ -40,6 +62,8 @@ app.post("/login", (req, res) => {
       res.send({ err: err });
     }
     if (result.length > 0) {
+      req.session.user = result;
+      console.log(req.session.user)
       res.send(result);
     } else {
       res.send({
@@ -68,11 +92,10 @@ app.post("/api/insert", (req, res) => {
   const fechaIniProyecto = req.body.fechaIniProyecto;
   const fechaFinProyecto = req.body.fechaFinProyecto;
   const descripcionProyecto = req.body.descripcion;
-  const estado= req.body.estado;
+  const estado = req.body.estado;
   const idUnidadP = req.body.idUnidadP;
 
-  const sqlInsert =
-    "call ISW.Crear_proyecto_Completo(?,?,?,?,?,?,?);";
+  const sqlInsert = "call ISW.Crear_proyecto_Completo(?,?,?,?,?,?,?);";
   db.query(
     sqlInsert,
     [
@@ -82,7 +105,7 @@ app.post("/api/insert", (req, res) => {
       fechaFinProyecto,
       descripcionProyecto,
       estado,
-      idUnidadP
+      idUnidadP,
     ],
     (err, result) => {
       console.log(result);
