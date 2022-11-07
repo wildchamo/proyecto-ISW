@@ -24,16 +24,16 @@ function ProyectoOperativo(props) {
 
   const editarPO = () => {
     setOpenModalEditar(true);
-    mostrarProyecto(props.ID);
+    mostrarProyecto(props.idproyecto);
   };
   const verMasPO = () => {
     setOpenModalVerMas(true);
-    mostrarProyecto(props.ID);
+    mostrarProyecto(props.idproyecto);
   };
 
   const anularPO = () => {
     setOpenModalAnular(true);
-    mostrarProyecto(props.ID);
+    mostrarProyecto(props.idproyecto);
   };
 
   return (

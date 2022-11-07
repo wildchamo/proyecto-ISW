@@ -63,8 +63,7 @@ app.get("/login", (req, res) => {
 app.post("/login", (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
-  const sqlSelect =
-    "SELECT idusuario,nombreUsu,nombre FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
+  const sqlSelect = "call ISW.Consultar_Jefe(?,?);";
 
   db.query(sqlSelect, [user, password], (err, result) => {
     if (err) {
@@ -90,8 +89,7 @@ app.post("/login", (req, res) => {
 app.post("/loginAdmin", (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
-  const sqlSelect =
-    "SELECT idusuario,nombreUsu,nombre FROM usuarios WHERE nombreUsu = ? AND contraseña = ?;";
+  const sqlSelect = "call ISW.Consultar_Admin(?,?);";
 
   db.query(sqlSelect, [user, password], (err, result) => {
     if (err) {
@@ -139,7 +137,7 @@ app.put("/api/anul", (req, res) => {
 
   const sqlUpdate = "call ISW.Modificar_Estados_Anulados(?,?);";
   db.query(sqlUpdate, [idProyecto, razon], (err, result) => {
-    console.log(result);
+    console.log(err);
   });
 });
 
@@ -151,9 +149,17 @@ app.post("/api/insert", (req, res) => {
   const descripcionProyecto = req.body.descripcion;
   const estado = req.body.estado;
   const idUnidadP = req.body.idUnidadP;
-  console.log(nombreProyecto,fechaRegProyecto,fechaIniProyecto,fechaFinProyecto,descripcionProyecto,estado,idUnidadP)
+  console.log(
+    nombreProyecto,
+    fechaRegProyecto,
+    fechaIniProyecto,
+    fechaFinProyecto,
+    descripcionProyecto,
+    estado,
+    idUnidadP
+  );
 
-  const sqlInsert = "call ISW.Crear_proyecto_Completo(?,?,?,?,?,?,?);";
+  const sqlInsert = "call ISW.Crear_proyecto(?,?,?,?,?,?,?);";
   db.query(
     sqlInsert,
     [
@@ -166,7 +172,43 @@ app.post("/api/insert", (req, res) => {
       idUnidadP,
     ],
     (err, result) => {
-      console.log(result);
+      console.log(err);
+    }
+  );
+});
+
+app.put("/api/edit", (req, res) => {
+  const idProyecto = req.body.idProyecto;
+  const nombreProyecto = req.body.nombreProyecto;
+  const fechaRegProyecto = req.body.fechaRegProyecto;
+  const fechaIniProyecto = req.body.fechaIniProyecto;
+  const fechaFinProyecto = req.body.fechaFinProyecto;
+  const descripcionProyecto = req.body.descripcion;
+  const estado = req.body.estado;
+  console.log(
+    idProyecto,
+    nombreProyecto,
+    fechaRegProyecto,
+    fechaIniProyecto,
+    fechaFinProyecto,
+    descripcionProyecto,
+    estado
+  );
+
+  const sqlUpdate = "call ISW.Modificar_Proyectos(?,?,?,?,?,?,?);";
+  db.query(
+    sqlUpdate,
+    [
+      nombreProyecto,
+      descripcionProyecto,
+      fechaRegProyecto,
+      fechaIniProyecto,
+      fechaFinProyecto,
+      estado,
+      idProyecto,
+    ],
+    (err, result) => {
+      console.log(err);
     }
   );
 });

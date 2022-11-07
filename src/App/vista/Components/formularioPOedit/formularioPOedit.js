@@ -19,9 +19,12 @@ function FormularioPOedit() {
     proyectoSelec.descripcion
   );
 
+  const [id] =React.useState(proyectoSelec.idproyecto)
+
   const onSubmit = (event) => {
     event.preventDefault();
     editarProyecto(
+      id,
       nombre,
       fechaInicio,
       fechaFin,
@@ -83,7 +86,7 @@ function FormularioPOedit() {
         <select value={estado.idestado} onChange={onChangeEstado} required>
           <option></option>
           {estados.map((estado) => (
-            <option key={estado.idestado} value={estado.nombre}>
+            <option key={estado.idestado} value={estado.idestado}>
               {estado.nombre}
             </option>
           ))}

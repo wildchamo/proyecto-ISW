@@ -16,8 +16,8 @@ function Main() {
           <ListaProyectoOperativo>
             {proyectosBuscados.map((proyecto, index) => (
               <ProyectoOperativo
-                key={proyecto.ID}
-                ID={proyecto.ID}
+                key={proyecto.idproyecto}
+                idproyecto={proyecto.idproyecto}
                 nombre={proyecto.nombre}
                 fechaInicio={proyecto.fechaInicio}
                 fechaFin={proyecto.fechaFin}
@@ -26,8 +26,8 @@ function Main() {
                 descripcion={proyecto.descripcion}
                 prueba={index}
                 motivoCancelacion={proyecto.motivoCancelacion}
-                onAnular={() => anularProyecto(proyecto.ID)}
-                onMostrar={() => mostrarProyecto(proyecto.ID)}
+                onAnular={() => anularProyecto(proyecto.idproyecto)}
+                onMostrar={() => mostrarProyecto(proyecto.idproyecto)}
               />
             ))}
           </ListaProyectoOperativo>

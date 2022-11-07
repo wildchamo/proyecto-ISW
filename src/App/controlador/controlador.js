@@ -15,9 +15,8 @@ function POProvider(props) {
   const [proyectos, setProyectos] = React.useState([]);
   const [loginStatus, setLoginStatus] = React.useState({});
 
-  
   Axios.defaults.withCredentials = true;
-  
+
   useEffect(() => {
     Axios.get("http://localhost:3001/login").then((response) => {
       if (response.data.loggedIn == true) {
@@ -26,14 +25,12 @@ function POProvider(props) {
       }
     });
   }, []);
-  
+
   //datos generales de la sesión
-  let unidad = loginStatus.idunidad;
-  console.log(loginStatus)
+  let unidadid = loginStatus.idunidad;
+  let unidad = loginStatus.nombreUnidad;
   let jefeUnidad = loginStatus.nombre;
   let usuariojefe = loginStatus.nombreUsu;
-  
-
 
   //función para llamar a los proyectos de la BD utilizando el modelo
   const mostrarP = (user) => {
@@ -58,13 +55,14 @@ function POProvider(props) {
     }).then((response) => {
       console.log(response);
       if (response.data.auth) {
-        setLoginStatus(response.data.result[0]);
+        setLoginStatus(response.data.result[0][0]);
         localStorage.setItem("token", response.data.token);
         mostrarP(user);
         history("/dashboard");
       }
     });
   };
+
   mostrarP(usuariojefe);
 
   //lista de estados
@@ -161,12 +159,13 @@ function POProvider(props) {
       fechaFinProyecto: fechaFin,
       descripcion: descripcion,
       estado: estado,
-      idUnidadP: unidad,
+      idUnidadP: unidadid,
     });
   };
 
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
   const editarProyecto = (
+    id,
     nombre,
     fechaInicio,
     fechaFin,
@@ -174,12 +173,16 @@ function POProvider(props) {
     estado,
     descripcion
   ) => {
-    proyectoSelec.nombre = nombre;
-    proyectoSelec.fechaInicio = fechaInicio;
-    proyectoSelec.fechaFin = fechaFin;
-    proyectoSelec.fechaCreacion = fechaCreacion;
-    proyectoSelec.estado = estado;
-    proyectoSelec.descripcion = descripcion;
+    Axios.put("http://localhost:3001/api/edit", {
+      nombreProyecto: nombre,
+      fechaRegProyecto: fechaCreacion,
+      fechaIniProyecto: fechaInicio,
+      fechaFinProyecto: fechaFin,
+      descripcion: descripcion,
+      estado: estado,
+      idProyecto: id,
+    });
+    mostrarP(loginStatus.nombreUsu);
   };
 
   //en el caso que se presionen las flechas para ordenar los proyectos, las siguientes funciones los ordenan
@@ -257,7 +260,7 @@ function POProvider(props) {
 
   const mostrarProyecto = (text) => {
     const proyectoIndex = proyectosBuscados.findIndex(
-      (proyecto) => proyecto.ID === text
+      (proyecto) => proyecto.idproyecto === text
     );
     setProyectoSelec(proyectos[proyectoIndex]);
   };

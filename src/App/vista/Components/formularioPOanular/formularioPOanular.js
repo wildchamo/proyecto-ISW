@@ -8,8 +8,9 @@ function FormularioPOanular() {
   const onCancel = () => {
     setOpenModalAnular(false);
   };
-  const [nombre] = React.useState(proyectoSelec.ID);
+  const [nombre] = React.useState(proyectoSelec.idproyecto);
   const [motivo, setMotivo] = React.useState(proyectoSelec.motivoCancelacion);
+
 
   const onChangeMotivo = (event) => {
     setMotivo(event.target.value);
@@ -23,7 +24,7 @@ function FormularioPOanular() {
 
   return (
     <form className="FormularioPOAnular" onSubmit={onSubmit}>
-      <p>¿Por qué deseas anular el proyecto {nombre}? *</p>
+      <p>¿Por qué deseas anular el proyecto {proyectoSelec.nombre}? *</p>
       <textarea
         placeholder="Justificación"
         type="text"
