@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 //creación del context
 const POContext = React.createContext();
@@ -88,7 +89,7 @@ function POProvider(props) {
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
-    //función que carga los estados en las interfaces cuando se abre algún modal que los utilice
+  //función que carga los estados en las interfaces cuando se abre algún modal que los utilice
 
   if (openModal || openModalEditar || openModalVerMas) {
     Axios.get("http://localhost:3001/api/get/es").then((response) => {
@@ -96,12 +97,14 @@ function POProvider(props) {
     });
   }
 
-  var fechaHoy = new Date();
-  var dd = String(fechaHoy.getDate()).padStart(2, "0");
-  var mm = String(fechaHoy.getMonth() + 1).padStart(2, "0"); //January is 0!
-  var yyyy = fechaHoy.getFullYear();
+  // crea un nuevo objeto `Date`
+  var today = new Date();
 
-  fechaHoy = yyyy + "-" + mm + "-" + dd;
+  // obtener la fecha de hoy en formato `MM/DD/YYYY`
+  var fecha1 = today.toLocaleDateString("en-US");
+  var fecha2 = moment(fecha1).add(7, "days");
+  var fechaHoy = moment(fecha1).format("YYYY-MM-DD");
+  var fechaFinal = moment(fecha2).format("YYYY-MM-DD");
 
   //se crea un arreglo llamado proyectos buscados para que guarde los proyectos que tengan coincidencia con la busqueda
   //del proyecto realizado por el usuario, este arreglo será lo que se imprima
@@ -275,6 +278,7 @@ function POProvider(props) {
         unidad,
         jefeUnidad,
         fechaHoy,
+        fechaFinal,
         proyectosTotal,
         proyectosBuscados,
         estados,

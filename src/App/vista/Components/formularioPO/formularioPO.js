@@ -4,13 +4,13 @@ import "./formularioPO.css";
 import atras from "./atras.png";
 
 function FormularioPO() {
-  const { agregarProyecto, setOpenModal, fechaHoy, estados } =
+  const { agregarProyecto, setOpenModal, fechaHoy, fechaFinal, estados } =
     React.useContext(POContext);
 
   const [nombre, setNombre] = React.useState("");
   const [fechaCreacion] = React.useState(fechaHoy);
-  const [fechaInicio, setFechaInicio] = React.useState("");
-  const [fechaFin, setFechaFin] = React.useState("");
+  const [fechaInicio, setFechaInicio] = React.useState(fechaHoy);
+  const [fechaFin, setFechaFin] = React.useState(fechaFinal);
   const [estado, setEstado] = React.useState("");
   const [descripcion, setDescripcion] = React.useState("");
 
@@ -71,6 +71,7 @@ function FormularioPO() {
             className="fecha"
             type="date"
             onChange={onChangeFechaIni}
+            value={fechaInicio}
             placeholder="fecha de inicio"
             min={fechaCreacion}
           />{" "}
@@ -82,6 +83,7 @@ function FormularioPO() {
             className="fecha"
             type="date"
             onChange={onChangeFechaFin}
+            value={fechaFin}
             placeholder="fecha de finalización"
             min={fechaInicio}
           />{" "}
