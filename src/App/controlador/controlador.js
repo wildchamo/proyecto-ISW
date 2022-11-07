@@ -20,8 +20,8 @@ function POProvider(props) {
   useEffect(() => {
     Axios.get("http://localhost:3001/login").then((response) => {
       if (response.data.loggedIn == true) {
-        setLoginStatus(response.data.user[0]);
-        mostrarP(response.data.user[0].nombreUsu);
+        setLoginStatus(response.data.user[0][0]);
+        mostrarP(response.data.user[0][0].nombreUsu);
       }
     });
   }, []);
