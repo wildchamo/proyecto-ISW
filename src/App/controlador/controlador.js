@@ -15,13 +15,9 @@ function POProvider(props) {
   const [proyectos, setProyectos] = React.useState([]);
   const [loginStatus, setLoginStatus] = React.useState({});
 
-  //datos generales de la sesión
-  let unidad = loginStatus.idunidad;
-  let jefeUnidad = loginStatus.nombre;
-  let usuariojefe = loginStatus.nombreUsu;
-
+  
   Axios.defaults.withCredentials = true;
-
+  
   useEffect(() => {
     Axios.get("http://localhost:3001/login").then((response) => {
       if (response.data.loggedIn == true) {
@@ -30,6 +26,14 @@ function POProvider(props) {
       }
     });
   }, []);
+  
+  //datos generales de la sesión
+  let unidad = loginStatus.idunidad;
+  console.log(loginStatus)
+  let jefeUnidad = loginStatus.nombre;
+  let usuariojefe = loginStatus.nombreUsu;
+  
+
 
   //función para llamar a los proyectos de la BD utilizando el modelo
   const mostrarP = (user) => {
@@ -61,6 +65,7 @@ function POProvider(props) {
       }
     });
   };
+  mostrarP(usuariojefe);
 
   //lista de estados
   const [estados, setEstados] = React.useState([]);
@@ -158,7 +163,6 @@ function POProvider(props) {
       estado: estado,
       idUnidadP: unidad,
     });
-    mostrarP(usuariojefe);
   };
 
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo

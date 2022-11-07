@@ -151,6 +151,7 @@ app.post("/api/insert", (req, res) => {
   const descripcionProyecto = req.body.descripcion;
   const estado = req.body.estado;
   const idUnidadP = req.body.idUnidadP;
+  console.log(nombreProyecto,fechaRegProyecto,fechaIniProyecto,fechaFinProyecto,descripcionProyecto,estado,idUnidadP)
 
   const sqlInsert = "call ISW.Crear_proyecto_Completo(?,?,?,?,?,?,?);";
   db.query(
