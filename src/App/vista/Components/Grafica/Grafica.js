@@ -49,11 +49,26 @@ function Grafica() {
         </div>
 
         <div className="proyectos">
-          <p><div>●</div> {proyectosActivosValue} proyectos Activos</p>
-          <p><div>●</div>{proyectosCerradosValue} proyectos Cerrados</p>
-          <p><div>●</div>{proyectosAnuladosValue} proyectos Anulados</p>
-          <p><div>●</div>{proyectosCanceladosValue} proyectos Cancelados</p>
-          <p><div>●</div>{proyectosSuspendidosValue} proyectos Suspendidos</p>
+          <div className="puntito">
+            <p id="p-activo">●</p> {" "}
+            <p> {proyectosActivosValue} Proyectos activos</p> 
+          </div>
+          <div className="puntito">
+            <p id="p-cerrado">●</p> {" "}
+            <p>{proyectosCerradosValue} Proyectos cerrados</p> 
+          </div>
+          <div className="puntito">
+            <p id="p-anulado">●</p> {" "}
+            <p>{proyectosAnuladosValue} Proyectos anulados</p> 
+          </div>
+          <div className="puntito">
+            <p id="p-cancelado">●</p> {" "}
+            <p>{proyectosCanceladosValue} Proyectos cancelados</p> 
+          </div>
+          <div className="puntito">
+            <p id="p-suspendido">●</p> {" "}
+            <p>{proyectosSuspendidosValue} Proyectos suspendidos</p> 
+          </div>
         </div>
       </div>
     </React.Fragment>
