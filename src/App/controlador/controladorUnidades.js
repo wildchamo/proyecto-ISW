@@ -68,10 +68,13 @@ function UOProvider(props) {
       password: password,
     }).then((response) => {
       if (response.data.auth) {
-        setLoginStatus(response.data.result[0]);
-        localStorage.setItem("token", response.data.token);
-        // mostrarP(user);
-        history("/dashboardAdmin");
+        if (response.data.result[0][0].nombre.length != 0) {
+          setLoginStatus(response.data.result[0]);
+          localStorage.setItem("token", response.data.token);
+          history("/dashboardAdmin");
+        } else {
+          history("/");
+        }
       }
     });
   };
