@@ -55,10 +55,14 @@ function POProvider(props) {
     }).then((response) => {
       console.log(response);
       if (response.data.auth) {
-        setLoginStatus(response.data.result[0][0]);
-        localStorage.setItem("token", response.data.token);
-        mostrarP(user);
-        history("/dashboard");
+        if (response.data.result[0][0].idunidad != 0) {
+          setLoginStatus(response.data.result[0][0]);
+          localStorage.setItem("token", response.data.token);
+          mostrarP(user);
+          history("/dashboard");
+        } else {
+          history("/");
+        }
       }
     });
   };
