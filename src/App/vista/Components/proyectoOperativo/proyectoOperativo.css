@@ -24,3 +24,15 @@
 .estado-p--activo{
   color: #31B465;
 }
+.estado-p--cerrado{
+  color: #FFD600;
+}
+.estado-p--cancelado{
+  color: #9E0B0F;
+}
+.estado-p--suspendido{
+  color: #0024A9;
+}
+.estado-p--anulado{
+  color: #7E818C;
+}

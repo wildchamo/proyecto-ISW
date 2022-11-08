@@ -38,18 +38,27 @@ function ProyectoOperativo(props) {
 
   return (
     <React.Fragment>
-       <li className="proyectoOperativo">
+      <li className="proyectoOperativo">
         <p>{props.nombre}</p>
         <p>{props.fechaInicio}</p>
         <p>{props.fechaFin}</p>
-        <p className={`estado-p ${props.estado==="Activo"&& 'estado-p--activo'} `}>● {props.estado}</p>
+        <p
+          className={`estado-p ${
+            props.estado === "Activo" && "estado-p--activo"
+          } ${props.estado === "Cancelado" && "estado-p--cancelado"} 
+          ${props.estado === "Anulado" && "estado-p--anulado"} 
+          ${props.estado === "Cerrado" && "estado-p--cerrado"} 
+          ${props.estado === "Suspendido" && "estado-p--suspendido"} `}
+        >
+          ● {props.estado}
+        </p>
+        {/* <p style={"color: #31B465;"}>● {props.estado}</p> */}
         <p onClick={editarPO}>
           <img src={editar} alt="botón editar" />
         </p>
         <p onClick={verMasPO}>
           <img src={ver} alt="botón ver más" />
         </p>
-        {/* <p onClick={props.onAnular}> */}
         <p onClick={anularPO}>
           <img src={anular} alt="botón anular" />
         </p>
@@ -74,4 +83,5 @@ function ProyectoOperativo(props) {
     </React.Fragment>
   );
 }
+
 export { ProyectoOperativo };
