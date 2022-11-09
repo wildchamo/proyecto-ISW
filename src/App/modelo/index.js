@@ -44,6 +44,15 @@ app.get("/api/get/es", (req, res) => {
   });
 });
 
+app.post("/api/postE", (req, res) => {
+  const estado = req.body.estado;
+
+  const sqlSelect = "call ISW. (?);";
+  db.query(sqlSelect,[estado], (err, result) => {
+    res.send(result);
+  });
+});
+
 app.post("/api/get", (req, res) => {
   const user = req.body.user;
   const sqlSelect = "call ISW.Consultar_Proyectos_Por_Unidad(?);";
@@ -149,15 +158,6 @@ app.post("/api/insert", (req, res) => {
   const descripcionProyecto = req.body.descripcion;
   const estado = req.body.estado;
   const idUnidadP = req.body.idUnidadP;
-  console.log(
-    nombreProyecto,
-    fechaRegProyecto,
-    fechaIniProyecto,
-    fechaFinProyecto,
-    descripcionProyecto,
-    estado,
-    idUnidadP
-  );
 
   const sqlInsert = "call ISW.Crear_proyecto(?,?,?,?,?,?,?);";
   db.query(

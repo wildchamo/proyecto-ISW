@@ -105,6 +105,11 @@ function POProvider(props) {
   }
 
   if (openModalEditar) {
+    Axios.post("http://localhost:3001/api/postE", {
+      estado: proyectoSelec.idEstado,
+    }).then((response) => {
+      setEstados(response.data);
+    });
   }
 
   // crea un nuevo objeto `Date`

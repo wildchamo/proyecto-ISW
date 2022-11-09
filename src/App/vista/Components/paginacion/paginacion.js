@@ -9,7 +9,6 @@ function Paginacion() {
   const { currentPage, nextPage, prevPage, proyectosBTotal } =
     React.useContext(POContext);
 
-  console.log(proyectosBTotal);
   return (
     <div className="paginacion">
       <p>Página</p>
