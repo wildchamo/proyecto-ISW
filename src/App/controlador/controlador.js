@@ -107,22 +107,6 @@ function POProvider(props) {
   if (openModalEditar) {
   }
 
-  //paginación
-  const [currentPage, setCurrentPage] = React.useState(0);
-
-  const proyectosFiltrados = () => {
-    return proyectos.slice(currentPage, currentPage + 5);
-  };
-
-  const nextPage =()=>{
-    setCurrentPage(currentPage+5)
-  }
-  const prevPage =()=>{
-    if(currentPage>0)
-    setCurrentPage(currentPage-5)
-  }
-
-
   // crea un nuevo objeto `Date`
   var today = new Date();
 
@@ -134,9 +118,24 @@ function POProvider(props) {
 
   //se crea un arreglo llamado proyectos buscados para que guarde los proyectos que tengan coincidencia con la busqueda
   //del proyecto realizado por el usuario, este arreglo será lo que se imprima
+
   let proyectosBuscados = [];
   //se extrae el número de proyectos del arreglo para imprimirlo en pantalla
+
   let proyectosTotal = proyectos.length;
+
+  //paginación
+  const [currentPage, setCurrentPage] = React.useState(0);
+
+  const proyectosFiltrados = () => {
+    return proyectosBuscados.slice(currentPage, currentPage + 5);
+  };
+  const nextPage = () => {
+    setCurrentPage(currentPage + 5);
+  };
+  const prevPage = () => {
+    if (currentPage > 0) setCurrentPage(currentPage - 5);
+  };
 
   //filtros que almacenan los proyectos según su estado y creación de variables que almacena el número de proyectos
   //con ese estado
@@ -314,11 +313,10 @@ function POProvider(props) {
         estados,
         proyectosBTotal,
         setProyectos,
-
+        proyectosFiltrados,
         //busqueda
         searchValue,
         setSearchValue,
-        proyectosFiltrados,
         nextPage,
         prevPage,
 
