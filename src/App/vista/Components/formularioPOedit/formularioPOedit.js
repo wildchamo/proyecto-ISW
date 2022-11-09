@@ -14,7 +14,7 @@ function FormularioPOedit() {
     proyectoSelec.fechaInicio
   );
   const [fechaFin, setFechaFin] = React.useState(proyectoSelec.fechaFin);
-  const [estado, setEstado] = React.useState(proyectoSelec.estado);
+  const [estado, setEstado] = React.useState(proyectoSelec.idEstado);
   const [descripcion, setDescripcion] = React.useState(
     proyectoSelec.descripcion
   );
@@ -84,7 +84,7 @@ function FormularioPOedit() {
 
         <label>Estado del proyecto *</label>
         <select value={estado.idestado} onChange={onChangeEstado} required>
-          <option></option>
+          <option value={proyectoSelec.idEstado}>{proyectoSelec.estado}</option>
           {estados.map((estado) => (
             <option key={estado.idestado} value={estado.idestado}>
               {estado.nombre}
