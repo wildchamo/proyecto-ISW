@@ -19,12 +19,11 @@
   border-bottom: 2px solid lightgrey;
   border-radius: 2px;
   color: #1e1e1f;
-  width: calc(100% - 25px); 
+  width: calc(100% - 25px);
   resize: none;
-  
 }
 
-.final{
+.final {
   margin: 2%;
   display: grid;
   grid-area: auto;
@@ -34,23 +33,25 @@
   justify-self: space-around;
 }
 
-.entradas{
+.entradas {
   display: flex;
   justify-content: space-around;
-  margin-left: 1%;
   margin-bottom: 1%;
+  border-bottom: 1px solid #202329;
+  border-radius: 2px;
+  color: #1e1e1f;
   padding-top: 1%;
-  font-family: "Work Sans"; 
+  font-family: "Work Sans";
 }
 
-.estado{
-  font-family: "Work Sans" ; 
+.estado {
+  font-family: "Work Sans";
   border: none;
   background-color: transparent;
   margin: 1%;
 }
 
-.input.fecha{
+.input.fecha {
   font-family: "Work Sans";
   display: grid;
   justify-content: space-around;
@@ -65,31 +66,29 @@
   height: 35px;
 }
 
-.input{
-  font-family: 'Work Sans';
+.input {
+  font-family: "Work Sans";
 }
 
-.divisor{
+.divisor {
   display: flex;
   font-family: "Work Sans";
-  justify-content: space-between;
+  justify-content: space-around;
   margin-left: -1%;
-  margin-bottom: 2%; 
 }
 
-.titulos{
+.titulos {
   display: flex;
   flex-direction: column;
   margin-left: 1%;
   margin-bottom: 1%;
   margin-top: 1%;
   padding-top: 1%;
-  align-items:flex-start
+  align-items: flex-start;
 }
 
-.atras{
+.atras {
   position: initial;
   align-items: start;
   height: 38px;
 }
-

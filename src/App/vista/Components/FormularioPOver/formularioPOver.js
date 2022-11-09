@@ -16,25 +16,25 @@ function FormularioPOver() {
       <h2>Detalles del proyecto</h2>
 
       <label>Nombre del proyecto</label>
-      <textarea readOnly value={proyectoSelec.nombre}></textarea>
+      <textarea readOnly className="entradas" value={proyectoSelec.nombre}></textarea>
       <div className="divisor">
         <label>Fecha de inicio</label>
-        <textarea readOnly value={proyectoSelec.fechaInicio}></textarea>
+        <input readOnly type="date" className="entradas" value={proyectoSelec.fechaInicio}></input>
         <label>Fecha de finalización</label>
-        <textarea readOnly value={proyectoSelec.fechaFin}></textarea>
+        <input readOnly type="date" className="entradas" value={proyectoSelec.fechaFin}></input>
         <label>Fecha de creación</label>
-        <textarea readOnly value={proyectoSelec.fechaCreacion}></textarea>
+        <input readOnly type="date" className="entradas" value={proyectoSelec.fechaCreacion}></input>
         <label>Estado proyecto</label>
-        <textarea readOnly value={proyectoSelec.estado}></textarea>
+        <input readOnly className="entradas" value={proyectoSelec.estado}></input>
       </div>
       {motivo.length > 0 && (
         <div className="motivo">
           <label>Motivo Cancelación</label>
-          <textarea readOnly value={proyectoSelec.motivoCancelacion}></textarea>
+          <textarea  readOnly value={proyectoSelec.motivoCancelacion}></textarea>
         </div>
       )}
       <label>descripcion del proyecto</label>
-      <textarea readOnly value={proyectoSelec.descripcion}></textarea>
+      <textarea readOnly  value={proyectoSelec.descripcion}></textarea>
 
       <button onClick={onCancel}>Volver</button>
     </form>
