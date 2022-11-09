@@ -47,7 +47,7 @@ app.get("/api/get/es", (req, res) => {
 app.post("/api/postE", (req, res) => {
   const estado = req.body.estado;
 
-  const sqlSelect = "call ISW. (?);";
+  const sqlSelect = "SELECT * FROM ISW.estado where not nombre='Anulado' AND not idestado= ?;";
   db.query(sqlSelect,[estado], (err, result) => {
     res.send(result);
   });
