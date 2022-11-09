@@ -32,7 +32,7 @@ function ListaProyectoOperativo(props) {
       />
       <ul>{props.children}</ul>
       <div className="footer">
-      <p>Mostrado {proyectosBTotal} de {proyectosTotal} proyectos</p>
+      <p>Mostrando {proyectosBTotal} de {proyectosTotal} proyectos</p>
 
       <BotonCrearProyecto setOpenModal={setOpenModal} />
 

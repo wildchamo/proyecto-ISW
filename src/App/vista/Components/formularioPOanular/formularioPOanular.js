@@ -24,8 +24,8 @@ function FormularioPOanular() {
 
   return (
     <form className="FormularioPOAnular" onSubmit={onSubmit}>
-      <p>¿Por qué deseas anular el proyecto {proyectoSelec.nombre}? *</p>
-      <textarea
+      <p>¿Por qué deseas anular el proyecto {nombre}? *</p>
+      <textarea className="entradas"
         placeholder="Justificación"
         type="text"
         onChange={onChangeMotivo}

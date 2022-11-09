@@ -10,8 +10,11 @@
   font-family: "Work Sans";
 }
 
-.FormularioPOAnular input {
-  border-bottom: 1px solid #202329;
+.FormularioPOAnular textarea {
+  border-bottom: 2px solid lightgrey;
+  border-radius: 4px;
+  color: #1e1e1f;
+  padding: 2%;
 }
 
 .campos{
@@ -19,5 +22,5 @@
   align-items: center;
 }
 .campos p{
-color: #C4161C;
+  color: #C4161C;
 }
