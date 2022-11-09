@@ -3,7 +3,7 @@ import "./listaProyectoOperativo.css";
 import { POContext } from "../../../controlador/controlador";
 import { Filtros } from "../Filtros/filtros.js";
 import { BotonCrearProyecto } from "../BotonCrearProyecto/BotonCrearProyecto";
-import {Paginacion} from "../paginacion/paginacion"
+import { Paginacion } from "../paginacion/paginacion";
 
 function ListaProyectoOperativo(props) {
   const {
@@ -16,7 +16,7 @@ function ListaProyectoOperativo(props) {
     setOrdenarArregloAscFF,
     setOrdenarArregloDesFF,
     proyectosTotal,
-    proyectosBTotal
+    proyectosBTotal,
   } = React.useContext(POContext);
 
   return (
@@ -29,14 +29,14 @@ function ListaProyectoOperativo(props) {
         ordenarArregloAscFI={setOrdenarArregloAscFI}
         ordenarArregloDesFF={setOrdenarArregloDesFF}
         ordenarArregloAscFF={setOrdenarArregloAscFF}
-
       />
       <ul>{props.children}</ul>
       <div className="footer">
-      <p>Mostrando {proyectosBTotal} de {proyectosTotal} proyectos</p>
-      <Paginacion></Paginacion>
-      <BotonCrearProyecto setOpenModal={setOpenModal} />
-
+        <p>
+          Mostrando {proyectosBTotal} de {proyectosTotal} proyectos
+        </p>
+        <Paginacion></Paginacion>
+        <BotonCrearProyecto setOpenModal={setOpenModal} />
       </div>
     </section>
   );

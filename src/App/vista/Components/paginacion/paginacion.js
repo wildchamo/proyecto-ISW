@@ -1,19 +1,23 @@
-import React from "react";
-
+import React, { useState } from "react";
 import derecha from "./derecha.png";
 import izquierda from "./izquierda.png";
+import { POContext } from "../../../controlador/controlador";
 
-function Paginacion(props) {
-  return <React.Fragment>
+import "./paginacion.css";
 
-    <p>Página</p>
-    <img src={izquierda} alt="flecha izquierda" />
+function Paginacion() {
+  const { nextPage, prevPage } = React.useContext(POContext);
 
-    <div>1</div>
-    <div>2</div>
-    <img src={derecha} alt="flecha derecha" />
-  
-  </React.Fragment>;
+  return (
+    <div className="paginacion">
+      <p>Página</p>
+      <img onClick={prevPage} src={izquierda} alt="flecha izquierda" />
+
+      <div>1</div>
+      <div>2</div>
+      <img onClick={nextPage} src={derecha} alt="flecha derecha" />
+    </div>
+  );
 }
 
 export { Paginacion };

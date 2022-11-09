@@ -1,0 +1,10 @@
+.paginacion {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.paginacion img {
+  width: 6px;
+  height: 3.5px;
+}

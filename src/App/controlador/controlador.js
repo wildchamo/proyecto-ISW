@@ -104,15 +104,22 @@ function POProvider(props) {
     });
   }
 
-  if( openModalEditar){
-    
+  if (openModalEditar) {
   }
 
-//paginación
-const proyectosFiltrados =() =>{
-  return proyectos.slice(0,5)
-}
+  //paginación
+  const [currentPage, setCurrentPage] = React.useState(0);
 
+  const proyectosFiltrados = () => {
+    return proyectos.slice(currentPage, currentPage + 5);
+  };
+
+  const nextPage =()=>{
+    setCurrentPage(currentPage+5)
+  }
+  const prevPage =()=>{
+    setCurrentPage(currentPage-5)
+  }
 
 
   // crea un nuevo objeto `Date`
@@ -311,6 +318,8 @@ const proyectosFiltrados =() =>{
         searchValue,
         setSearchValue,
         proyectosFiltrados,
+        nextPage,
+        prevPage,
 
         //seleccionados
         proyectoSelec,
