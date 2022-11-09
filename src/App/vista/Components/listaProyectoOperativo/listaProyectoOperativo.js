@@ -3,6 +3,7 @@ import "./listaProyectoOperativo.css";
 import { POContext } from "../../../controlador/controlador";
 import { Filtros } from "../Filtros/filtros.js";
 import { BotonCrearProyecto } from "../BotonCrearProyecto/BotonCrearProyecto";
+import {Paginacion} from "../paginacion/paginacion"
 
 function ListaProyectoOperativo(props) {
   const {
@@ -33,7 +34,7 @@ function ListaProyectoOperativo(props) {
       <ul>{props.children}</ul>
       <div className="footer">
       <p>Mostrando {proyectosBTotal} de {proyectosTotal} proyectos</p>
-
+      <Paginacion></Paginacion>
       <BotonCrearProyecto setOpenModal={setOpenModal} />
 
       </div>

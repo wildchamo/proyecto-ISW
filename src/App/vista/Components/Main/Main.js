@@ -8,13 +8,13 @@ function Main() {
   const {
     proyectosBuscados,
     anularProyecto,
-    mostrarProyecto,
+    mostrarProyecto,proyectosFiltrados,
   } = React.useContext(POContext);
   return (
     <main>
         <section>
           <ListaProyectoOperativo>
-            {proyectosBuscados.map((proyecto, index) => (
+            {proyectosFiltrados().map((proyecto, index) => (
               <ProyectoOperativo
                 key={proyecto.idproyecto}
                 idproyecto={proyecto.idproyecto}

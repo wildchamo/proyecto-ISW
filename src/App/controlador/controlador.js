@@ -98,11 +98,22 @@ function POProvider(props) {
 
   //función que carga los estados en las interfaces cuando se abre algún modal que los utilice
 
-  if (openModal || openModalEditar || openModalVerMas) {
+  if (openModal) {
     Axios.get("http://localhost:3001/api/get/es").then((response) => {
       setEstados(response.data);
     });
   }
+
+  if( openModalEditar){
+    
+  }
+
+//paginación
+const proyectosFiltrados =() =>{
+  return proyectos.slice(0,5)
+}
+
+
 
   // crea un nuevo objeto `Date`
   var today = new Date();
@@ -299,6 +310,7 @@ function POProvider(props) {
         //busqueda
         searchValue,
         setSearchValue,
+        proyectosFiltrados,
 
         //seleccionados
         proyectoSelec,
