@@ -118,6 +118,7 @@ function POProvider(props) {
     setCurrentPage(currentPage+5)
   }
   const prevPage =()=>{
+    if(currentPage>0)
     setCurrentPage(currentPage-5)
   }
 
