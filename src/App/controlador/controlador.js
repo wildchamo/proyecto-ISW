@@ -317,6 +317,7 @@ function POProvider(props) {
         //busqueda
         searchValue,
         setSearchValue,
+        currentPage,
         nextPage,
         prevPage,
 

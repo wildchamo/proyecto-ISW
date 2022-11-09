@@ -1,10 +1,26 @@
 .paginacion {
-  width: 100px;
+  width: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .paginacion img {
   width: 6px;
-  height: 3.5px;
+  height: 4px;
+  cursor: pointer;
 }
+.contadoPagi--prendido {
+  color: white;
+  background-color: #9e0b0f;
+  width: 24px;
+  height: 24px;
+  border-radius: 30px;
+  padding: 1px 0 1px;
+}
+.contadorPagi {
+  padding: 1px 0 1px;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+}
+

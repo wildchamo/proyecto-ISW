@@ -6,15 +6,50 @@ import { POContext } from "../../../controlador/controlador";
 import "./paginacion.css";
 
 function Paginacion() {
-  const { nextPage, prevPage } = React.useContext(POContext);
+  const { currentPage, nextPage, prevPage, proyectosBTotal } =
+    React.useContext(POContext);
 
+  console.log(proyectosBTotal);
   return (
     <div className="paginacion">
       <p>Página</p>
       <img onClick={prevPage} src={izquierda} alt="flecha izquierda" />
 
-      <div>1</div>
-      <div>2</div>
+      <div
+        className={`contadorPagi ${
+          currentPage === 0 && "contadoPagi--prendido"
+        } `}
+      >
+        1
+      </div>
+      <div
+        className={`contadorPagi ${
+          currentPage === 5 && "contadoPagi--prendido"
+        } `}
+      >
+        2
+      </div>
+
+      {proyectosBTotal > 12 && (
+        <div
+          className={`contadorPagi ${
+            currentPage === 10 && "contadoPagi--prendido"
+          } `}
+        >
+          3
+        </div>
+      )}
+
+      {proyectosBTotal > 17 && (
+        <div
+          className={`contadorPagi ${
+            currentPage === 15 && "contadoPagi--prendido"
+          } `}
+        >
+          3
+        </div>
+      )}
+
       <img onClick={nextPage} src={derecha} alt="flecha derecha" />
     </div>
   );
