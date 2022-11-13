@@ -3,19 +3,21 @@ ul {
   padding: 0 0 20px 0;
   list-style: none;
 }
-.listaProyectoOperativo {
-  width: 1100px;
+.listaUnidades {
+  width: 600px;
   padding-top: 10px;
   background-color: white;
   border-radius: 50px;
   box-shadow: 1px 2px 3px rgba(70, 118, 251, 0.41);
   border-radius: 22px;
 }
-.listaProyectoOperativo h1 {
+.listaUnidades h1 {
   text-align: center;
 }
 .footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-left: 3%;
   align-items: center;
+  font-size: small;
 }

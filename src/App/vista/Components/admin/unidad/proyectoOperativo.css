@@ -1,0 +1,26 @@
+.proyectoOperativo {
+  border: 1px solid #e9eff4;
+  width: 1100px;
+  height: 55px;
+
+  display: grid;
+  grid-template-columns: 300px 200px 200px;
+  align-items: center;
+  
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  align-items: center;
+  letter-spacing: -0.02em;
+  color: #666666;
+  text-align: center;
+}
+.proyectoOperativo img{
+  cursor: pointer;
+}
+
+.estado-p--activo{
+  color: #31B465;
+}

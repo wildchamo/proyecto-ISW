@@ -1,6 +1,6 @@
 import React from "react";
-import { ListaUnidades } from "../listaUnidades/listaUnidades";
-import { Unidad } from "../unidad/unidad.js";
+import { ListaUnidades } from "../admin/listaUnidades/listaUnidades";
+import { Unidad } from "../admin/unidad/unidad.js";
 import { UOContext } from "../../../controlador/controladorUnidades";
 import "./main.css";
 function MainAdmin() {

@@ -1,10 +1,10 @@
-.proyectoOperativo {
+.unidad {
   border: 1px solid #e9eff4;
   width: 1100px;
   height: 55px;
 
   display: grid;
-  grid-template-columns: 300px 180px 180px 180px 80px 80px 80px;
+  grid-template-columns:  80px 80px 80px;
   align-items: center;
   
   font-family: "Work Sans";
@@ -17,10 +17,7 @@
   color: #666666;
   text-align: center;
 }
-.proyectoOperativo img{
+.unidad img{
   cursor: pointer;
 }
 
-.estado-p--activo{
-  color: #31B465;
-}
