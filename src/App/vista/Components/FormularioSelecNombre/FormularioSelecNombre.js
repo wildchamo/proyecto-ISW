@@ -3,7 +3,7 @@ import { POContext } from "../../../controlador/controlador";
 import "./FormularioSelecEstado.css";
 
 function FormularioSelecNombre() {
-  const { setNombre, setEstadoSelec } =
+  const { setNombre, setNombreSelec } =
     React.useContext(POContext);
 
   const onCancel = () => {
@@ -11,7 +11,7 @@ function FormularioSelecNombre() {
   };
 
   const onClickR = (event) => {
-    setEstadoSelec(event.target.value);
+    setNombreSelec(event.target.value);
     setNombre(false);
   };
 
@@ -21,15 +21,15 @@ function FormularioSelecNombre() {
       <h2>Ordenar alfabeticamente de:</h2>
 
       <div className="radio">
-        <input type="radio" value="" onClick={onClickR} />
+        <input type="radio" value="ascen" onClick={onClickR} />
         <label>A-Z</label>
       </div>
       <div className="radio">
-        <input type="radio" value="Activo" onClick={onClickR} />
+        <input type="radio" value="descen" onClick={onClickR} />
         <label>Z-A</label>
       </div>
       <div className="radio">
-        <input type="radio" value="Activo" onClick={onClickR} />
+        <input type="radio" value="" onClick={onClickR} />
         <label>Sin filtro</label>
       </div>
 

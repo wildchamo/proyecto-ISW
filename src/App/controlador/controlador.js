@@ -287,6 +287,24 @@ function POProvider(props) {
     });
   }
 
+  const [NombreSelec, setNombreSelec] = React.useState(false);
+
+  if (NombreSelec === "ascen") {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.nombre < b.nombre) return -1;
+      if (a.nombre > b.nombre) return 1;
+      return 0;
+    });
+  } else if (NombreSelec === "descen") {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.nombre < b.nombre) return 1;
+      if (a.nombre > b.nombre) return -1;
+      return 0;
+    });
+  } else {
+    proyectosBuscados = proyectosBuscados;
+  }
+
   //función que realiza una consulta utilizando el nombre del proyecto clickado para mostrarlo después en un interfaz
 
   const mostrarProyecto = (text) => {
@@ -333,6 +351,7 @@ function POProvider(props) {
         //seleccionados
         proyectoSelec,
         estadoSelec,
+        setNombreSelec,
         setEstadoSelec,
 
         //modales
