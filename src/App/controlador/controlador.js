@@ -96,6 +96,10 @@ function POProvider(props) {
   const [openModalVerMas, setOpenModalVerMas] = React.useState(false);
   const [openModalAnular, setOpenModalAnular] = React.useState(false);
 
+  const [openModalNombre, setNombre] = React.useState(false);
+  const [openModalFI, setFI] = React.useState(false);
+  const [openModalFF, setFF] = React.useState(false);
+
   //función que carga los estados en las interfaces cuando se abre algún modal que los utilice
 
   if (openModal) {
@@ -342,6 +346,15 @@ function POProvider(props) {
         setOpenModalEstado,
         openModalAnular,
         setOpenModalAnular,
+
+        openModalNombre,
+        setNombre,
+        openModalFI,
+        setFI,
+        setFF,
+        openModalFF,
+
+        setFF,
         //filtros
         ordenarArregloDes,
         setOrdenarArregloDes,

@@ -8,7 +8,16 @@ import { FormularioSelecEstado } from "../FormularioSelecEstado/FormularioSelecE
 import { POContext } from "../../../controlador/controlador";
 
 function Filtros(props) {
-  const { openModalEstado, setOpenModalEstado } = React.useContext(POContext);
+  const {
+    openModalEstado,
+    setOpenModalEstado,
+    openModalNombre,
+    setNombre,
+    openModalFI,
+    setFI,
+    setFF,
+    openModalFF,
+  } = React.useContext(POContext);
 
   const onClickButtonDes = () => {
     props.ordenarArregloDes(true);
@@ -29,6 +38,15 @@ function Filtros(props) {
     props.ordenarArregloDesFF(true);
   };
   const onClickModalEstado = () => {
+    setOpenModalEstado(true);
+  };
+  const onClickModalFI = () => {
+    setFI(true);
+  };
+  const onClickModalFF = () => {
+    setff(true);
+  };
+  const onClickModalNombre = () => {
     setOpenModalEstado(true);
   };
 
