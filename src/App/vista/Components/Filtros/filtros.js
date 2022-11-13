@@ -6,6 +6,7 @@ import abajo from "./vectorAbajo.png";
 import { Modal } from "../modal/modal";
 import { FormularioSelecEstado } from "../FormularioSelecEstado/FormularioSelecEstado";
 import { FormularioSelecNombre } from "../FormularioSelecNombre/FormularioSelecNombre";
+import { FormularioSelecFI } from "../FormularioSelecFI/FormularioSelecFI";
 import { POContext } from "../../../controlador/controlador";
 
 function Filtros(props) {
@@ -65,7 +66,7 @@ function Filtros(props) {
       )}
       {openModalFI && (
         <Modal>
-          <FormularioSelecEstado />
+          <FormularioSelecFI />
         </Modal>
       )}
       {openModalFF && (

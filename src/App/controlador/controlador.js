@@ -218,37 +218,6 @@ function POProvider(props) {
 
   //en el caso que se presionen las flechas para ordenar los proyectos, las siguientes funciones los ordenan
 
-  if (ordenarArregloDes) {
-    proyectosBuscados = proyectos.sort(function (a, b) {
-      if (a.nombre < b.nombre) return -1;
-      if (a.nombre > b.nombre) return 1;
-      return 0;
-    });
-  }
-
-  if (ordenarArregloAsc) {
-    proyectosBuscados = proyectos.sort(function (a, b) {
-      if (a.nombre < b.nombre) return 1;
-      if (a.nombre > b.nombre) return -1;
-      return 0;
-    });
-  }
-
-  if (ordenarArregloAscFI) {
-    proyectosBuscados = proyectos.sort(function (a, b) {
-      if (a.fechaInicio < b.fechaInicio) return 1;
-      if (a.fechaInicio > b.fechaInicio) return -1;
-      return 0;
-    });
-  }
-
-  if (ordenarArregloDesFI) {
-    proyectosBuscados = proyectos.sort(function (a, b) {
-      if (a.fechaInicio < b.fechaInicio) return -1;
-      if (a.fechaInicio > b.fechaInicio) return 1;
-      return 0;
-    });
-  }
   if (ordenarArregloAscFF) {
     proyectosBuscados = proyectos.sort(function (a, b) {
       if (a.fechaFin < b.fechaFin) return 1;
@@ -305,6 +274,24 @@ function POProvider(props) {
     proyectosBuscados = proyectosBuscados;
   }
 
+  const [FiSelec, setFISelec] = React.useState(false);
+
+  if (FiSelec === "ascen") {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.fechaInicio < b.fechaInicio) return 1;
+      if (a.fechaInicio > b.fechaInicio) return -1;
+      return 0;
+    });
+  } else if (FiSelec === "descen") {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.fechaInicio < b.fechaInicio) return -1;
+      if (a.fechaInicio > b.fechaInicio) return 1;
+      return 0;
+    });
+  } else {
+    proyectosBuscados = proyectosBuscados;
+  }
+
   //función que realiza una consulta utilizando el nombre del proyecto clickado para mostrarlo después en un interfaz
 
   const mostrarProyecto = (text) => {
@@ -353,6 +340,8 @@ function POProvider(props) {
         estadoSelec,
         setNombreSelec,
         setEstadoSelec,
+        FiSelec,
+        setFISelec,
 
         //modales
         openModal,
