@@ -5,6 +5,7 @@ import arriba from "./vectorArriba.png";
 import abajo from "./vectorAbajo.png";
 import { Modal } from "../modal/modal";
 import { FormularioSelecEstado } from "../FormularioSelecEstado/FormularioSelecEstado";
+import { FormularioSelecNombre } from "../FormularioSelecNombre/FormularioSelecNombre";
 import { POContext } from "../../../controlador/controlador";
 
 function Filtros(props) {
@@ -48,8 +49,6 @@ function Filtros(props) {
   };
   const onClickModalNombre = () => {
     setNombre(true);
-    alert("hola")
-
   };
 
   return (
@@ -59,51 +58,42 @@ function Filtros(props) {
           <FormularioSelecEstado />
         </Modal>
       )}
+      {openModalNombre && (
+        <Modal>
+          <FormularioSelecNombre />
+        </Modal>
+      )}
+      {openModalFI && (
+        <Modal>
+          <FormularioSelecEstado />
+        </Modal>
+      )}
+      {openModalFF && (
+        <Modal>
+          <FormularioSelecEstado />
+        </Modal>
+      )}
       <div>
         <p>Nombre</p>
         <div onClick={onClickModalNombre} className="flechas">
-          <img
-            className="flecha"
-            src={arriba}
-            alt="Logo"
-          />
-          <img
-            className="flecha"
-            src={abajo}
-            alt="Logo"
-          />
+          <img className="flecha" src={arriba} alt="Logo" />
+          <img className="flecha" src={abajo} alt="Logo" />
         </div>
       </div>
 
       <div>
         <p>Fecha de inicio</p>
         <div onClick={onClickModalFI} className="flechas">
-          <img
-            className="flecha"
-            src={arriba}
-            alt="Logo"
-          />
-          <img
-            className="flecha"
-            src={abajo}
-            alt="Logo"
-          />
+          <img className="flecha" src={arriba} alt="Logo" />
+          <img className="flecha" src={abajo} alt="Logo" />
         </div>
       </div>
 
       <div>
         <p>fecha de finalización</p>
         <div onClick={onClickModalFF} className="flechas">
-          <img
-            className="flecha"
-            src={arriba}
-            alt="Logo"
-          />
-          <img
-            className="flecha"
-            src={abajo}
-            alt="Logo"
-          />
+          <img className="flecha" src={arriba} alt="Logo" />
+          <img className="flecha" src={abajo} alt="Logo" />
         </div>
       </div>
 
