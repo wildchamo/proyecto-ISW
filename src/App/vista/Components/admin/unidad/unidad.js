@@ -1,5 +1,5 @@
 import React from "react";
-import "./proyectoOperativo.css";
+import "./unidadOperativa.css";
 
 import editar from "./editar.png";
 
@@ -11,7 +11,7 @@ function Unidad(props) {
 
   return (
     <React.Fragment>
-      <li className="proyectoOperativo">
+      <li className="unidadOperativa">
         <p>{props.nombre}</p>
         <p>{props.jefeUnidad}</p>
         <p>
