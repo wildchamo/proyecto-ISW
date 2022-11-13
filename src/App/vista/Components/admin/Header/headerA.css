@@ -1,9 +1,9 @@
-.box{
+.box1{
     margin: 3%;
     display: grid;
     grid-area: auto;
     align-items: center;
-    grid-template-columns: 6% 45% 40% 3% 5% 3%;
+    grid-template-columns: 6% 45% ;
 }
 
 .box h1 {

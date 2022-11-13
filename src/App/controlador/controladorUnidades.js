@@ -2,24 +2,6 @@ import React, { useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-// const defaultUnidades = [
-//   {
-//     ID: 1,
-//     nombre: "Uao virtual",
-//     jefeUnidad: "Jhon Cortes",
-//   },
-//   {
-//     ID: 2,
-//     nombre: "hardware",
-//     jefeUnidad: "Jose Luis",
-//   },
-//   {
-//     ID: 3,
-//     nombre: "software",
-//     jefeUnidad: "Gabriela",
-//   },
-// ];
-
 const defaultJefes = [
   {
     ID: 1,
@@ -72,7 +54,7 @@ function UOProvider(props) {
   const Logout = () => {
     setLoginStatus({});
     setUnidades([]);
-    // history("/");
+    history("/");
   };
 
   const mostrarU = () => {
