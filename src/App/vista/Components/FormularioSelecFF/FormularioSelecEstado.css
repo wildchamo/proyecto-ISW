@@ -1,5 +1,5 @@
-.FormularioSelecEstado {
-  width: 300px;
+.FormularioSelecnombre {
+  height: 200px;
   background: #ffffff;
   box-shadow: 1px 2px 3px rgba(70, 118, 251, 0.41);
   border-radius: 22px;
@@ -11,6 +11,7 @@
 
   text-align: left;
   letter-spacing: -0.02em;
+  line-height: 1;
 
   /* Gray */
 
@@ -25,9 +26,9 @@
   align-items: center;
 }
 
-.FormularioSelecEstado input {
+.FormularioSelecnombre input {
   width: 10px;
 }
-.FormularioSelecEstado button{
+.FormularioSelecnombre button{
     align-self: center;
 }

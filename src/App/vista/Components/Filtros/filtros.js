@@ -7,6 +7,7 @@ import { Modal } from "../modal/modal";
 import { FormularioSelecEstado } from "../FormularioSelecEstado/FormularioSelecEstado";
 import { FormularioSelecNombre } from "../FormularioSelecNombre/FormularioSelecNombre";
 import { FormularioSelecFI } from "../FormularioSelecFI/FormularioSelecFI";
+import { FormularioSelecFF } from "../FormularioSelecFF/FormularioSelecFF";
 import { POContext } from "../../../controlador/controlador";
 
 function Filtros(props) {
@@ -71,7 +72,7 @@ function Filtros(props) {
       )}
       {openModalFF && (
         <Modal>
-          <FormularioSelecEstado />
+          <FormularioSelecFF />
         </Modal>
       )}
       <div>

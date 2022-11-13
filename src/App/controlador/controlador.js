@@ -216,23 +216,6 @@ function POProvider(props) {
     mostrarP(loginStatus.nombreUsu);
   };
 
-  //en el caso que se presionen las flechas para ordenar los proyectos, las siguientes funciones los ordenan
-
-  if (ordenarArregloAscFF) {
-    proyectosBuscados = proyectos.sort(function (a, b) {
-      if (a.fechaFin < b.fechaFin) return 1;
-      if (a.fechaFin > b.fechaFin) return -1;
-      return 0;
-    });
-  }
-  if (ordenarArregloDesFF) {
-    proyectosBuscados = proyectos.sort(function (a, b) {
-      if (a.fechaFin < b.fechaFin) return -1;
-      if (a.fechaFin > b.fechaFin) return 1;
-      return 0;
-    });
-  }
-
   //en el caso que el valor de busqueda cambie y sea mayor o igual a 1, se filtrará para que se impriman solo los proyectos
   //que incluyen el valor buscado ensu nombre
 
@@ -292,6 +275,24 @@ function POProvider(props) {
     proyectosBuscados = proyectosBuscados;
   }
 
+  const [FFSelec, setFFSelec] = React.useState(false);
+
+  if (FFSelec === "ascen") {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.fechaFin < b.fechaFin) return 1;
+      if (a.fechaFin > b.fechaFin) return -1;
+      return 0;
+    });
+  } else if (FFSelec === "descen") {
+    proyectosBuscados = proyectos.sort(function (a, b) {
+      if (a.fechaFin < b.fechaFin) return -1;
+      if (a.fechaFin > b.fechaFin) return 1;
+      return 0;
+    });
+  } else {
+    proyectosBuscados = proyectosBuscados;
+  }
+
   //función que realiza una consulta utilizando el nombre del proyecto clickado para mostrarlo después en un interfaz
 
   const mostrarProyecto = (text) => {
@@ -316,6 +317,8 @@ function POProvider(props) {
   return (
     <POContext.Provider
       value={{
+        FFSelec,
+        setFFSelec,
         Login,
         //valores
         unidad,
