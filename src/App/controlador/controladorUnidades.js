@@ -59,7 +59,7 @@ function UOProvider(props) {
 
   const mostrarU = () => {
     Axios.get("http://localhost:3001/api/get/getU").then((response) => {
-      setUnidades(response.data[0]);
+      setUnidades(response.data);
     });
   };
 

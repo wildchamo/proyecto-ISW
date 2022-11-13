@@ -5,10 +5,10 @@ import salir from "./salir.png";
 import { UOContext } from "../../../../controlador/controladorUnidades";
 
 function Header() {
-  const { admin, logout } = React.useContext(UOContext);
+  const { admin, Logout } = React.useContext(UOContext);
 
   const logoutt = async (e) => {
-    logout();
+    Logout();
   };
 
   return (
