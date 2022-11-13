@@ -4,7 +4,7 @@ import { UOContext } from "../../../../controlador/controladorUnidades";
 import { BotonCrearUnidad } from "../../BotonCrearUnidad/BotonCrearUnidad.js";
 
 function ListaUnidades(props) {
-  const {setOpenModalCrear} = React.useContext(UOContext);
+  const {setOpenModalCrear,noUnidades} = React.useContext(UOContext);
 
   return (
     <section className="ListaUnidades">
@@ -14,7 +14,7 @@ function ListaUnidades(props) {
 
 
       <div className="footer">
-        número de unidades
+        número de unidades: {noUnidades}
         <BotonCrearUnidad setOpenModal={setOpenModalCrear} />
       </div>
     </section>

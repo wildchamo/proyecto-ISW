@@ -32,6 +32,7 @@ function UOProvider(props) {
   //datos generales de la sesión
   let admin = loginStatus.nombre;
   let usuarioadmin = loginStatus.nombreUsu;
+  let noUnidades= unidades.length;
 
   Axios.defaults.withCredentials = true;
 
@@ -81,6 +82,8 @@ function UOProvider(props) {
       }
     });
   };
+  mostrarU();
+
   console.log(unidades);
 
   //lista de jefes unidad sin unidad asociada
@@ -139,6 +142,7 @@ function UOProvider(props) {
     <UOContext.Provider
       value={{
         unidades,
+        noUnidades,
         admin,
         Login,
         Logout,
