@@ -44,10 +44,12 @@ function Filtros(props) {
     setFI(true);
   };
   const onClickModalFF = () => {
-    setff(true);
+    setFF(true);
   };
   const onClickModalNombre = () => {
-    setOpenModalEstado(true);
+    setNombre(true);
+    alert("hola")
+
   };
 
   return (
@@ -59,15 +61,13 @@ function Filtros(props) {
       )}
       <div>
         <p>Nombre</p>
-        <div className="flechas">
+        <div onClick={onClickModalNombre} className="flechas">
           <img
-            onClick={onClickButtonAsc}
             className="flecha"
             src={arriba}
             alt="Logo"
           />
           <img
-            onClick={onClickButtonDes}
             className="flecha"
             src={abajo}
             alt="Logo"
@@ -77,16 +77,14 @@ function Filtros(props) {
 
       <div>
         <p>Fecha de inicio</p>
-        <div className="flechas">
+        <div onClick={onClickModalFI} className="flechas">
           <img
             className="flecha"
-            onClick={onClickButtonAscFI}
             src={arriba}
             alt="Logo"
           />
           <img
             className="flecha"
-            onClick={onClickButtonDesFI}
             src={abajo}
             alt="Logo"
           />
@@ -95,16 +93,14 @@ function Filtros(props) {
 
       <div>
         <p>fecha de finalización</p>
-        <div className="flechas">
+        <div onClick={onClickModalFF} className="flechas">
           <img
             className="flecha"
-            onClick={onClickButtonAscFF}
             src={arriba}
             alt="Logo"
           />
           <img
             className="flecha"
-            onClick={onClickButtonDesFF}
             src={abajo}
             alt="Logo"
           />
