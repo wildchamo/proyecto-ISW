@@ -2,23 +2,23 @@ import React, { useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const defaultUnidades = [
-  {
-    ID: 1,
-    nombre: "Uao virtual",
-    jefeUnidad: "Jhon Cortes",
-  },
-  {
-    ID: 2,
-    nombre: "hardware",
-    jefeUnidad: "Jose Luis",
-  },
-  {
-    ID: 3,
-    nombre: "software",
-    jefeUnidad: "Gabriela",
-  },
-];
+// const defaultUnidades = [
+//   {
+//     ID: 1,
+//     nombre: "Uao virtual",
+//     jefeUnidad: "Jhon Cortes",
+//   },
+//   {
+//     ID: 2,
+//     nombre: "hardware",
+//     jefeUnidad: "Jose Luis",
+//   },
+//   {
+//     ID: 3,
+//     nombre: "software",
+//     jefeUnidad: "Gabriela",
+//   },
+// ];
 
 const defaultJefes = [
   {
@@ -44,8 +44,7 @@ function UOProvider(props) {
   const history = useNavigate();
 
   //cargamos la lista de proyectos en un estado
-  const [unidades, setUnidades] = React.useState(defaultUnidades);
-  console.log(unidades);
+  const [unidades, setUnidades] = React.useState([]);
   const [loginStatus, setLoginStatus] = React.useState({});
 
   //datos generales de la sesión
@@ -54,11 +53,32 @@ function UOProvider(props) {
 
   Axios.defaults.withCredentials = true;
 
+  useEffect(() => {
+    Axios.get("http://localhost:3001/login").then((response) => {
+      if (response.data.loggedIn == true) {
+        setLoginStatus(response.data.user[0][0]);
+        mostrarU();
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/get/getU").then((response) => {
+      setUnidades(response.data);
+    });
+  }, []);
+
   //función para deslogearse
   const Logout = () => {
     setLoginStatus({});
     setUnidades([]);
     // history("/");
+  };
+
+  const mostrarU = () => {
+    Axios.get("http://localhost:3001/api/get/getU").then((response) => {
+      setUnidades(response.data[0]);
+    });
   };
 
   //función para logearse en la app que se conecta con el modelo
@@ -69,8 +89,9 @@ function UOProvider(props) {
     }).then((response) => {
       if (response.data.auth) {
         if (response.data.result[0][0].nombre.length != 0) {
-          setLoginStatus(response.data.result[0]);
+          setLoginStatus(response.data.result[0][0]);
           localStorage.setItem("token", response.data.token);
+          mostrarU();
           history("/dashboardAdmin");
         } else {
           history("/");
@@ -78,6 +99,7 @@ function UOProvider(props) {
       }
     });
   };
+  console.log(unidades);
 
   //lista de jefes unidad sin unidad asociada
   const [jefes, setJefes] = React.useState(defaultJefes);

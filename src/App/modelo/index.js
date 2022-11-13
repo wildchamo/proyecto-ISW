@@ -44,6 +44,13 @@ app.get("/api/get/es", (req, res) => {
   });
 });
 
+app.get("/api/get/getU", (req, res) => {
+  const sqlSelect = "SELECT * FROM ISW.unidad;";
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
 app.post("/api/postE", (req, res) => {
   const estado = req.body.estado;
 

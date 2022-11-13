@@ -7,7 +7,7 @@ import { Modal } from "./Components/modal/modal";
 import { FormularioUO } from "./Components/formularioUO/formularioUO.js";
 
 function AppUIAdmin() {
-  const { openModalCrear} = React.useContext(UOContext);
+  // const { openModalCrear} = React.useContext(UOContext);
 
 
   return (
@@ -15,13 +15,12 @@ function AppUIAdmin() {
       <Header />
       <MainAdmin />
 
-      <p>soy admin :devil</p>
-
+{/* 
       {openModalCrear && (
         <Modal>
           <FormularioUO />
         </Modal>
-      )}
+      )} */}
     </React.Fragment>
   );
 }

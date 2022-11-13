@@ -1,14 +1,14 @@
 import React from "react";
-import { BusquedaProyecto } from "../BusquedaProyecto/BusquedaProyecto";
+import { BusquedaProyecto } from "../../BusquedaProyecto/BusquedaProyecto";
 import "./header.css";
 import logoSencillo from "./logosencillo.png";
 import campana from "./campana.png";
 import foto from "./foto.png";
 import salir from "./salir.png";
-import { POContext } from "../../../controlador/controlador";
+import { UOContext } from "../../../../controlador/controladorUnidades";
 
 function Header() {
-  const { jefeUnidad, logout } = React.useContext(POContext);
+  const { admin, logout } = React.useContext(UOContext);
 
   const logoutt = async (e) => {
     logout();
@@ -19,7 +19,7 @@ function Header() {
       <div className="logoSencillo">
         <img className="logoSencillo" src={logoSencillo} alt="Logo" />
       </div>
-      <h1>¡Bienvenido, {jefeUnidad} !</h1>
+      <h1>¡Bienvenido, {admin} !</h1>
       <BusquedaProyecto />
       <div className="campana">
         <img

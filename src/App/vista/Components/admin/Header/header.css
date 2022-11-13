@@ -1,0 +1,24 @@
+.box{
+    margin: 3%;
+    display: grid;
+    grid-area: auto;
+    align-items: center;
+    grid-template-columns: 6% 45% 40% 3% 5% 3%;
+}
+
+.box h1 {
+  /* ¡Bienvenido! */
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+  color: #c4161c;
+}
+
+.salir{
+  cursor: pointer;
+}

@@ -1,11 +1,11 @@
 import React from "react";
-import { BusquedaProyecto } from "../BusquedaProyecto/BusquedaProyecto";
+import { BusquedaProyecto } from "../../BusquedaProyecto/BusquedaProyecto";
 import "./header.css";
 import logoSencillo from "./logosencillo.png";
 import campana from "./campana.png";
 import foto from "./foto.png";
 import salir from "./salir.png";
-import { POContext } from "../../../controlador/controlador";
+import { POContext } from "../../../../controlador/controlador";
 
 function Header() {
   const { jefeUnidad, logout } = React.useContext(POContext);

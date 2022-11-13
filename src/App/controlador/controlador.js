@@ -53,7 +53,6 @@ function POProvider(props) {
       user: user,
       password: password,
     }).then((response) => {
-      console.log(response);
       if (response.data.auth) {
         if (response.data.result[0][0].idunidad != 0) {
           setLoginStatus(response.data.result[0][0]);
