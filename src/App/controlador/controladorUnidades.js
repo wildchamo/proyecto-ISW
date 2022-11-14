@@ -115,7 +115,7 @@ function UOProvider(props) {
 
   //función para agregar unidades
   const agregarUnidad = (nombre, jefe) => {
-    Axios.post("http://localhost:3001/api/insert", {
+    Axios.post("http://localhost:3001/api/insertU", {
       nombreUnidad: nombre,
       fechaRegUnidad: fechaHoy,
       jefeUnidad: jefe,

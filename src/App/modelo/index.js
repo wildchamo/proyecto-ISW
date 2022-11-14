@@ -147,14 +147,21 @@ const verifyJWT = (req, res, next) => {
 app.put("/api/anul", (req, res) => {
   const idProyecto = req.body.idProyecto;
   const razon = req.body.razon;
-
-  console.log(idProyecto);
-  console.log(razon);
-
   const sqlUpdate = "call ISW.Modificar_Estados_Anulados(?,?);";
   db.query(sqlUpdate, [idProyecto, razon], (err, result) => {
     console.log(err);
   });
+});
+
+
+app.post("/api/insertU", (req, res) => {
+  const nombreUnidad = req.body.nombreUnidad;
+  const idJefe = req.body.idJefe;
+  const sqlInsert= "call ISW.Crear_unidad(?.?);";
+  db.query(sqlInsert,[nombreUnidad,idJefe],(err,result)=>{
+    console.log(err)
+  })
+
 });
 
 app.post("/api/insert", (req, res) => {

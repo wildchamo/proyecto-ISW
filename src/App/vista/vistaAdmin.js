@@ -4,7 +4,7 @@ import { MainAdmin } from "./Components/Main/MainAdmin.js";
 import { UOContext } from "../controlador/controladorUnidades";
 import { Modal } from "./Components/modal/modal";
 
-import { FormularioUO } from "./Components/formularioUO/formularioUO.js";
+import { FormularioUO } from "./Components/admin/formularioUO/formularioUO.js";
 
 function AppUIAdmin() {
   const { openModalCrear } = React.useContext(UOContext);
