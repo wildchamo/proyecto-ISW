@@ -1,13 +1,18 @@
 import React from "react";
 import "./unidadOperativa.css";
-
 import editar from "./editar.png";
+import { UOContext } from "../../../../controlador/controladorUnidades";
+import {FormularioUOedit} from "../formularioUOedit/formularioUO";
+import {Modal} from "../../modal/modal"
 
 function Unidad(props) {
-  // const editarPO = () => {
-  //   setOpenModalEditar(true);
-  //   mostrarUnidad(props.ID);
-  // };
+  const {setOpenModalEditar, openModalEditar, mostrarUnidad } =
+    React.useContext(UOContext);
+
+  const editarU = () => {
+    setOpenModalEditar(true);
+    mostrarUnidad(props.ID);
+  };
 
   return (
     <React.Fragment>
@@ -15,14 +20,14 @@ function Unidad(props) {
         <p>{props.nombre}</p>
         <p>{props.jefeUnidad}</p>
         <p>
-          <img src={editar} alt="botón editar" />
+          <img src={editar} onClick={editarU} alt="botón editar" />
         </p>
       </li>
-      {/* {openModalEditar && (
+      {openModalEditar && (
         <Modal>
-          <FormularioPOedit />
+          <FormularioUOedit />
         </Modal>
-      )} */}
+      )}
     </React.Fragment>
   );
 }
