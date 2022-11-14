@@ -161,8 +161,19 @@ app.post("/api/insertU", (req, res) => {
   db.query(sqlInsert,[nombreUnidad,idJefe],(err,result)=>{
     console.log(err)
   })
-
 });
+
+app.put("/api/modiU", (req, res) => {
+  const idUnidad = req.body.idUnidad;
+  const idJefe = req.body.idJefe;
+  const sqlUpdate = "call ISW.Modificar_Unidad(?,?);";
+  db.query(sqlUpdate, [idUnidad, idJefe], (err, result) => {
+    console.log(err);
+  });
+});
+
+
+
 
 app.post("/api/insert", (req, res) => {
   const nombreProyecto = req.body.nombreProyecto;
