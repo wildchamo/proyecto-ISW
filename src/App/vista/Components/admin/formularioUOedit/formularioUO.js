@@ -5,7 +5,7 @@ function FormularioUOedit() {
   const { editarUnidad, setOpenModalEditar, unidadSelect, jefes } =
     React.useContext(UOContext);
 
-  const [nombre, setNombre] = React.useState("");
+  const [nombre, setNombre] = React.useState(unidadSelect.nombreUnidad);
   const [jefe, setJefe] = React.useState("");
 
   const onChangeNombre = (event) => {
