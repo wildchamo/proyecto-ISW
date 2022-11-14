@@ -2,7 +2,7 @@ import React from "react";
 import { UOContext } from "../../../../controlador/controladorUnidades";
 
 function FormularioUOedit() {
-  const { agregarUnidad,  setOpenModalEditar, jefes } =
+  const { editarUnidad, setOpenModalEditar, unidadSelect, jefes } =
     React.useContext(UOContext);
 
   const [nombre, setNombre] = React.useState("");
@@ -21,13 +21,13 @@ function FormularioUOedit() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    agregarUnidad(nombre, jefe);
+    editarUnidad(nombre, jefe);
     setOpenModalEditar(false);
   };
 
   return (
     <form className="formularioPO" onSubmit={onSubmit}>
-      <h2>Creando Unidad Nueva...</h2>
+      <h2>Modificando una unidad...</h2>
       <label>Nombre de la unidad *</label>
       <textarea
         className="entradas"
@@ -37,6 +37,7 @@ function FormularioUOedit() {
         placeholder="Nombre de la unidad"
         maxLength={50}
       ></textarea>
+      <label>Jefe de la unidad asociado *</label>
 
       <select
         className="estado"

@@ -32,7 +32,7 @@ function UOProvider(props) {
   //datos generales de la sesión
   let admin = loginStatus.nombre;
   let usuarioadmin = loginStatus.nombreUsu;
-  let noUnidades= unidades.length;
+  let noUnidades = unidades.length;
 
   Axios.defaults.withCredentials = true;
 
@@ -84,8 +84,6 @@ function UOProvider(props) {
   };
   mostrarU();
 
-  console.log(unidades);
-
   //lista de jefes unidad sin unidad asociada
   const [jefes, setJefes] = React.useState(defaultJefes);
 
@@ -123,9 +121,13 @@ function UOProvider(props) {
   };
 
   const mostrarUnidad = (text) => {
-    const unidadIndex = unidades.findIndex((unidad) => unidad.ID === text);
+    const unidadIndex = unidades.findIndex(
+      (unidad) => unidad.idunidad === text
+    );
     setUnidadSelect(unidades[unidadIndex]);
   };
+
+  console.log(unidadSelect);
 
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
 
