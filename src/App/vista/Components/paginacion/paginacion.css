@@ -5,8 +5,8 @@
   align-items: center;
 }
 .paginacion img {
-  width: 6px;
-  height: 4px;
+  width: 12px;
+  height: 10px;
   cursor: pointer;
 }
 .contadoPagi--prendido {

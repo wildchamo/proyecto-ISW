@@ -40,3 +40,7 @@ textarea {
   padding-top: 1%;
   font-family: "Work Sans";
 }
+.finalver{
+  display: flex;
+  justify-content: flex-end;
+}

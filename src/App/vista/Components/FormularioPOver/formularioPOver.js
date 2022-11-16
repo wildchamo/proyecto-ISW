@@ -34,8 +34,9 @@ function FormularioPOver() {
       )}
       <label>descripcion del proyecto</label>
       <textarea readOnly  value={proyectoSelec.descripcion}></textarea>
-
+        <div className="finalver"> 
       <button onClick={onCancel}>Volver</button>
+        </div>
     </form>
   );
 }
