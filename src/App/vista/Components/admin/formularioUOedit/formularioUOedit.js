@@ -22,7 +22,7 @@ function FormularioUOedit() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    editarUnidad(unidadSelect.idunidad, idUsuAntiguo, jefe);
+    editarUnidad(unidadSelect.idunidad,nombre, idUsuAntiguo, jefe);
     setOpenModalEditar(false);
   };
 

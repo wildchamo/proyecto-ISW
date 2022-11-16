@@ -173,9 +173,11 @@ app.post("/api/insertU", (req, res) => {
 
 app.put("/api/modiU", (req, res) => {
   const idUnidad = req.body.idUnidad;
-  const idJefe = req.body.idJefe;
-  const sqlUpdate = "call ISW.Modificar_Unidad(?,?);";
-  db.query(sqlUpdate, [idUnidad, idJefe], (err, result) => {
+  const nombreUnidad = req.body.nombreUnidad;
+  const jefeAUnidad = req.body.jefeAUnidad;
+  const jefeNUnidad = req.body.jefeNUnidad;
+  const sqlUpdate = "call ISW.Modificar_Unidad(?,?,?,?);";
+  db.query(sqlUpdate, [idUnidad,nombreUnidad,jefeAUnidad, jefeNUnidad], (err, result) => {
     console.log(err);
   });
 });

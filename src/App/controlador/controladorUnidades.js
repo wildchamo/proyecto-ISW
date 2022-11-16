@@ -123,11 +123,13 @@ function UOProvider(props) {
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
 
   //función para anular proyecto
-  const editarUnidad = (id, nombreUnidad, jefeUnidad) => {
-    Axios.put("http://localhost:3001/api/putUni", {
+  const editarUnidad = (id, nombreUnidad, jefeAUnidad,jefeNUnidad) => {
+    console.log(jefeAUnidad,jefeNUnidad)
+    Axios.put("http://localhost:3001/api/modiU", {
       idUnidad: id,
       nombreUnidad: nombreUnidad,
-      jefeUnidad: jefeUnidad,
+      jefeAUnidad: jefeAUnidad,
+      jefeNUnidad: jefeNUnidad,
     });
   };
 

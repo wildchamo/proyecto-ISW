@@ -2,7 +2,7 @@ import React from "react";
 import "./unidadOperativa.css";
 import editar from "./editar.png";
 import { UOContext } from "../../../../controlador/controladorUnidades";
-import { FormularioUOedit } from "../formularioUOedit/formularioUO";
+import { FormularioUOedit } from "../formularioUOedit/formularioUOedit";
 import { Modal } from "../../modal/modal";
 
 function Unidad(props) {
