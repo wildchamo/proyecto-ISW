@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import autosize from "autosize";
 
 //creación del context
 const POContext = React.createContext();
-
+// from a NodeList
+autosize(document.querySelectorAll("textarea"));
 function POProvider(props) {
   //seteamos los estados necesarios para la implementación del proyecto, los estados cambian según las
   //interacciones que realice el usuario con el componente vista

@@ -1,25 +1,12 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-const defaultJefes = [
-  {
-    ID: 1,
-    nombre: "Duvan100",
-  },
-  {
-    ID: 2,
-    nombre: "Joselo100",
-  },
-  {
-    ID: 3,
-    nombre: "ferxoo100",
-  },
-];
+import autosize from "autosize";
 
 //creación del context
 const UOContext = React.createContext();
-
+// from a NodeList
+autosize(document.querySelectorAll('textarea'));
 function UOProvider(props) {
   //seteamos los estados necesarios para la implementación del proyecto, los estados cambian según las
   //interacciones que realice el usuario con el componente vista
@@ -85,7 +72,7 @@ function UOProvider(props) {
   mostrarU();
 
   //lista de jefes unidad sin unidad asociada
-  const [jefes, setJefes] = React.useState(defaultJefes);
+  const [jefes, setJefes] = React.useState([]);
 
   //para mostrar un proyecto en especifico es necesario extraer sus datos, por tanto se encapsula temporalmente en el estado
   //proyectoSelect

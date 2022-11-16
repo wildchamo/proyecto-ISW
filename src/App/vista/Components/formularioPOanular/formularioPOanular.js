@@ -38,7 +38,7 @@ function FormularioPOanular() {
           <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
           <button onClick={onCancel}>Volver</button>
 
-          <button type="submit">Anular proyecto</button>
+          <button type="submit" className="boton2">Anular proyecto</button>
         </div>
       </div>
     </form>

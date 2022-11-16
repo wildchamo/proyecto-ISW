@@ -98,7 +98,7 @@ function FormularioPOedit() {
         value={proyectoSelec.descripcion}
       ></textarea>
       <div>
-        <button onClick={onCancel}>Volver</button>
+        <button onClick={onCancel} className="boton2">Volver</button>
         <button type="submit">Aceptar</button>
       </div>
     </form>

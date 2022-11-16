@@ -127,7 +127,7 @@ function FormularioPO() {
       ></textarea>
       <div className="final">
         <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
-        <button type="button" onClick={onCancel}>
+        <button type="button" className="boton2" onClick={onCancel}>
           Cancelar
         </button>
         <button type="submit">Aceptar</button>
