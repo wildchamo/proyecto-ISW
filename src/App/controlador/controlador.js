@@ -2,12 +2,10 @@ import React, { useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
-import autosize from "autosize";
 
 //creación del context
 const POContext = React.createContext();
 // from a NodeList
-autosize(document.querySelectorAll("textarea"));
 function POProvider(props) {
   //seteamos los estados necesarios para la implementación del proyecto, los estados cambian según las
   //interacciones que realice el usuario con el componente vista
@@ -130,6 +128,7 @@ function POProvider(props) {
   //del proyecto realizado por el usuario, este arreglo será lo que se imprima
 
   let proyectosBuscados = [];
+  
   //se extrae el número de proyectos del arreglo para imprimirlo en pantalla
 
   let proyectosTotal = proyectos.length;
@@ -141,7 +140,7 @@ function POProvider(props) {
     return proyectosBuscados.slice(currentPage, currentPage + 5);
   };
   const nextPage = () => {
-    setCurrentPage(currentPage + 5);
+    if (currentPage<proyectosBTotal) setCurrentPage(currentPage + 5);
   };
   const prevPage = () => {
     if (currentPage > 0) setCurrentPage(currentPage - 5);
