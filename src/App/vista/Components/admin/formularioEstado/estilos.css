@@ -1,0 +1,13 @@
+.formularioPO2 {
+  position: absolute;
+  display: flex;
+  width: 30%;
+  height: 40%;
+  padding: 2%;
+  background: #ffffff;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 1px 2px 3px rgb(70 118 251 / 41%);
+  border-radius: 22px;
+  color: #666666;
+}

@@ -6,7 +6,7 @@ import autosize from "autosize";
 //creación del context
 const UOContext = React.createContext();
 // from a NodeList
-autosize(document.querySelectorAll('textarea'));
+autosize(document.querySelectorAll("textarea"));
 function UOProvider(props) {
   //seteamos los estados necesarios para la implementación del proyecto, los estados cambian según las
   //interacciones que realice el usuario con el componente vista
@@ -81,6 +81,7 @@ function UOProvider(props) {
   //se setean estados que funcionan como condicionales para "prender y apagar" los distintos modales de la aplicación
 
   const [openModalCrear, setOpenModalCrear] = React.useState(false);
+  const [openModalEstado, setOpenModalEstado] = React.useState(false);
   const [openModalEditar, setOpenModalEditar] = React.useState(false);
 
   //función que carga los estados en las interfaces cuando se abre algún modal que los utilice
@@ -142,6 +143,8 @@ function UOProvider(props) {
         fechaHoy,
         agregarUnidad,
         editarUnidad,
+        openModalEstado,
+        setOpenModalEstado,
       }}
     >
       {props.children}

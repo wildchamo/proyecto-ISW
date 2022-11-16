@@ -5,9 +5,10 @@ import { UOContext } from "../controlador/controladorUnidades";
 import { Modal } from "./Components/modal/modal";
 
 import { FormularioUO } from "./Components/admin/formularioUO/formularioUO.js";
+import { FormularioEstado } from "./Components/admin/formularioEstado/formularioEstado";
 
 function AppUIAdmin() {
-  const { openModalCrear } = React.useContext(UOContext);
+  const { openModalCrear,openModalEstado } = React.useContext(UOContext);
 
   return (
     <React.Fragment>
@@ -17,6 +18,11 @@ function AppUIAdmin() {
       {openModalCrear && (
         <Modal>
           <FormularioUO />
+        </Modal>
+      )}
+      {openModalEstado && (
+        <Modal>
+          <FormularioEstado />
         </Modal>
       )}
     </React.Fragment>
