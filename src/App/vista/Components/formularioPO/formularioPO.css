@@ -2,7 +2,7 @@
   position: absolute;
   display: flex;
   width: 80%;
-  height: 50%;
+  height: 60%;
   padding: 5%;
   background: #ffffff;
   flex-direction: column;
@@ -33,16 +33,6 @@
   justify-self: space-around;
 }
 
-.entradas {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 1%;
-  border-bottom: 1px solid #202329;
-  border-radius: 2px;
-  color: #1e1e1f;
-  padding-top: 1%;
-  font-family: "Work Sans";
-}
 
 .estado {
   font-family: "Work Sans";

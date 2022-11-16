@@ -57,7 +57,6 @@ function FormularioPO() {
       <h2>Creando proyecto nuevo...</h2>
       <label>Nombre del proyecto *</label>
       <textarea
-        className="entradas"
         required
         value={nombre}
         onChange={onChangeNombre}
