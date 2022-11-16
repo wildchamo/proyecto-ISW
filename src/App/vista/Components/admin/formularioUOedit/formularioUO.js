@@ -5,7 +5,7 @@ function FormularioUOedit() {
   const { editarUnidad, setOpenModalEditar, unidadSelect, jefes } =
     React.useContext(UOContext);
 
-  
+  let idUsuAntiguo = unidadSelect.idusuario;
   const [nombre, setNombre] = React.useState(unidadSelect.nombreUnidad);
   const [jefe, setJefe] = React.useState("");
 
@@ -22,7 +22,7 @@ function FormularioUOedit() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    editarUnidad(nombre, jefe);
+    editarUnidad(unidadSelect.idunidad, idUsuAntiguo, jefe);
     setOpenModalEditar(false);
   };
 
@@ -54,12 +54,12 @@ function FormularioUOedit() {
           </option>
         ))}
       </select>
-     < div>
+      <div>
         <button type="button" onClick={onCancel}>
-        Cancelar
-      </button>
-      <button type="submit">Aceptar</button>
-     </div>
+          Cancelar
+        </button>
+        <button type="submit">Aceptar</button>
+      </div>
     </form>
   );
 }
