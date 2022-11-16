@@ -12,10 +12,10 @@ function MainAdmin() {
         <ListaUnidades>
           {unidades.map((unidad, index) => (
             <Unidad
-              key={unidad.idunidad}
+              key={index}
               idunidad={unidad.idunidad}
               nombre={unidad.nombreUnidad}
-              jefeUnidad={unidad.jefeUnidad}
+              jefeUnidad={unidad.nombre}
               prueba={index}
             />
           ))}

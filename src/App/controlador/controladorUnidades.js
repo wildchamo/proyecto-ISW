@@ -60,7 +60,7 @@ function UOProvider(props) {
 
   const mostrarU = () => {
     Axios.get("http://localhost:3001/api/get/getU").then((response) => {
-      setUnidades(response.data);
+      setUnidades(response.data[0]);
     });
   };
 
@@ -127,7 +127,6 @@ function UOProvider(props) {
     setUnidadSelect(unidades[unidadIndex]);
   };
 
-  console.log(unidadSelect);
 
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
 

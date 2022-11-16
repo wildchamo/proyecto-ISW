@@ -53,9 +53,12 @@ function FormularioUOedit() {
           </option>
         ))}
       </select>
-      <button type="button" onClick={onCancel}>
+     < div>
+        <button type="button" onClick={onCancel}>
         Cancelar
       </button>
+      <button type="submit">Aceptar</button>
+     </div>
     </form>
   );
 }

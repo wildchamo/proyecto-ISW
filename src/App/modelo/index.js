@@ -45,7 +45,13 @@ app.get("/api/get/es", (req, res) => {
 });
 
 app.get("/api/get/getU", (req, res) => {
-  const sqlSelect = "SELECT * FROM ISW.unidad;";
+  const sqlSelect = "call ISW.Consultar_unidad();";
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+app.get("/api/get/jefes", (req, res) => {
+  const sqlSelect = "call ISW.Consultar_jefe_sin_unidad();";
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
