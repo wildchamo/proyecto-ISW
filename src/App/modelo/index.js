@@ -163,7 +163,9 @@ app.put("/api/anul", (req, res) => {
 app.post("/api/insertU", (req, res) => {
   const nombreUnidad = req.body.nombreUnidad;
   const idJefe = req.body.idJefe;
-  const sqlInsert= "call ISW.Crear_unidad(?.?);";
+
+  console.log(nombreUnidad,idJefe)
+  const sqlInsert= "call ISW.Crear_unidad(?,?);";
   db.query(sqlInsert,[nombreUnidad,idJefe],(err,result)=>{
     console.log(err)
   })

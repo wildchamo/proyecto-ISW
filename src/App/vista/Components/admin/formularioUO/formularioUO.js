@@ -47,14 +47,19 @@ function FormularioUO() {
       >
         <option></option>
         {jefes.map((jefe) => (
-          <option key={jefe.ID} value={jefe.nombre}>
+          <option key={jefe.idusuario} value={jefe.idusuario}>
             {jefe.nombre}
           </option>
         ))}
       </select>
+      <div>
+
       <button type="button" onClick={onCancel}>
         Cancelar
       </button>
+      <button type="submit">Crear Unidad</button>
+      </div>
+
     </form>
   );
 }

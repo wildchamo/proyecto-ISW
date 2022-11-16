@@ -5,6 +5,7 @@ function FormularioUOedit() {
   const { editarUnidad, setOpenModalEditar, unidadSelect, jefes } =
     React.useContext(UOContext);
 
+  
   const [nombre, setNombre] = React.useState(unidadSelect.nombreUnidad);
   const [jefe, setJefe] = React.useState("");
 
@@ -46,9 +47,9 @@ function FormularioUOedit() {
         placeholder="Jefe"
         required
       >
-        <option></option>
+        <option value={unidadSelect.idusuario}>{unidadSelect.nombre}</option>
         {jefes.map((jefe) => (
-          <option key={jefe.ID} value={jefe.nombre}>
+          <option key={jefe.idusuario} value={jefe.idusuario}>
             {jefe.nombre}
           </option>
         ))}

@@ -100,7 +100,7 @@ function UOProvider(props) {
 
   if (openModalCrear || openModalEditar) {
     Axios.get("http://localhost:3001/api/get/jefes").then((response) => {
-      setJefes(response.data);
+      setJefes(response.data[0]);
     });
   }
 
@@ -115,8 +115,7 @@ function UOProvider(props) {
   const agregarUnidad = (nombre, jefe) => {
     Axios.post("http://localhost:3001/api/insertU", {
       nombreUnidad: nombre,
-      fechaRegUnidad: fechaHoy,
-      jefeUnidad: jefe,
+      idJefe: jefe,
     });
   };
 
@@ -126,7 +125,6 @@ function UOProvider(props) {
     );
     setUnidadSelect(unidades[unidadIndex]);
   };
-
 
   //función para editar proyectos, utiliza el valor del proyecto seleccionado para modificarlo
 
