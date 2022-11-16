@@ -11,4 +11,23 @@ input {
   font-family: "Work Sans";
   filter: drop-shadow(1px 2px 3px rgba(70, 118, 251, 0.41));
 }
-
+.input-icon {
+	color: #191919;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 320px;
+  top: 53%;
+  transform: translateY(-50%);
+}
+.input-wrapper {
+	position: relative;
+	width: 271px;
+}
+.busquedaProyecto {
+  box-sizing: border-box;
+  color: #191919;
+  padding: 15px 15px 15px 35px;
+  width: 360px;
+  
+}

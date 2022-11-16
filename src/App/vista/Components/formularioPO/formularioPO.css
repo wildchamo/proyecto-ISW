@@ -28,7 +28,7 @@
   display: grid;
   grid-area: auto;
   align-items: center;
-  grid-template-columns: 70% 20% 20%;
+  grid-template-columns: 65% 20% 20%;
   color: #c4161c;
   justify-self: space-around;
 }

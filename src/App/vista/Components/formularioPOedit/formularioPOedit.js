@@ -97,7 +97,8 @@ function FormularioPOedit() {
         onChange={onChangeDes}
         value={proyectoSelec.descripcion}
       ></textarea>
-      <div>
+       <div className="final">
+        <p>Los campos marcados con ‘*’ son de carácter obligatorio.</p>
         <button onClick={onCancel} className="boton2">Volver</button>
         <button type="submit">Aceptar</button>
       </div>
