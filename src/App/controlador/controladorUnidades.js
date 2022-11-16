@@ -106,6 +106,12 @@ function UOProvider(props) {
       idJefe: jefe,
     });
   };
+  //función para agregar unidades
+  const agregarEstado = (nombre) => {
+    Axios.post("http://localhost:3001/api/cestados", {
+      nombreEstado: nombre,
+    });
+  };
 
   const mostrarUnidad = (text) => {
     const unidadIndex = unidades.findIndex(
@@ -137,6 +143,7 @@ function UOProvider(props) {
         unidadSelect,
         openModalCrear,
         setOpenModalCrear,
+        agregarEstado,
         mostrarUnidad,
         openModalEditar,
         setOpenModalEditar,

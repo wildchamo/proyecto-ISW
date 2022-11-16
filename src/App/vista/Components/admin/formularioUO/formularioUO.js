@@ -1,5 +1,6 @@
 import React from "react";
 import { UOContext } from "../../../../controlador/controladorUnidades";
+import "./estilos.css"
 
 function FormularioUO() {
   const { agregarUnidad, setOpenModalCrear, jefes } =
@@ -26,17 +27,17 @@ function FormularioUO() {
   };
 
   return (
-    <form className="formularioPO" onSubmit={onSubmit}>
+    <form className="formularioUO2" onSubmit={onSubmit}>
       <h2>Creando Unidad Nueva...</h2>
       <label>Nombre de la unidad *</label>
       <textarea
-        className="entradas"
         required
         value={nombre}
         onChange={onChangeNombre}
         placeholder="Nombre de la unidad"
         maxLength={50}
       ></textarea>
+      <label>Jefe de unidad asociado *</label>
 
       <select
         className="estado"
@@ -45,7 +46,7 @@ function FormularioUO() {
         placeholder="Jefe"
         required
       >
-        <option></option>
+        <option>Seleccione</option>
         {jefes.map((jefe) => (
           <option key={jefe.idusuario} value={jefe.idusuario}>
             {jefe.nombre}

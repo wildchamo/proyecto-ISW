@@ -180,7 +180,13 @@ app.put("/api/modiU", (req, res) => {
   });
 });
 
-
+app.post("/api/cestados", (req,res)=>{
+  const nombre= req.body.nombreEstado;
+  const sqlInsert = "call ISW.Crear_estado(?);";
+  db.query(sqlInsert,[nombre],(err,result)=>{
+    console.log(err)
+  })
+})
 
 
 app.post("/api/insert", (req, res) => {
