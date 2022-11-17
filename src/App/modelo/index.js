@@ -172,7 +172,6 @@ app.post("/api/insertU", (req, res) => {
   const nombreUnidad = req.body.nombreUnidad;
   const idJefe = req.body.idJefe;
 
-  console.log(nombreUnidad, idJefe);
   const sqlInsert = "call ISW.Crear_unidad(?,?);";
   db.query(sqlInsert, [nombreUnidad, idJefe], (err, result) => {
     console.log(err);
@@ -237,15 +236,7 @@ app.put("/api/edit", (req, res) => {
   const fechaFinProyecto = req.body.fechaFinProyecto;
   const descripcionProyecto = req.body.descripcion;
   const estado = req.body.estado;
-  console.log(
-    idProyecto,
-    nombreProyecto,
-    fechaRegProyecto,
-    fechaIniProyecto,
-    fechaFinProyecto,
-    descripcionProyecto,
-    estado
-  );
+
 
   const sqlUpdate = "call ISW.Modificar_Proyectos(?,?,?,?,?,?,?);";
   db.query(
@@ -266,5 +257,5 @@ app.put("/api/edit", (req, res) => {
 });
 
 app.listen(3001, () => {
-  console.log("holamihermano, puerto 3001");
+  console.log("Puerto 3001");
 });

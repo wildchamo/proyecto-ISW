@@ -56,7 +56,6 @@ function POProvider(props) {
       user: user,
       password: password,
     }).then((response) => {
-      console.log(response.data.auth);
       if (response.data.auth) {
         setAuth(response.data.token);
         if (response.data.result[0].length != 0) {
