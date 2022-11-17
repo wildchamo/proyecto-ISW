@@ -28,7 +28,7 @@ const Login = () => {
 
           <form onSubmit={Log}>
           {mensajeMalo && (
-        <p style={{color:"#9e0b0f"}}> Login invalido, por favor pruebe de nuevo</p>
+        <p style={{color:"#9e0b0f", fontSize:"15px"}}>Combinación de usuario y contraseña incorrectos</p>
       )}
             <label className="label">Nombre de usuario</label>
             <div>

@@ -47,8 +47,6 @@ function POProvider(props) {
     history("/");
   };
 
-  
-
   const [mensajeMalo, setMensajeMalo] = React.useState(false);
   const [auth, setAuth] = React.useState();
 
@@ -58,7 +56,7 @@ function POProvider(props) {
       user: user,
       password: password,
     }).then((response) => {
-      console.log(response.data.auth)
+      console.log(response.data.auth);
       if (response.data.auth) {
         setAuth(response.data.token);
         if (response.data.result[0].length != 0) {
@@ -148,8 +146,10 @@ function POProvider(props) {
     return proyectosBuscados.slice(currentPage, currentPage + 5);
   };
   const nextPage = () => {
-    if (currentPage < proyectosBTotal) setCurrentPage(currentPage + 5);
+    if (proyectosBTotal > 5 && proyectosBTotal < 20)
+      setCurrentPage(currentPage + 5);
   };
+
   const prevPage = () => {
     if (currentPage > 0) setCurrentPage(currentPage - 5);
   };
