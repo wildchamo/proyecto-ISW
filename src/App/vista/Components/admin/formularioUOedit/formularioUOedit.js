@@ -7,7 +7,7 @@ function FormularioUOedit() {
 
   let idUsuAntiguo = unidadSelect.idusuario;
   const [nombre, setNombre] = React.useState(unidadSelect.nombreUnidad);
-  const [jefe, setJefe] = React.useState("");
+  const [jefe, setJefe] = React.useState(unidadSelect.idusuario);
 
   const onChangeNombre = (event) => {
     setNombre(event.target.value);
@@ -31,7 +31,6 @@ function FormularioUOedit() {
       <h2>Modificando una unidad...</h2>
       <label>Nombre de la unidad *</label>
       <textarea
-        className="entradas"
         required
         value={nombre}
         onChange={onChangeNombre}
