@@ -129,7 +129,7 @@ app.post("/loginAdmin", (req, res) => {
     if (result.length > 0) {
       const id = result[0].idusuario;
       const token = jwt.sign({ id }, "jwtSecret", {
-        expiresIn: 300,
+        expiresIn: '1d',
       });
 
       req.session.user = result;

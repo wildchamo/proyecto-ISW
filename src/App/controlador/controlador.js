@@ -47,7 +47,10 @@ function POProvider(props) {
     history("/");
   };
 
+  
+
   const [mensajeMalo, setMensajeMalo] = React.useState(false);
+  const [auth, setAuth] = React.useState();
 
   //función para logearse en la app que se conecta con el modelo
   const Login = (user, password) => {
@@ -55,9 +58,9 @@ function POProvider(props) {
       user: user,
       password: password,
     }).then((response) => {
+      console.log(response.data.auth)
       if (response.data.auth) {
-        console.log(response.data);
-        console.log(response.data.result[0]);
+        setAuth(response.data.token);
         if (response.data.result[0].length != 0) {
           setLoginStatus(response.data.result[0][0]);
           localStorage.setItem("token", response.data.token);
