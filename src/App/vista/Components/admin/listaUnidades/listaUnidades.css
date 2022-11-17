@@ -26,6 +26,7 @@ ul {
   display: grid;
   grid-template-columns:  300px 200px 200px;
   align-items: center;
+  font-family: "Work Sans";
 }
 .tituloU p {
   font-family: "Work Sans";
