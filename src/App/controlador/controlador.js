@@ -47,6 +47,8 @@ function POProvider(props) {
     history("/");
   };
 
+  const [mensajeMalo, setMensajeMalo] = React.useState(false);
+
   //función para logearse en la app que se conecta con el modelo
   const Login = (user, password) => {
     Axios.post("http://localhost:3001/login", {
@@ -54,13 +56,16 @@ function POProvider(props) {
       password: password,
     }).then((response) => {
       if (response.data.auth) {
-        if (response.data.result[0][0].idunidad != 0) {
+        console.log(response.data);
+        console.log(response.data.result[0]);
+        if (response.data.result[0].length != 0) {
           setLoginStatus(response.data.result[0][0]);
           localStorage.setItem("token", response.data.token);
           mostrarP(user);
           history("/dashboard");
         } else {
           history("/");
+          setMensajeMalo(true);
         }
       }
     });
@@ -128,7 +133,7 @@ function POProvider(props) {
   //del proyecto realizado por el usuario, este arreglo será lo que se imprima
 
   let proyectosBuscados = [];
-  
+
   //se extrae el número de proyectos del arreglo para imprimirlo en pantalla
 
   let proyectosTotal = proyectos.length;
@@ -140,7 +145,7 @@ function POProvider(props) {
     return proyectosBuscados.slice(currentPage, currentPage + 5);
   };
   const nextPage = () => {
-    if (currentPage<proyectosBTotal) setCurrentPage(currentPage + 5);
+    if (currentPage < proyectosBTotal) setCurrentPage(currentPage + 5);
   };
   const prevPage = () => {
     if (currentPage > 0) setCurrentPage(currentPage - 5);
@@ -386,6 +391,7 @@ function POProvider(props) {
         anularProyecto,
         mostrarProyecto,
         logout,
+        mensajeMalo,
 
         //Grafica
         proyectosActivosValue,

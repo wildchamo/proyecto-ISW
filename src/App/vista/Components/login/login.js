@@ -9,7 +9,7 @@ import "./login.css";
 const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const { Login} = React.useContext(POContext);
+  const { Login,mensajeMalo} = React.useContext(POContext);
 
 
   const Log = (event) => {
@@ -28,6 +28,9 @@ const Login = () => {
           </div>
 
           <form onSubmit={Log}>
+          {mensajeMalo && (
+        <p style={{color:"#9e0b0f"}}> Login invalido, porfavor pruebe de nuevo</p>
+      )}
             <label className="label">Nombre de usuario</label>
             <div>
               <input

@@ -36,7 +36,7 @@ function FormularioEstado() {
         <button type="button" onClick={onCancel}>
           Cancelar
         </button>
-        <button type="submit">Crear Unidad</button>
+        <button type="submit">Crear Estado</button>
       </div>
     </form>
   );
