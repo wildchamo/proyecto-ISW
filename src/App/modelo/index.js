@@ -60,8 +60,9 @@ app.get("/api/get/jefes", (req, res) => {
 app.post("/api/postE", (req, res) => {
   const estado = req.body.estado;
 
-  const sqlSelect = "SELECT * FROM ISW.estado where not nombre='Anulado' AND not idestado= ?;";
-  db.query(sqlSelect,[estado], (err, result) => {
+  const sqlSelect =
+    "SELECT * FROM ISW.estado where not nombre='Anulado' AND not idestado= ?;";
+  db.query(sqlSelect, [estado], (err, result) => {
     res.send(result);
   });
 });
@@ -91,14 +92,22 @@ app.post("/login", (req, res) => {
     if (err) {
       res.send({ err: err });
     }
-    if (result.length > 0) {
+ 
+    if (result[0].length > 0) {
       const id = result[0].idusuario;
       const token = jwt.sign({ id }, "jwtSecret", {
         expiresIn: 300,
       });
 
       req.session.user = result;
-      res.json({ auth: true, token: token, result: result });
+      if (result[0].length > 1) {
+        res.json({ auth: true, token: token, result: result });
+      } else {
+        res.send({
+          auth: false,
+          message: "Combinación de usuario y contraseña incorrectos!",
+        });
+      }
     } else {
       res.send({
         auth: false,
@@ -159,16 +168,15 @@ app.put("/api/anul", (req, res) => {
   });
 });
 
-
 app.post("/api/insertU", (req, res) => {
   const nombreUnidad = req.body.nombreUnidad;
   const idJefe = req.body.idJefe;
 
-  console.log(nombreUnidad,idJefe)
-  const sqlInsert= "call ISW.Crear_unidad(?,?);";
-  db.query(sqlInsert,[nombreUnidad,idJefe],(err,result)=>{
-    console.log(err)
-  })
+  console.log(nombreUnidad, idJefe);
+  const sqlInsert = "call ISW.Crear_unidad(?,?);";
+  db.query(sqlInsert, [nombreUnidad, idJefe], (err, result) => {
+    console.log(err);
+  });
 });
 
 app.put("/api/modiU", (req, res) => {
@@ -177,19 +185,22 @@ app.put("/api/modiU", (req, res) => {
   const jefeAUnidad = req.body.jefeAUnidad;
   const jefeNUnidad = req.body.jefeNUnidad;
   const sqlUpdate = "call ISW.Modificar_Unidad(?,?,?,?);";
-  db.query(sqlUpdate, [idUnidad,nombreUnidad,jefeAUnidad, jefeNUnidad], (err, result) => {
+  db.query(
+    sqlUpdate,
+    [idUnidad, nombreUnidad, jefeAUnidad, jefeNUnidad],
+    (err, result) => {
+      console.log(err);
+    }
+  );
+});
+
+app.post("/api/cestados", (req, res) => {
+  const nombre = req.body.nombreEstado;
+  const sqlInsert = "call ISW.Crear_estado(?);";
+  db.query(sqlInsert, [nombre], (err, result) => {
     console.log(err);
   });
 });
-
-app.post("/api/cestados", (req,res)=>{
-  const nombre= req.body.nombreEstado;
-  const sqlInsert = "call ISW.Crear_estado(?);";
-  db.query(sqlInsert,[nombre],(err,result)=>{
-    console.log(err)
-  })
-})
-
 
 app.post("/api/insert", (req, res) => {
   const nombreProyecto = req.body.nombreProyecto;

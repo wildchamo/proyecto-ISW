@@ -63,10 +63,10 @@ function POProvider(props) {
           localStorage.setItem("token", response.data.token);
           mostrarP(user);
           history("/dashboard");
-        } else {
-          history("/");
-          setMensajeMalo(true);
         }
+      } else {
+        history("/");
+        setMensajeMalo(true);
       }
     });
   };

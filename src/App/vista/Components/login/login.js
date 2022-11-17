@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import logouao from "./logouao.png";
 import opmanager from "./opmanager.png";
 import trabajo from "./trabajo.png";
-import { useNavigate } from "react-router-dom";
 import { POContext } from "../../../controlador/controlador";
 import "./login.css";
 
