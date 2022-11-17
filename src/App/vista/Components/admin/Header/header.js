@@ -13,20 +13,15 @@ function Header() {
 
   return (
     <header className="box1">
-     
-      <div className="logoSencillo">
+      <div className="logoSencillo"> 
         <img className="logoSencillo" src={logoSencillo} alt="Logo" />
       </div>
-        <h1>¡Bienvenido, {admin} !</h1>
-     
-
+      <h1>¡Bienvenido, {admin}!</h1>
       <div className="salir">
-        <img
-          className="salir"
-          src={salir}
-          alt="Cerrar sesión"
-          onClick={logoutt}
-        />
+        <image>
+          <img className="salir" src={salir} alt="Cerrar sesión" onClick={logoutt}/>
+          <tool-tip role="tooltip">Cerrar sesión</tool-tip>
+        </image>
       </div>
     </header>
   );

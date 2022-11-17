@@ -3,7 +3,8 @@
     display: grid;
     grid-area: auto;
     align-items: center;
-    grid-template-columns: 6% 45% 40% 3% 5% 3%;
+    grid-template-columns: 10% 35% 30% 5% 5%;
+    justify-content: space-around;
 }
 
 .box h1 {
@@ -22,3 +23,33 @@
 .salir{
   cursor: pointer;
 }
+
+tool-tip {
+  position:absolute;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+ 
+  box-shadow: 0 0 10px rgb(221, 221, 221);
+  padding: .3rem 1rem;
+  font-size: .8rem;
+  border-radius: 5px;
+  width: 100px;
+  margin: 2%;
+ 
+  top:30px;
+  left: -50px;
+  font-weight: 100;
+ 
+  opacity: 0;
+  transition: opacity .3s ease;
+ }
+ 
+ :has(> tool-tip) {
+   position: relative;
+ }
+ 
+ :has(> tool-tip):hover tool-tip {
+   opacity: 1;
+ }

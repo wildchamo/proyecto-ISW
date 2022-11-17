@@ -18,7 +18,7 @@ function ListaUnidades(props) {
 
       <ul>{props.children}</ul>
       <div className="footer">
-        número de unidades: {noUnidades}
+        Número de unidades: {noUnidades}
         <BotonCrearEstado setOpenModal={setOpenModalEstado} />
         <BotonCrearUnidad setOpenModal={setOpenModalCrear} />
       </div>
