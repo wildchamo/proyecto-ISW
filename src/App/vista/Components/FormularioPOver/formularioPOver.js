@@ -5,6 +5,7 @@ import "./formularioPOver.css";
 function FormularioPOver() {
   const { setOpenModalVerMas, proyectoSelec } = React.useContext(POContext);
   const motivo = proyectoSelec.motivoCancelacion;
+  const estado = proyectoSelec.estado;
 
   const onCancel = () => {
     setOpenModalVerMas(false);
@@ -26,7 +27,7 @@ function FormularioPOver() {
         <label>Estado proyecto</label>
         <input readOnly className="entradas" value={proyectoSelec.estado}></input>
       </div>
-      {motivo != null && (
+      {estado==="Anulado" &&(
         <div className="motivo">
           <label>Motivo Cancelación</label>
           <textarea  readOnly value={proyectoSelec.motivoCancelacion}></textarea>
