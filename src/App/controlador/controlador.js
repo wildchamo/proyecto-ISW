@@ -146,7 +146,7 @@ function POProvider(props) {
     return proyectosBuscados.slice(currentPage, currentPage + 5);
   };
   const nextPage = () => {
-    if (proyectosBTotal > 5 && proyectosBTotal < 20)
+    if (proyectosBTotal > 5 && proyectosBTotal < 10)
       setCurrentPage(currentPage + 5);
   };
 
